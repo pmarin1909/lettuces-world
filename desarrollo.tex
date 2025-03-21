@@ -1,3 +1,113 @@
-\chapter{Introducción}
 
-\chapter{}
+\chapter{Introduction}
+% Hablar de la empresa
+% Hablar del objetiivo del trabajo
+% 
+
+\chapter{Glosary}
+- Topo
+- Apero
+- Siembra
+- Plantación
+- Meseta
+- Arquillo
+- Malla
+- Papel
+- Farm lanes: caminos entre las mesetas para el paso de la maquinaria.
+
+
+% Explicación del problema concreto
+% variables/constantes
+% Funcion objetivo
+% 
+
+
+
+Buenas tardes a todos, 
+
+Hemos simplificado el problema dejando solo dos fincas porque vamos a trabajar con dos productos distintos: lechugas y espinacas. 
+En cada uno de estos productos hemos considerado dos variantes. 
+La elección de estos dos productos se debe a las diferencias de cuidados que necesitan pues todas las diferencias en las líneas de 
+trabajo se concetran en las variedades escogidas. 
+Las tareas que deben considerarse son: 
+\begin {enumerate}
+    \item Preparación de tierra: se trata de un conjunto de tareas. Se rompe y voltea la tierra para airearla y se abona para dejarla 
+    preparada.
+    \item Creación de mesetas: con un tractor se generan las mesetas (extensión de tierra ordenada) donde se realizarán las siguientes
+    labores con las medidas necesarias para plantar/sembrar (según corresponda)
+    \item Colocar papel: se colocan unas láminas de papel para evitar que crezcan malas hierbas alrededor del producto. 
+    \item Sembrar/plantar: la siembra es la introducción de semillas en la tierra, mientras que plantar es introducir una planta 
+    un poco cultivada previamente por una empresa externa. 
+    \item Riego: se deben colocar los aspersores en las laderas de las mesetas. 
+    \item Arquillos: se colocan unos arcos metálicos para poder dejar distancia entre el cultivo y la mallo y que se mantenga el 
+    calor.
+    \item Poner malla: se coloca una malla de poliamida encima de los arquillos para proteger los cultivos y dejamos crecer los cultivos. 
+    \item Quitar malla: tras la maduración del cultivo se retira la malla
+    \item Quitar arquillos: se retiran los arquillos.
+    \item Quitar Riego: se retiran los dispositivos de riego.
+    \item Recoger la cosecha: se distingue dos formas de recoger los cultivos. Dependiendo si se necesitan trabajadores que vayan 
+    colocando los productos en las cajas o si se hace de forma automática.
+    
+\end{enumerate}
+
+Como cada tarea necesita una maquinaria distinta, la velocidad a la que se realiza irá variando en función de la misma. 
+Los datos proporcionados por la empresa venían dados en km/h, pero como simplificación nosotros hemos traducido estos datos en mesetas/hora.
+Otra simplificación necesaria ha sido considerar que nuestras fincas seleccionadas tendrán una medida "media". 
+Por otro lado, consideraremos que existen 2 grupos de trabajo independientes, uno para cada producto. 
+Así, cada grupo de trabajo tendrá una maquinaria distinta y realizará las tareas de forma independiente, sin tener en consideración como se realicen las tareas en la otra finca.
+
+Estamos considerando que trabajamos en una atmósfera idílica, en la que el clima va a permitir que se puedan realizar todas las labores
+de trabajo y no hay ningún tipo de rotura en la maquinaria que genere un retraso en la planificaciión de las tareas.
+
+Tras nuestra visita para ver el funcionamiento de la empresa, vimos como algunos equipos de trabajo se solapaban en una misma 
+meseta. Esto generaba horas muertas en algunos grupos de trabajo, ya que no podían empezar hasta que hubiese terminado la anterior. 
+Estas hora contabilizan en el computo de horas semanales, pero sin embargo, son horas muertas en las que no se ha realizado ninguna tarea,
+solo le cuesta dinero a la empresa. 
+
+El problema trata de minimizar el numero de horas muerta que hay ente los grupos de trabajo. 
+
+Tras un planteamiento más concreto del ejercicio empezamos con la fomulación que tenemos. 
+
+\textbf{Las variables que vamos a considerar son:} 
+
+$X_{ijkl}$ es una variable binaria que nos dice si el equipo de trabajo $i$ esta trabajando en la tierra $j$ en el camino $k$ durante 
+la hora $l$.
+
+$W_{il}$ es una variable binaria que nos indica si la tarea $i$ tiene caminos disponibles durante la hora $l$. 
+
+Los índices de las variables $j,k,l$ irán dependiendo de la cantidad de tareas que se tenga que realizar en el cultivo en el que estemos. 
+De esta forma reduciremos considerablemente el número de variables y restricciones neccesarias.
+
+Definimos las siguiemtes constantes: 
+$T_i$ hace referencia al número máximo de caminos que puede realizar cada tarea $i$. 
+
+$C_i$ son los caminos totales en los que se puede realizar la tarea $i$. 
+
+$L_i$ es la hora estimada a la que debería empezar la tarea $i$. 
+
+\textbf{La funcion objetivo es:}
+\[\begin{aligned}
+    min \sum_{i,l}\left( \frac{T_i-\sum_{j,k} X_{ijkl}}{T_i}\right)W_{il}
+\end{aligned}\]
+
+\textbf{Las restricciones son:}
+
+Cada tarea se realiza una sola vez en cada uno de los caminos 
+\[\begin{aligned}
+\sum_{l} X_{ijkl} \leq 1 \quad \forall i,j,k
+\end{aligned}\]
+
+Una tarea no se puede realizar si no se han realizado las tareas anteriores en ese camino
+\[\begin{aligned}
+X_{ijkl} \leq X_{(i-1)jkl} \quad \forall i>1,j,k,l
+\end{aligned}\]
+
+Número máximo de caminos que realiza cada equipo de trabajo $i$ en la hora $l$
+\[\begin{aligned}
+\sum_{j.k} X_{ijkl} \leq T_i \quad \forall i,l
+\end{aligned}\]
+
+Forzamos que la variable $W_{il}$ sea 1 cuando queden el equipo de trabajo i tenga caminos disponibles en los que trabajar
+\[\begin{aligned}
+W_{il} \geq \dfrac{C_i-\sum_{j,k} X_{ijkl}}{C_i}  \quad \forall i,l
+\end{aligned}\]
