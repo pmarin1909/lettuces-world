@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt,oneside]{book}
+\documentclass[a4paper,11pt,oneside]{report}
 \usepackage[table,xcdraw, x11names,dvipsnames,table]{xcolor}
 
 \usepackage{longtable}
@@ -28,6 +28,10 @@
 \usepackage{setspace} 
 \usepackage{outlines}
 \usepackage{tikz}  %burbujas de texto
+\usepackage[acronym]{glossaries}    %Glosario
+\makeglossaries
+\input{glosario.tex}
+
 
 \usepackage{hyperref}
 \hypersetup{
@@ -127,5 +131,6 @@ fonttitle=\bfseries,box align=top}
     \include{portada/indice.tex}
     \include{desarrollo}
     
+    \printglossaries
     %\printbibliography[heading=bibintoc ,title={Bibliografía}]
 \end{document}

@@ -1,10 +1,119 @@
-
-\chapter{Introduction}
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{1. Introduction} % Manual index entry
 % Hablar de la empresa
-% Hablar del objetiivo del trabajo
-% 
+% Hablar del objetivo del trabajo
+% Comentar la estructura del documento
 
-\chapter{Glosary}
+En el mundo actual, donde la eficiencia y la toma de decisiones estratégicas marcan la diferencia entre avanzar o quedarse atrás, la gestión de tareas dentro de una empresa adquiere un papel fundamental.
+Muchas veces, detrás de un buen producto o servicio, hay una planificación precisa, una coordinación cuidada y un aprovechamiento óptimo de los recursos disponibles.
+En este contexto, las matemáticas, y más concretamente la optimización, se convierten en una herramienta poderosa para transformar la complejidad en soluciones claras y aplicables.
+
+Este trabajo surge con la intención de tender un puente entre el conocimiento teórico y su aplicación práctica en el entorno empresarial.
+Hemos elegido como caso de estudio la empresa Intercrop, ubicada en Cartagena, especializada en el sector agroalimentario.
+Intercrop destaca por su compromiso con la sostenibilidad y la innovación en la producción agrícola, pero como toda empresa, se enfrenta a retos logísticos y organizativos que requieren soluciones inteligentes.
+Intercrop no solo opera a nivel nacional, sino que también mantiene una estrecha relación con el mercado internacional. 
+Exporta una parte importante de su producción a distintos países europeos, lo que exige altos estándares de calidad, cumplimiento riguroso de plazos y una logística bien estructurada.
+Esta dimensión internacional añade complejidad a su gestión operativa, ya que debe coordinar las tareas agrícolas con los calendarios de transporte, las exigencias fitosanitarias y los compromisos comerciales en el extranjero.
+Todo ello convierte a esta empresa en un entorno especialmente interesante para aplicar herramientas de optimización que ayuden a mejorar la planificación y la eficiencia en un contexto real y exigente.
+
+A través de este proyecto, abordaremos el problema de planificación de tareas dentro de la empresa. La meta es diseñar un modelo de optimización que permita organizar de forma eficiente las actividades,
+ considerando las restricciones del entorno real: tiempos, recursos limitados, dependencias entre tareas y otros factores logísticos.
+Este proceso nos permitirá no solo aportar una propuesta de mejora a la empresa, sino también aplicar de forma práctica los conceptos matemáticos aprendidos en el aula, especialmente en lo que respecta a programación lineal y optimización.
+
+\chapter*{Problem Statement}
+\addcontentsline{toc}{chapter}{2. Problem Statement} % Manual index entry
+% Explicación en "leguaje natural" del problema
+% Simplificaciones
+La gestión eficiente de las tareas agrícolas representa un reto significativo en el día a día de una empresa como Intercrop, especialmente cuando se trabaja con distintos productos, cada uno con requerimientos técnicos y logísticos específicos.
+En este proyecto, hemos decidido abordar una versión simplificada y controlada del problema real, manteniendo, sin embargo, la complejidad suficiente como para reflejar los principales desafíos que se presentan en la planificación de tareas en un entorno agrícola profesional.
+
+Con este objetivo, hemos centrado nuestro estudio en dos fincas concretas, cada una dedicada al cultivo de un producto diferente: lechuga y espinaca.
+La elección de estos dos productos no ha sido aleatoria; se debe a las marcadas diferencias en sus necesidades de cuidado y manejo.
+De hecho, es en estas diferencias donde se concentran gran parte de las particularidades de las líneas de trabajo dentro de la empresa.
+Para enriquecer aún más el modelo y hacerlo más representativo, hemos considerado dos variantes dentro de cada uno de estos productos, lo que nos permite capturar con mayor fidelidad la diversidad de cultivos con la que trabaja Intercrop en la práctica.
+
+En cada finca se lleva a cabo una secuencia de tareas específicas necesarias para completar el ciclo productivo de forma adecuada. Estas tareas, que constituyen el núcleo del proceso agrícola, son las siguientes:
+\begin{enumerate}
+    \item Preparación de la tierra: conjunto de labores inicales donde se rompe y voltea la tierra para airearla, y se abona para dejarla preparada adecuadamente antes del cultivo.
+    \item Creación de mesetas: mediante maquinaria especializada, se organizan las superficies de cultivo en mesetas 
+\end{enumerate}
+
+
+El \gls{tempo} de una pieza puede variar según el estilo.
+
+
+
+\chapter*{Formulation}
+\addcontentsline{toc}{chapter}{3. Formulation} % Manual index entry
+
+% Variables
+% Funcion objetivo
+% Restricciones
+
+\chapter*{Data}
+\addcontentsline{toc}{chapter}{4. Data} % Manual index entry
+% Explicación de los datos
+% Tablas
+
+Durante nuestra visita a la empresa, recopilamos todos los datos necesarios para nuestro análisis. 
+Posteriormente, la empresa nos facilitó la información que habíamos solicitado.
+
+Para nuestro estudio, asumimos que las fincas tienen una forma rectangular, con dimensiones promedio
+ de 100 x 300 metros. Cada meseta de cultivo mide 1.6 metros de ancho, con surcos laterales de 0.4 metros
+  para permitir el paso de la maquinaria. Esto implica que cada camino tendrá unas dimensiones de 2 x 300 metros.
+   En consecuencia, en cada finca disponemos de 50 caminos y sus respectivas 50 mesetas para el cultivo.
+
+Dado que todas las tareas están mecanizadas, es fundamental considerar la velocidad de las máquinas utilizadas en el
+ proceso. Aunque la empresa nos proporcionó estos datos en kilómetros por hora (km/h), para facilitar nuestra formulación 
+ convertimos las unidades a caminos por hora.
+ 
+ \begin{table}[ht!]
+    \begin{tabular}{lclll}
+    \textbf{TASK}      & \multicolumn{1}{l}{\textbf{SPEED}} \\
+    Soil preparation   & 2                                  \\
+    Install paper      & 4                                  \\
+    Plant              & 3                                  \\
+    Sow                & 4                                  \\
+    Install irrigation & 3                                  \\
+    Install hoops      & 3                                  \\
+    Install mesh       & 3                                  \\
+    Remove irrigation  & 3                                  \\
+    Remove mesh        & 4                                  \\
+    Remove hoops       & 3                                  \\
+    Harvest seeds      & 3                                  \\
+    Harvest plants     & 2                                            
+    \end{tabular}
+    \end{table}
+
+Nuestra planificación está diseñada para organizar un mes de trabajo. Considerando una jornada laboral de 8 horas diarias, 
+trabajamos con un total de 240 horas al mes.
+
+Por otro lado, los trabajadores se incorporan a la campaña de manera escalonada. Cada uno de ellos está especializado en una 
+tarea específica, lo que da lugar a la formación de grupos de trabajo especializados. El número de trabajadores por grupo varía 
+en función de la tarea asignada.
+
+
+
+\chapter*{Code}
+\addcontentsline{toc}{chapter}{5. Code} % Manual index entry\addcontentsline{toc}{chapter}{5. Code} % Manual index entry
+% Explicación del código
+% Código
+
+\chapter*{Results}
+\addcontentsline{toc}{chapter}{6. Results} % Manual index entry
+% Explicación de los resultados
+% Tablas
+% Gráficos
+
+\chapter*{Conclusion}
+\addcontentsline{toc}{chapter}{7. Conclusion} % Manual index entry
+
+\newpage
+\appendix
+\chapter*{Glosary}
+\addcontentsline{toc}{chapter}{A. Glosary} % Manual index entry
+
+
 - Topo
 - Apero
 - Siembra
@@ -16,10 +125,6 @@
 - Farm lanes: caminos entre las mesetas para el paso de la maquinaria.
 
 
-% Explicación del problema concreto
-% variables/constantes
-% Funcion objetivo
-% 
 
 
 
@@ -78,7 +183,7 @@ $W_{il}$ es una variable binaria que nos indica si la tarea $i$ tiene caminos di
 Los índices de las variables $j,k,l$ irán dependiendo de la cantidad de tareas que se tenga que realizar en el cultivo en el que estemos. 
 De esta forma reduciremos considerablemente el número de variables y restricciones neccesarias.
 
-Definimos las siguiemtes constantes: 
+Definimos las siguientes constantes: 
 $T_i$ hace referencia al número máximo de caminos que puede realizar cada tarea $i$. 
 
 $C_i$ son los caminos totales en los que se puede realizar la tarea $i$. 
