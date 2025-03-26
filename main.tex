@@ -13,7 +13,6 @@
 \usepackage{listings}
 \usepackage{graphics}
 \usepackage{color}
-\usepackage{svg}
 \usepackage{lipsum}
 \usepackage{csquotes}
 \usepackage{graphicx}
@@ -28,9 +27,17 @@
 \usepackage{setspace} 
 \usepackage{outlines}
 \usepackage{tikz}  %burbujas de texto
-\usepackage[acronym]{glossaries}    %Glosario
+\usepackage{textcomp} % si quieres superíndices como "*"
+\usepackage[toc,page]{appendix}
+
+% SI NO VAS A USAR GLOSARIO QUITA ESTO
+\usepackage{glossaries}    %Glosario
 \makeglossaries
-\input{glosario.tex}
+\input{glosario.tex} % definiciones externas
+
+% -----------------------------------------
+
+
 
 
 \usepackage{hyperref}
@@ -51,14 +58,15 @@
     }%
 }
 
-
-
-
-
-\graphicspath{ {./imagenes/} }
 \DeclareUnicodeCharacter{2212}{-}
+
+% SI NO VAS A USAR BIBLIOGRAFIA QUITA ESTO
 \usepackage[backend=biber]{biblatex}
+\addbibresource{dummy.bib}
+% -----------------------------------------
+
 \usepackage{booktabs}
+
 %Los colores están enumerados de menos a mas tono y saturación
 % PALETA DE COLORES: https://www.rapidtables.com/web/color/RGB_Color.html
 \definecolor{azul1}{RGB}{204, 229, 255}
@@ -132,5 +140,7 @@ fonttitle=\bfseries,box align=top}
     \include{desarrollo}
     
     \printglossaries
-    %\printbibliography[heading=bibintoc ,title={Bibliografía}]
+    \addcontentsline{toc}{chapter}{A. Glossary} % Manual index entry
+
+    %\printbibliography
 \end{document}

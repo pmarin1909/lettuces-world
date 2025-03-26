@@ -4,6 +4,9 @@
 % Hablar del objetivo del trabajo
 % Comentar la estructura del documento
 
+PRUEBA GLOSARIO: \gls{tempo}$^{(*)}$
+
+
 En el mundo actual, donde la eficiencia y la toma de decisiones estratégicas marcan la diferencia entre avanzar o quedarse atrás, la gestión de tareas dentro de una empresa adquiere un papel fundamental.
 Muchas veces, detrás de un buen producto o servicio, hay una planificación precisa, una coordinación cuidada y un aprovechamiento óptimo de los recursos disponibles.
 En este contexto, las matemáticas, y más concretamente la optimización, se convierten en una herramienta poderosa para transformar la complejidad en soluciones claras y aplicables.
@@ -19,14 +22,98 @@ Todo ello convierte a esta empresa en un entorno especialmente interesante para 
 A través de este proyecto, abordaremos el problema de planificación de tareas dentro de la empresa. La meta es diseñar un modelo de optimización que permita organizar de forma eficiente las actividades,
  considerando las restricciones del entorno real: tiempos, recursos limitados, dependencias entre tareas y otros factores logísticos.
 Este proceso nos permitirá no solo aportar una propuesta de mejora a la empresa, sino también aplicar de forma práctica los conceptos matemáticos aprendidos en el aula, especialmente en lo que respecta a programación lineal y optimización.
+\vspace{10mm}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=1\textwidth]{img/campitos_lindos.jpeg}
+    %\caption{Intercrop, empresa de referencia para el estudio de planificación de tareas agrícolas.}
+    \label{fig:campitos_lindos}
+\end{figure}
 
 \chapter*{Problem Statement}
 \addcontentsline{toc}{chapter}{2. Problem Statement} % Manual index entry
 % Explicación en "leguaje natural" del problema
 % Simplificaciones
-La gestión eficiente de las tareas agrícolas representa un reto significativo en el día a día de una empresa como Intercrop, especialmente cuando se trabaja con distintos productos, cada uno con requerimientos técnicos y logísticos específicos.
-En este proyecto, hemos decidido abordar una versión simplificada y controlada del problema real, manteniendo, sin embargo, la complejidad suficiente como para reflejar los principales desafíos que se presentan en la planificación de tareas en un entorno agrícola profesional.
+% Descripción de las tareas
 
+La planificación de tareas en el entorno agrícola representa un desafío logístico y operativo considerable,
+especialmente en empresas que operan bajo un modelo de producción bajo pedido, como es el caso de Intercrop.
+Esta empresa, situada en Cartagena y especializada en productos hortícolas, organiza su producción en función de la demanda estacional.
+Durante la campaña de verano, se establecen con antelación tanto la cantidad de kilogramos de producto que se deben suministrar como las fechas específicas de entrega.
+Esto implica que toda la planificación de cultivo, desarrollo, cosecha y distribución debe estar ajustada con precisión para cumplir los plazos,
+garantizar la calidad del producto fresco (con una vida útil de entre siete y diez días) y minimizar los costes operativos.
+
+El objetivo de este trabajo es abordar, desde un enfoque matemático y práctico, el problema de planificación de tareas agrícolas en el entorno real de esta empresa.
+Para ello, nos centraremos en dos cultivos principales: lechuga y espinaca, cada uno con dos variantes específicas.
+\begin{itemize}
+    \item \textbf{Lechuga}: se cultiva en dos variedades, una de hoja rizada (Apollo, Fig. \ref{fig:apollo}) y otra de hoja lisa (Knox Cos, Fig. \ref{fig:knox}). La lechuga de hoja rizada es más delicada y requiere un cuidado especial. Por su parte, la lechuga de hoja lisa es más resistente y se adapta mejor a condiciones menos precisas.
+    \item \textbf{Espinaca}: también se cultiva en dos variedades, una de hoja pequeña (Baby Spinach, Fig. \ref{fig:baby}) y otra de hoja mediana (Teen Spinach, Fig. \ref{fig:teen}). En cuanto a las difere en el tratamiento, no se encuentran ambios sustanciales en el cuidado.
+\end{itemize}
+
+\begin{figure}[ht!]
+    \centering
+
+    \begin{minipage}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.7\textwidth]{img/lechuga_apollo.png}
+        \caption{Variedad Lechuga Apollo.}
+        \label{fig:apollo}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.6\textwidth]{img/lechuga_knox.png}
+        \caption{Variedad Lechuga Knox Cos.}
+        \label{fig:knox}
+    \end{minipage}
+
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+
+    \begin{minipage}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.7\textwidth]{img/baby_spinach.png}
+        \caption{Variedad Baby Spinach.}
+        \label{fig:baby}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.6\textwidth]{img/teen_spinach.png}
+        \caption{Variedad Teen Spinach.}
+        \label{fig:teen}
+    \end{minipage}
+
+\end{figure}
+
+
+Antes de pasar a desglosar las tareas que engloban el poceso de cultivo, es importante destacar una diferencia fundamental entre ambos productos.
+La lechuga se trabaja mediante plantación: las semillas se envían a un semillero y posteriormente se trasplantan las plántulas al campo. 
+En el caso de la espinaca, se utiliza el método de siembra directa, introduciendo las semillas directamente en la tierra.
+Debido al difierente proceder de ambos métodos, cada cultivo tendrá sus tiempos y necesidades específicas, lo que influirá en la planificación de las tareas.
+
+
+
+
+% REVISADO HASTA AQUI
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
 Con este objetivo, hemos centrado nuestro estudio en dos fincas concretas, cada una dedicada al cultivo de un producto diferente: lechuga y espinaca.
 La elección de estos dos productos no ha sido aleatoria; se debe a las marcadas diferencias en sus necesidades de cuidado y manejo.
 De hecho, es en estas diferencias donde se concentran gran parte de las particularidades de las líneas de trabajo dentro de la empresa.
@@ -36,10 +123,36 @@ En cada finca se lleva a cabo una secuencia de tareas específicas necesarias pa
 \begin{enumerate}
     \item Preparación de la tierra: conjunto de labores inicales donde se rompe y voltea la tierra para airearla, y se abona para dejarla preparada adecuadamente antes del cultivo.
     \item Creación de mesetas: mediante maquinaria especializada, se organizan las superficies de cultivo en mesetas 
+    \item Colocar papel: se instalan láminas que impiden el crecimiento de malas hierbas, lo que reduce la competencia con el cultivo principal.
+    \item Sembrar o plantar: según el tipo de variante, se introducen semillas directamente o se plantan brotes previamente cultivados por una empresa externa.
+    \item Riego: instalación de sistemas de riego por aspersión en las laderas de las mesetas, necesarios para el mantenimiento del cultivo.
+    \item Colocación de arquillos: se instalan arcos metálicos sobre los cultivos para dar soporte a la protección posterior.
+    \item Poner malla: se cubren los arquillos con una malla de poliamida que protege los cultivos y ayuda a mantener la temperatura adecuada para su desarrollo.
+    \item Quitar malla: una vez que el cultivo ha madurado, se retira la malla protectora.
+    \item Quitar arquillos: tras la retirada de la malla, se procede a desmontar los arquillos metálicos.
+    \item Quitar riego: se desmonta el sistema de riego instalado previamente.
+    \item Recogida de cosecha: proceso final de recolección, que puede realizarse manualmente (con operarios que colocan los productos en cajas) o de forma automatizada.
 \end{enumerate}
 
+Cada una de estas tareas requiere el uso de maquinaria diferente y, en consecuencia, se ejecutan a velocidades distintas.
+La empresa nos proporcionó inicialmente los datos de velocidad en términos de kilómetros por hora (km/h), pero para simplificar el tratamiento y adaptarlo al enfoque del modelo,
+hemos traducido dichas velocidades a unidades de mesetas por hora, lo cual permite un análisis más directo de la producción por unidad de superficie en cada finca.
 
-El \gls{tempo} de una pieza puede variar según el estilo.
+Asimismo, hemos realizado una simplificación adicional asumiendo que ambas fincas tienen un tamaño medio y uniforme, lo que facilita la estandarización de los cálculos y permite aplicar el mismo esquema de planificación a cada caso.
+También hemos considerado que existen dos grupos de trabajo totalmente independientes, uno para cada producto, cada uno con su propia maquinaria y sin interferencias directas entre ellos.
+Esta separación nos permite modelar cada línea de trabajo por separado, aunque posteriormente estudiaremos la interacción indirecta a través del uso compartido de espacios y tiempos.
+
+Otra suposición importante ha sido establecer que las condiciones de trabajo son ideales: no existen imprevistos derivados del clima ni averías en la maquinaria.
+Esta "atmósfera idílica" nos permite centrarnos en el análisis estructural del problema de planificación sin tener que introducir incertidumbres que, aunque reales, complejizarían el modelo en exceso para una primera aproximación.
+
+Durante nuestra visita a las instalaciones de Intercrop, observamos un aspecto crítico que nos llevó a la definición del objetivo del presente trabajo:
+en numerosas ocasiones, los equipos de trabajo deben esperar a que otros terminen su tarea antes de poder comenzar la suya, especialmente cuando varias tareas se solapan en la misma meseta.
+Este solapamiento produce horas muertas, es decir, periodos en los que un grupo de trabajo no puede avanzar, aunque el tiempo siga transcurriendo y se sigan generando costes laborales y operativos.
+Estas horas improductivas son especialmente problemáticas porque aumentan el coste de producción sin aportar valor añadido, afectando directamente a la eficiencia de la empresa.
+
+El objetivo central de este trabajo, por tanto, es minimizar el número de horas muertas entre los grupos de trabajo, mediante una planificación adecuada de las tareas.
+A través del desarrollo de un modelo matemático de optimización, pretendemos encontrar una asignación y secuencia de tareas que reduzca los tiempos de espera y, por tanto,
+mejore el aprovechamiento de los recursos humanos y técnicos disponibles. En definitiva, buscamos una solución que, aun partiendo de una simplificación del problema real, permita extraer conclusiones prácticas y proponer mejoras concretas en la gestión operativa de la empresa.
 
 
 
@@ -108,11 +221,9 @@ en función de la tarea asignada.
 \chapter*{Conclusion}
 \addcontentsline{toc}{chapter}{7. Conclusion} % Manual index entry
 
-\newpage
-\appendix
-\chapter*{Glosary}
-\addcontentsline{toc}{chapter}{A. Glosary} % Manual index entry
 
+\newpage
+------------------------------
 
 - Topo
 - Apero
@@ -123,96 +234,4 @@ en función de la tarea asignada.
 - Malla
 - Papel
 - Farm lanes: caminos entre las mesetas para el paso de la maquinaria.
-
-
-
-
-
-Buenas tardes a todos, 
-
-Hemos simplificado el problema dejando solo dos fincas porque vamos a trabajar con dos productos distintos: lechugas y espinacas. 
-En cada uno de estos productos hemos considerado dos variantes. 
-La elección de estos dos productos se debe a las diferencias de cuidados que necesitan pues todas las diferencias en las líneas de 
-trabajo se concetran en las variedades escogidas. 
-Las tareas que deben considerarse son: 
-\begin {enumerate}
-    \item Preparación de tierra: se trata de un conjunto de tareas. Se rompe y voltea la tierra para airearla y se abona para dejarla 
-    preparada.
-    \item Creación de mesetas: con un tractor se generan las mesetas (extensión de tierra ordenada) donde se realizarán las siguientes
-    labores con las medidas necesarias para plantar/sembrar (según corresponda)
-    \item Colocar papel: se colocan unas láminas de papel para evitar que crezcan malas hierbas alrededor del producto. 
-    \item Sembrar/plantar: la siembra es la introducción de semillas en la tierra, mientras que plantar es introducir una planta 
-    un poco cultivada previamente por una empresa externa. 
-    \item Riego: se deben colocar los aspersores en las laderas de las mesetas. 
-    \item Arquillos: se colocan unos arcos metálicos para poder dejar distancia entre el cultivo y la mallo y que se mantenga el 
-    calor.
-    \item Poner malla: se coloca una malla de poliamida encima de los arquillos para proteger los cultivos y dejamos crecer los cultivos. 
-    \item Quitar malla: tras la maduración del cultivo se retira la malla
-    \item Quitar arquillos: se retiran los arquillos.
-    \item Quitar Riego: se retiran los dispositivos de riego.
-    \item Recoger la cosecha: se distingue dos formas de recoger los cultivos. Dependiendo si se necesitan trabajadores que vayan 
-    colocando los productos en las cajas o si se hace de forma automática.
-    
-\end{enumerate}
-
-Como cada tarea necesita una maquinaria distinta, la velocidad a la que se realiza irá variando en función de la misma. 
-Los datos proporcionados por la empresa venían dados en km/h, pero como simplificación nosotros hemos traducido estos datos en mesetas/hora.
-Otra simplificación necesaria ha sido considerar que nuestras fincas seleccionadas tendrán una medida "media". 
-Por otro lado, consideraremos que existen 2 grupos de trabajo independientes, uno para cada producto. 
-Así, cada grupo de trabajo tendrá una maquinaria distinta y realizará las tareas de forma independiente, sin tener en consideración como se realicen las tareas en la otra finca.
-
-Estamos considerando que trabajamos en una atmósfera idílica, en la que el clima va a permitir que se puedan realizar todas las labores
-de trabajo y no hay ningún tipo de rotura en la maquinaria que genere un retraso en la planificaciión de las tareas.
-
-Tras nuestra visita para ver el funcionamiento de la empresa, vimos como algunos equipos de trabajo se solapaban en una misma 
-meseta. Esto generaba horas muertas en algunos grupos de trabajo, ya que no podían empezar hasta que hubiese terminado la anterior. 
-Estas hora contabilizan en el computo de horas semanales, pero sin embargo, son horas muertas en las que no se ha realizado ninguna tarea,
-solo le cuesta dinero a la empresa. 
-
-El problema trata de minimizar el numero de horas muerta que hay ente los grupos de trabajo. 
-
-Tras un planteamiento más concreto del ejercicio empezamos con la fomulación que tenemos. 
-
-\textbf{Las variables que vamos a considerar son:} 
-
-$X_{ijkl}$ es una variable binaria que nos dice si el equipo de trabajo $i$ esta trabajando en la tierra $j$ en el camino $k$ durante 
-la hora $l$.
-
-$W_{il}$ es una variable binaria que nos indica si la tarea $i$ tiene caminos disponibles durante la hora $l$. 
-
-Los índices de las variables $j,k,l$ irán dependiendo de la cantidad de tareas que se tenga que realizar en el cultivo en el que estemos. 
-De esta forma reduciremos considerablemente el número de variables y restricciones neccesarias.
-
-Definimos las siguientes constantes: 
-$T_i$ hace referencia al número máximo de caminos que puede realizar cada tarea $i$. 
-
-$C_i$ son los caminos totales en los que se puede realizar la tarea $i$. 
-
-$L_i$ es la hora estimada a la que debería empezar la tarea $i$. 
-
-\textbf{La funcion objetivo es:}
-\[\begin{aligned}
-    min \sum_{i,l}\left( \frac{T_i-\sum_{j,k} X_{ijkl}}{T_i}\right)W_{il}
-\end{aligned}\]
-
-\textbf{Las restricciones son:}
-
-Cada tarea se realiza una sola vez en cada uno de los caminos 
-\[\begin{aligned}
-\sum_{l} X_{ijkl} \leq 1 \quad \forall i,j,k
-\end{aligned}\]
-
-Una tarea no se puede realizar si no se han realizado las tareas anteriores en ese camino
-\[\begin{aligned}
-X_{ijkl} \leq X_{(i-1)jkl} \quad \forall i>1,j,k,l
-\end{aligned}\]
-
-Número máximo de caminos que realiza cada equipo de trabajo $i$ en la hora $l$
-\[\begin{aligned}
-\sum_{j.k} X_{ijkl} \leq T_i \quad \forall i,l
-\end{aligned}\]
-
-Forzamos que la variable $W_{il}$ sea 1 cuando queden el equipo de trabajo i tenga caminos disponibles en los que trabajar
-\[\begin{aligned}
-W_{il} \geq \dfrac{C_i-\sum_{j,k} X_{ijkl}}{C_i}  \quad \forall i,l
-\end{aligned}\]
+- Semillero
