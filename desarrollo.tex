@@ -92,36 +92,12 @@ Para ello, nos centraremos en dos cultivos principales: lechuga y espinaca, cada
 Antes de pasar a desglosar las tareas que engloban el poceso de cultivo, es importante destacar una diferencia fundamental entre ambos productos.
 La lechuga se trabaja mediante plantación: las semillas se envían a un semillero y posteriormente se trasplantan las plántulas al campo. 
 En el caso de la espinaca, se utiliza el método de siembra directa, introduciendo las semillas directamente en la tierra.
-Debido al difierente proceder de ambos métodos, cada cultivo tendrá sus tiempos y necesidades específicas, lo que influirá en la planificación de las tareas.
+Debido al diferente proceder de ambos métodos, cada cultivo tendrá sus tiempos y necesidades específicas, lo que influirá en la planificación de las tareas.
 
-
-
-
-% REVISADO HASTA AQUI
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\newpage
-Con este objetivo, hemos centrado nuestro estudio en dos fincas concretas, cada una dedicada al cultivo de un producto diferente: lechuga y espinaca.
-La elección de estos dos productos no ha sido aleatoria; se debe a las marcadas diferencias en sus necesidades de cuidado y manejo.
-De hecho, es en estas diferencias donde se concentran gran parte de las particularidades de las líneas de trabajo dentro de la empresa.
-Para enriquecer aún más el modelo y hacerlo más representativo, hemos considerado dos variantes dentro de cada uno de estos productos, lo que nos permite capturar con mayor fidelidad la diversidad de cultivos con la que trabaja Intercrop en la práctica.
-
-En cada finca se lleva a cabo una secuencia de tareas específicas necesarias para completar el ciclo productivo de forma adecuada. Estas tareas, que constituyen el núcleo del proceso agrícola, son las siguientes:
+La lista de tareas necesarias para completar un ciclo de cultivo es la siguiente:
 \begin{enumerate}
     \item Preparación de la tierra: conjunto de labores inicales donde se rompe y voltea la tierra para airearla, y se abona para dejarla preparada adecuadamente antes del cultivo.
+    CREACION VA DENTRO DE PREPARACION
     \item Creación de mesetas: mediante maquinaria especializada, se organizan las superficies de cultivo en mesetas 
     \item Colocar papel: se instalan láminas que impiden el crecimiento de malas hierbas, lo que reduce la competencia con el cultivo principal.
     \item Sembrar o plantar: según el tipo de variante, se introducen semillas directamente o se plantan brotes previamente cultivados por una empresa externa.
@@ -134,31 +110,94 @@ En cada finca se lleva a cabo una secuencia de tareas específicas necesarias pa
     \item Recogida de cosecha: proceso final de recolección, que puede realizarse manualmente (con operarios que colocan los productos en cajas) o de forma automatizada.
 \end{enumerate}
 
-Cada una de estas tareas requiere el uso de maquinaria diferente y, en consecuencia, se ejecutan a velocidades distintas.
-La empresa nos proporcionó inicialmente los datos de velocidad en términos de kilómetros por hora (km/h), pero para simplificar el tratamiento y adaptarlo al enfoque del modelo,
-hemos traducido dichas velocidades a unidades de mesetas por hora, lo cual permite un análisis más directo de la producción por unidad de superficie en cada finca.
+Cada una de estas tareas se lleva a cabo con maquinaria distinta, generalmente aperos arrastrados por tractores, lo que implica velocidades de trabajo diferentes según el equipo empleado.
+Además, Intercrop organiza su producción mediante grupos de trabajo especializados, que no están contratados desde el inicio de campaña, sino que se van incorporando según se requieren sus funciones.
+Esta estructura permite adaptarse a las necesidades del proceso, pero también genera cuellos de botella cuando un grupo debe esperar a que otro finalice su tarea para continuar.
 
-Asimismo, hemos realizado una simplificación adicional asumiendo que ambas fincas tienen un tamaño medio y uniforme, lo que facilita la estandarización de los cálculos y permite aplicar el mismo esquema de planificación a cada caso.
-También hemos considerado que existen dos grupos de trabajo totalmente independientes, uno para cada producto, cada uno con su propia maquinaria y sin interferencias directas entre ellos.
-Esta separación nos permite modelar cada línea de trabajo por separado, aunque posteriormente estudiaremos la interacción indirecta a través del uso compartido de espacios y tiempos.
+Durante nuestra visita a la empresa, observamos que esta falta de sincronización entre grupos provoca frecuentes horas muertas: periodos en los que los trabajadores están presentes pero sin poder actuar,
+ya que el trabajo anterior aún no ha finalizado. Estas horas, aunque no productivas, computan en el total de horas trabajadas y generan un coste económico directo para la empresa.
 
-Otra suposición importante ha sido establecer que las condiciones de trabajo son ideales: no existen imprevistos derivados del clima ni averías en la maquinaria.
-Esta "atmósfera idílica" nos permite centrarnos en el análisis estructural del problema de planificación sin tener que introducir incertidumbres que, aunque reales, complejizarían el modelo en exceso para una primera aproximación.
+La presente propuesta tiene como objetivo central la creación de un modelo de planificación que permita minimizar las horas improductivas entre grupos de trabajo,
+garantizando al mismo tiempo que se cumplan los plazos de entrega comprometidos. Una coordinación más eficiente de las tareas supondría una mejora significativa en la utilización de los recursos,
+reduciendo tiempos de espera y aumentando la productividad general del sistema.
 
-Durante nuestra visita a las instalaciones de Intercrop, observamos un aspecto crítico que nos llevó a la definición del objetivo del presente trabajo:
-en numerosas ocasiones, los equipos de trabajo deben esperar a que otros terminen su tarea antes de poder comenzar la suya, especialmente cuando varias tareas se solapan en la misma meseta.
-Este solapamiento produce horas muertas, es decir, periodos en los que un grupo de trabajo no puede avanzar, aunque el tiempo siga transcurriendo y se sigan generando costes laborales y operativos.
-Estas horas improductivas son especialmente problemáticas porque aumentan el coste de producción sin aportar valor añadido, afectando directamente a la eficiencia de la empresa.
+\section*{Simplificaciones del modelo}
+\addcontentsline{toc}{section}{2.1. Simplificaciones del modelo} % Manual index entry
 
-El objetivo central de este trabajo, por tanto, es minimizar el número de horas muertas entre los grupos de trabajo, mediante una planificación adecuada de las tareas.
-A través del desarrollo de un modelo matemático de optimización, pretendemos encontrar una asignación y secuencia de tareas que reduzca los tiempos de espera y, por tanto,
-mejore el aprovechamiento de los recursos humanos y técnicos disponibles. En definitiva, buscamos una solución que, aun partiendo de una simplificación del problema real, permita extraer conclusiones prácticas y proponer mejoras concretas en la gestión operativa de la empresa.
+Para poder abordar el problema dese un punto de vista matemático y computacional, ha sido necesario realizar algunas simplificaciones, que nos permiten centrarnos en los aspectos esenciales del proceso
+sin pérdida de generalidad:
+\begin{itemize}
+    \item Reducción de escala: el modelo se aplica únicamente a dos fincas, una dedicada a lechuga y otra a espinaca. 
+          Esta decisión permite trabajar con dos líneas de producción diferenciadas y representativas, sin necesidad de modelar toda la operación global de la empresa.
+    \item Fincas de tamaño medio: se ha asumido que ambas fincas tienen dimensiones similares y medias, lo que permite aplicar el mismo esquema de planificación
+          a cada una sin consideraciones de tamaño o forma específicas.
+    \item Cultivo homogéneo: se considera que en una misma finca realizaremos las tareas que necesarias para el cuidado de la variedad más delicada. 
+          Por tanto, supondremos que en la finca destinada a las lechugas se realizan todas las tareas de la lista mencionada, y en el caso de las espinacas obviaremos el uso de malla y arquillo. 
+          Así, en la primera finca se realizarán TERMINAR
+    \item Grupos de trabajo independientes: cada cultivo es atendido por  un grupo de trabajo diferente, con su propia maquinaria y recursos.
+          Esto permite tratar ambas líneas de producción de manera paralela y simplificada.
+    \item Conversión de unidades: las velocidades de la maquinaria, proporcionadas por la empresa originalmente en kilómteros por hora, han sido traducidas a caminos por hora,
+          para simplificar la formulación y adaptar las unidades a la estructura del modelo.
+    \item Condiciones ideales: el modelo se desarrolla bajo un escenario en el que no hay fallos mecánicos ni interrupciones por causas climáticas.
+          Es decir, se asumen que todas las tareas se realizan en el tiempo estimado y que no hay retrasos por factores externos.
+    \item Jornada laboral fija: se condidera una jornada laboral de 8 horas diarias, sin cambios estacionales ni festvos.
+\end{itemize}
+ 
+Estas simplificaciones no eliminan la complejidad del problema, pero permiten estructurar un modelo realista, funcional y computacionalmente viable que sirva como base para una futura ampliación o implementación práctica.
+
+
+
 
 
 
 \chapter*{Formulation}
 \addcontentsline{toc}{chapter}{3. Formulation} % Manual index entry
+Lo primero que tenemos que hacer para poder definir la formulación es definir unos parametros de forma correcta para facilitar el 
+tratamiento del problema.
+\textbf{Parametros}
+Definimos los parametros que engloban las tareas que se realizan en cada una de las tierras. 
 
+$T_1$:= {preptierra1,papel1,plantar1,ponerriego1,ponermalla1,quitarmalla1,quitarriego1,cosecha1}
+
+$T_2$:= {preptierra2,sembrar2,ponerriego2,quitarriego2,cosechar2}
+
+También tenemos que tener los parametros que nos indican el número de caminos y el número de horas con los que trabajamos. Como ambas
+serán iguales en las dos tierras solo hace falta considerar los parametros una vez. 
+\begin{center}
+
+$C:={1....50}$
+
+$H:={1...240}$ 
+\end{center}
+Como las tareas van entrando de forma escalonada, los horarios de todas ellas no serán iguales. Por lo que definimos una familia de 
+horarios para cada una de las 
+\begin{center}
+$H_1 := \{H_{preptierra1},H_{papel1},H_{plantar1},H_{ponerriego1},H_{ponermalla1},H_{quitarmalla1},H_{quitarriego1},H_{cosecha1}\}$
+
+$H_2:= \{H_{preptierra2},H_{sembrar2},H_{ponerriego2},H_{quitarriego2},H_{cosechar2}\}$
+\end{center}    
+
+Cada maquina tiene una velocidad que escribiremos
+\begin{center}
+$M_{i_1}:=$ numero maximo de mesetas por camino en una hora $\forall i_1 \in T_1$
+
+$M_{i_2}:=$ numero maximo de mesetas por camino en una hora $\forall i_2 \in T_2$
+\end{center}
+
+Tenemos que tener en cuenta en las mesetas donde tenemos que realizar la tarea al menos una vez
+
+\begin{center}
+    $C_{i_1}:=$ numero de mesetas donde se tiene que realizar la tarea $i_1$ alguna vez $\forall i_1 \in T_1$
+
+     $C_{i_2}:=$ numero de mesetas donde se tiene que realizar la tarea $i_2$ alguna vez $\forall i_2 \in T_2$
+\end{center}
+
+Cada tarea esta asignada a un grupo de trabajo que tiene a varias persona. Por lo que como tenemos que saber que cantiedad de personas
+hay en cada una de las tareas.
+\begin{center}
+    
+
+\end{center}
 % Variables
 % Funcion objetivo
 % Restricciones
@@ -181,22 +220,28 @@ Dado que todas las tareas están mecanizadas, es fundamental considerar la veloc
  convertimos las unidades a caminos por hora.
  
  \begin{table}[ht!]
-    \begin{tabular}{lclll}
-    \textbf{TASK}      & \multicolumn{1}{l}{\textbf{SPEED}} \\
-    Soil preparation   & 2                                  \\
-    Install paper      & 4                                  \\
-    Plant              & 3                                  \\
-    Sow                & 4                                  \\
-    Install irrigation & 3                                  \\
-    Install hoops      & 3                                  \\
-    Install mesh       & 3                                  \\
-    Remove irrigation  & 3                                  \\
-    Remove mesh        & 4                                  \\
-    Remove hoops       & 3                                  \\
-    Harvest seeds      & 3                                  \\
-    Harvest plants     & 2                                            
+    \centering
+    \begin{tabular}{|l|c|}
+        \hline
+        \rowcolor{gray!30} \textbf{\textcolor{grey3}{TASK}} & \textbf{\textcolor{grey3}{SPEED}} \\ 
+        \hline
+        Soil preparation   & 2  \\ \hline
+        Install paper      & 4  \\ \hline
+        Plant              & 3  \\ \hline
+        Sow                & 4  \\ \hline
+        Install irrigation & 3  \\ \hline
+        Install hoops      & 3  \\ \hline
+        Install mesh       & 3  \\ \hline
+        Remove irrigation  & 3  \\ \hline
+        Remove mesh        & 4  \\ \hline
+        Remove hoops       & 3  \\ \hline
+        Harvest seeds      & 3  \\ \hline
+        Harvest plants     & 2  \\ 
+        \hline
     \end{tabular}
-    \end{table}
+    \caption{Tabla de tareas y velocidades}
+    \label{tab:tareas}
+\end{table}
 
 Nuestra planificación está diseñada para organizar un mes de trabajo. Considerando una jornada laboral de 8 horas diarias, 
 trabajamos con un total de 240 horas al mes.
