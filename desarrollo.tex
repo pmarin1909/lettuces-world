@@ -97,8 +97,7 @@ Debido al diferente proceder de ambos métodos, cada cultivo tendrá sus tiempos
 La lista de tareas necesarias para completar un ciclo de cultivo es la siguiente:
 \begin{enumerate}
     \item Preparación de la tierra: conjunto de labores inicales donde se rompe y voltea la tierra para airearla, y se abona para dejarla preparada adecuadamente antes del cultivo.
-    CREACION VA DENTRO DE PREPARACION
-    \item Creación de mesetas: mediante maquinaria especializada, se organizan las superficies de cultivo en mesetas 
+          Seguidamente, mediante maquinaria especializada, se organizan las superficies de cultivo en mesetas.
     \item Colocar papel: se instalan láminas que impiden el crecimiento de malas hierbas, lo que reduce la competencia con el cultivo principal.
     \item Sembrar o plantar: según el tipo de variante, se introducen semillas directamente o se plantan brotes previamente cultivados por una empresa externa.
     \item Riego: instalación de sistemas de riego por aspersión en las laderas de las mesetas, necesarios para el mantenimiento del cultivo.
@@ -133,7 +132,7 @@ sin pérdida de generalidad:
           a cada una sin consideraciones de tamaño o forma específicas.
     \item Cultivo homogéneo: se considera que en una misma finca realizaremos las tareas que necesarias para el cuidado de la variedad más delicada. 
           Por tanto, supondremos que en la finca destinada a las lechugas se realizan todas las tareas de la lista mencionada, y en el caso de las espinacas obviaremos el uso de malla y arquillo. 
-          Así, en la primera finca se realizarán TERMINAR
+          Así, en la primera finca se realizarán las 10 tareas mencionadas anteriormente, mientras en la finca correspondiente a las espinacas solo se realizarań las tareas 1, 3, 4, 9 y 10.
     \item Grupos de trabajo independientes: cada cultivo es atendido por  un grupo de trabajo diferente, con su propia maquinaria y recursos.
           Esto permite tratar ambas líneas de producción de manera paralela y simplificada.
     \item Conversión de unidades: las velocidades de la maquinaria, proporcionadas por la empresa originalmente en kilómteros por hora, han sido traducidas a caminos por hora,
@@ -152,55 +151,117 @@ Estas simplificaciones no eliminan la complejidad del problema, pero permiten es
 
 \chapter*{Formulation}
 \addcontentsline{toc}{chapter}{3. Formulation} % Manual index entry
-Lo primero que tenemos que hacer para poder definir la formulación es definir unos parametros de forma correcta para facilitar el 
-tratamiento del problema.
-\textbf{Parametros}
-Definimos los parametros que engloban las tareas que se realizan en cada una de las tierras. 
+% Variables
+% Funcion objetivo
+% Restricciones
 
-$T_1$:= {preptierra1,papel1,plantar1,ponerriego1,ponermalla1,quitarmalla1,quitarriego1,cosecha1}
+Para abordar la planificación de tareas agrícolas de manera estructurada y optimizable, hemos construido un modelo matemático que describe formalmente las restricciones, recursos y objetivos del problema planteado.
+Esta formulación nos permitirá buscar una asignación eficiente de tareas que minimice los tiempos improductivos, garantizando que las labores se ejecuten de acuerdo a sus requisitos técnicos y temporales.
 
-$T_2$:= {preptierra2,sembrar2,ponerriego2,quitarriego2,cosechar2}
+\section*{Parametros}
+\addcontentsline{toc}{section}{3.1. Parámetros} % Manual index entry
+Lo primero que necesitamos es definir un conjunto de parámetros que represente correctamente el entorno de trabajo en ambas fincas, cada una dedicada a un producto distinto (lechuga y espinaca),
+y por tanto, como se mencionaba anteriormente, con secuencias de tareas diferenciadas.
 
-También tenemos que tener los parametros que nos indican el número de caminos y el número de horas con los que trabajamos. Como ambas
-serán iguales en las dos tierras solo hace falta considerar los parametros una vez. 
-\begin{center}
 
-$C:={1....50}$
+\subsubsection{Conjunto de tareas}
+\begin{itemize}
+    \item Conjunto de tareas para la finca 1, destinada a lecuhga:
+    
+    $T_1$:= \{preptierra1,papel1,plantar1,ponerriego1,ponermalla1,quitarmalla1,quitarriego1,cosecha1\}
+    \item Conjunto de tareas para la finca 2, destinada a espinaca:
+    
+    $T_2$:= \{preptierra2,sembrar2,ponerriego2,quitarriego2,cosechar2\}
+\end{itemize}
 
-$H:={1...240}$ 
-\end{center}
-Como las tareas van entrando de forma escalonada, los horarios de todas ellas no serán iguales. Por lo que definimos una familia de 
-horarios para cada una de las 
-\begin{center}
-$H_1 := \{H_{preptierra1},H_{papel1},H_{plantar1},H_{ponerriego1},H_{ponermalla1},H_{quitarmalla1},H_{quitarriego1},H_{cosecha1}\}$
+\subsubsection{Caminos y horizonte temporal}
 
-$H_2:= \{H_{preptierra2},H_{sembrar2},H_{ponerriego2},H_{quitarriego2},H_{cosechar2}\}$
-\end{center}    
+Como ambas fincas tienen dimensiones similares, se define un mismo conjunto de caminos ($C$) y horas ($H$) para ambas:
+    \[\begin{aligned}
+        C:={1....50}\\
+        H:={1...240}
+    \end{aligned}\]
 
-Cada maquina tiene una velocidad que escribiremos
+\subsubsection{Disponibilidad temporal de las tareas}
+
+Las tareas no están activas durante todo el horizonte temporal: van entrando escalonadamente. 
+Además, como en cada finca habrá distintnas tareas disponibles, definimos una familia de horarios para cada una:
+
+\[\begin{aligned}
+    H_1 &:= \{H_{preptierra1},H_{papel1},H_{plantar1},H_{ponerriego1},H_{ponermalla1},H_{quitarmalla1},H_{quitarriego1},H_{cosecha1}\}\\
+    H_2 &:= \{H_{preptierra2},H_{sembrar2},H_{ponerriego2},H_{quitarriego2},H_{cosechar2}\}   
+\end{aligned}\]    
+
+\subsubsection{Velocidad de trabajo de las máquinas}
+
+Cada tarea se realiza con maquinaria diferente, y por tanto a diferentes velocidades. Estas se expresan en mesetas/hora:
 \begin{center}
 $M_{i_1}:=$ numero maximo de mesetas por camino en una hora $\forall i_1 \in T_1$
 
 $M_{i_2}:=$ numero maximo de mesetas por camino en una hora $\forall i_2 \in T_2$
 \end{center}
 
-Tenemos que tener en cuenta en las mesetas donde tenemos que realizar la tarea al menos una vez
 
+\subsubsection{Personal asociado a cada tarea}
+Cada tarea cuenta con un grupo de trabajo asignado, que incluye un número de personas necesario para su ejecución.
 \begin{center}
-    $C_{i_1}:=$ numero de mesetas donde se tiene que realizar la tarea $i_1$ alguna vez $\forall i_1 \in T_1$
+    $P_{i_1}$ := número de personas asignadas a la tarea $i_1 \in T_1$
 
-     $C_{i_2}:=$ numero de mesetas donde se tiene que realizar la tarea $i_2$ alguna vez $\forall i_2 \in T_2$
+    $P_{i_2}$ := número de personas asignadas a la tarea $i_2 \in T_2$    
 \end{center}
 
-Cada tarea esta asignada a un grupo de trabajo que tiene a varias persona. Por lo que como tenemos que saber que cantiedad de personas
-hay en cada una de las tareas.
-\begin{center}
-    
+\section*{Variables de decisión}
+\addcontentsline{toc}{section}{3.2. Variables de decisión} % Manual index entry
+Para modelar correctamente la ejecución de las tareas en cada meseta y en cada momento del horizonte temporal, se define la siguiente variable binaria:
+\[\begin{aligned}
+    x_{i_j,k,l} = \begin{cases} 1 & \text{si la tarea } i \text{ se realiza en el camino } k \text{ y en la hora } l \\ 0 & \text{en otro caso} \end{cases}
+\end{aligned}\]
 
-\end{center}
-% Variables
-% Funcion objetivo
-% Restricciones
+donde:
+\begin{itemize}
+    \item $i_j$ representa una tarea perteneciente al conjunto $T_j$.
+    \item $k \in C$ representa una de las mesetas o caminos disponibles en la finca.
+    \item $l \in H_i$ representa una hora dentro del intervalo de disponibilidad de la tarea $i$.
+\end{itemize}
+
+Por otro lado, para capturar los tiempos de espera o horas muertas entre tareas
+(es decir, cuando un grupo de trabajo está disponible pero no puede comenzar porque otra tarea previa no ha terminado en esa meseta), definimos la siguiente variable:
+\[\begin{aligned}
+    w_{i_j,l} = \begin{cases} 1 & \text{si la tarea } i \text{ se puede asignar todavía a un camino en la hora } l \\ 0 & \text{en otro caso} \end{cases}
+\end{aligned}\] 
+donde:
+\begin{itemize}
+    \item $i_j$ representa una tarea perteneciente al conjunto $T_j$.
+    \item $l \in H_{i_j}$ representa una hora dentro del intervalo de disponibilidad de la tarea $i$ de la tierra $j$.
+\end{itemize}
+
+
+
+\section*{Restricciones}
+\addcontentsline{toc}{section}{3.3. Restricciones} % Manual index entry
+El modelo de planificación agrícola debe garantizar que la ejecución de las tareas se ajusta a las capacidades operativas,
+al calendario disponible y al orden lógico del proceso productivo. Para ello, se han definido las siguientes restricciones:
+\begin{itemize}
+    \item Cada tarea solo puede cubrir un número máximo de mesetas por hora, en función de la velocidad de la maquinaria utilizada:
+          \[
+            \sum_{k\in C}x_{i_j,k,l} \leq M_{i_j} \qquad \forall i_1 \in T_1, \hspace{0.2cm} l\in H_{i_1} \text{   asociado}
+          \]
+    \item  Solo podemos realizar las tareas una única vez en los caminos donde se puedan realizar:
+          \[
+            \sum_{i_1 \in T_1, l\in H_{i_1}}x_{i_1 kl} =1 \hspace{0.5cm} \forall k \in C
+          \]
+    \item Debemos respetar el orden que siguen las tareas:
+          \[
+            x_{i_j kl} \leq \sum_{l' \in h_{prev(1)}, l'<l}x_{prev(1)kl'} \hspace{0.5cm} \forall i_1\in T_1 \rightarrow k\in C, l \in H_{i_1}
+          \]
+\end{itemize}
+
+
+\section*{Función objetivo}
+\addcontentsline{toc}{section}{3.4. Función objetivo} % Manual index entry
+
+
+
 
 \chapter*{Data}
 \addcontentsline{toc}{chapter}{4. Data} % Manual index entry
@@ -265,7 +326,32 @@ en función de la tarea asignada.
 
 \chapter*{Conclusion}
 \addcontentsline{toc}{chapter}{7. Conclusion} % Manual index entry
+El presente trabajo ha permitido abordar un problema real de planificación agrícola desde una perspectiva matemática,
+aplicando herramientas de optimización para mejorar la organización del trabajo en la empresa Intercrop.
+A través del análisis de las distintas tareas necesarias para el cultivo de lechuga y espinaca —dos productos clave en la producción de la empresa—
+se ha puesto de manifiesto la complejidad operativa asociada a la coordinación de equipos, maquinaria y tiempos de ejecución.
 
+A lo largo del proyecto se ha desarrollado un modelo simplificado, pero representativo,
+que tiene como objetivo principal minimizar las horas improductivas entre los grupos de trabajo.
+Este enfoque responde a una problemática observada directamente en campo:
+la existencia de tiempos de espera innecesarios cuando una tarea no puede comenzar hasta que otra finaliza.
+Estas horas muertas, aunque inevitables en cierta medida, suponen un coste directo para la empresa y reducen la eficiencia global del sistema productivo.
+
+El modelo ha sido construido considerando dos fincas independientes, cada una con su línea de producción,
+y una secuencia de tareas que incluye desde la preparación del terreno hasta la recolección.
+A pesar de las simplificaciones introducidas —como la homogeneización del tamaño de las fincas,
+la ausencia de condiciones climáticas adversas o la separación estricta entre los grupos de trabajo—, el planteamiento conserva una estructura lógica fiel al proceso real,
+permitiendo extraer conclusiones prácticas y escalables.
+
+El desarrollo del trabajo ha demostrado cómo los conocimientos matemáticos adquiridos en el aula pueden ser aplicados con éxito a problemas reales,
+aportando soluciones concretas y cuantificables a situaciones cotidianas del entorno profesional.
+Además, ha abierto una vía interesante para seguir profundizando en el uso de modelos de optimización en contextos agrícolas,
+donde las decisiones eficientes pueden traducirse en mejoras significativas de rendimiento y rentabilidad.
+
+En futuras fases, se podrían incorporar elementos adicionales al modelo, como la variabilidad climática,
+los imprevistos mecánicos o la disponibilidad parcial de maquinaria y personal.
+También sería interesante extender el estudio a varias fincas interconectadas o explorar estrategias de contratación y rotación del personal más flexibles.
+Todo ello contribuiría a construir una herramienta aún más robusta para la toma de decisiones en la gestión diaria de empresas como Intercrop.
 
 \newpage
 ------------------------------

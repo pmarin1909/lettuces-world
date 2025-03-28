@@ -1,16 +1,17 @@
 # Fdb version 4
-["biber main"] 1743067133.68289 "main.bcf" "main.bbl" "main" 1743069210.80325 0
-  "main.bcf" 1743069210.66716 107346 5b972c3002c71c90e291224bf186c5f8 "pdflatex"
+["biber main"] 0 "main.bcf" "main.bbl" "main" 1743163172.82002 -1
+  "dummy.bib" 1742990449.73053 68 18abf14edb4503e3b71ea21a20c8c547 ""
+  "main.bcf" 1743163172.53459 107346 5b972c3002c71c90e291224bf186c5f8 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["cusdep glo gls main"] 1743067133.4707 "main.glo" "main.gls" "main" 1743069210.80295 0
-  "main.glo" 1743069210.66916 85 e63f5b69d9261ace255d8aa2f1fd258e "pdflatex"
+["cusdep glo gls main"] 0 "main.glo" "main.gls" "main" 1743163172.81972 -1
+  "main.glo" 1743163172.53759 85 e63f5b69d9261ace255d8aa2f1fd258e "pdflatex"
   (generated)
   "main.gls"
   (rewritten before read)
-["pdflatex"] 1743069208.34336 "/home/paula/Documents/Universidad/LabMod/Optimizacion/Grupal/Informe/main.tex" "main.pdf" "main" 1743069210.80364 0
+["pdflatex"] 1743163167.96269 "/home/paula/Documents/Universidad/LabMod/Optimizacion/Grupal/Informe/main.tex" "main.pdf" "main" 1743163172.82063 0
   "/etc/texmf/web2c/texmf.cnf" 1741018048.55795 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/paula/Documents/Universidad/LabMod/Optimizacion/Grupal/Informe/main.tex" 1743012240.47557 4340 6470c025691f51811c8a3f24c8235607 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -41,13 +42,16 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1248133631 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb" 1248133631 32001 6aeea3afe875097b1eb0da29acd61e28 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1248133631 30251 6afa5cb1d0204815a708a080681d4674 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb" 1248133631 37166 8ab3487cbe3ab49ebce74c29ea2418db ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1248133631 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1248133631 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1248133631 32587 1788b0c1c5b39540c96f5e42ccd6dae8 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
   "/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/share/texlive/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
@@ -139,6 +143,7 @@
   "/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty" 1705352648 2462 6bc53756156dbd71c1ad550d30a3b93f ""
   "/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty" 1705352648 5319 2b738d02ce36ada6dcdd9534940db0ee ""
   "/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty" 1705352648 5048 425739d70251273bf93e3d51f3c40048 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd" 1705352648 2469 74341109f164f230581718c66211c718 ""
   "/usr/share/texlive/texmf-dist/tex/latex/base/report.cls" 1705352648 23203 f5d913095ece2233436f0e628619cd37 ""
   "/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo" 1705352648 8464 59874a3b0776c73e2a138b025d8473dd ""
   "/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty" 1705352648 2894 fc64867f9d198785eabe71a88276a9cb ""
@@ -258,25 +263,25 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1741018069.2588 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1741018092 8214551 3fed98c34c946e3c5b74f66640b9c43e ""
-  "desarrollo.aux" 1743069210.65516 6086 e253a1633ef759760fff36f2195dfacf "pdflatex"
-  "desarrollo.tex" 1743069208.07719 16868 846917415179fd69fb11a542212e584d ""
+  "desarrollo.aux" 1743163172.51359 7108 dd767007786f981394759116128599f9 "pdflatex"
+  "desarrollo.tex" 1743163167.35688 22906 dfb9c6bb1d0a7c7f13c7b8164d9124d3 ""
   "glosario.tex" 1743012115.32259 113 c7d9b0a18c29a8f111398539ebb17fbc ""
   "img/baby_spinach.png" 1743015117.4036 367318 9bd96ffd4886786baee9fb0679ae7806 ""
   "img/campitos_lindos.jpeg" 1742988675.01802 71004 5809701e8243fe2160faf4121245e0bc ""
   "img/lechuga_apollo.png" 1743014862.45839 406149 bf281773ec446f734d26a3c97a17506c ""
   "img/lechuga_knox.png" 1743013032.7605 858922 874aaf9c44357a33d79ceda7e2f51883 ""
   "img/teen_spinach.png" 1743064031.71381 651041 589dfbf99d6dd0a30263b6ae551e3f14 ""
-  "main.aux" 1743069210.66016 700 444310821f2d4505c922f02f63a3489a "pdflatex"
-  "main.bbl" 1743067134.79374 466 ee04f40f768daeed26442158e95aba61 "biber main"
-  "main.gls" 1743067133.67795 285 dd15e552fc1cac4d3f058c16cd6a11ea "cusdep glo gls main"
-  "main.out" 1743069210.66316 1088 a63bbfec3f65859f3c41a09ae6fa23da "pdflatex"
-  "main.run.xml" 1743069210.66916 2300 76870dad3fcc073257df4f2ee5912f5f "pdflatex"
+  "main.aux" 1743163172.52159 700 b690d8e299d2536ac0caf6dfa13152bb "pdflatex"
+  "main.bbl" 1743152879.49093 466 ee04f40f768daeed26442158e95aba61 "biber main"
+  "main.gls" 1743152878.84493 285 dd15e552fc1cac4d3f058c16cd6a11ea "cusdep glo gls main"
+  "main.out" 1743163172.52859 1745 b5cb364e6bcb807175c8bdcb7d6d2e6a "pdflatex"
+  "main.run.xml" 1743163172.53759 2300 76870dad3fcc073257df4f2ee5912f5f "pdflatex"
   "main.tex" 1743012240.47557 4340 6470c025691f51811c8a3f24c8235607 ""
-  "main.toc" 1743069210.66916 540 87728ff8a6a6ac9762175c2daa4d9c68 "pdflatex"
-  "portada/indice.aux" 1743069210.32417 4210 4f41f4f96e8589c5eff3c57269bb3af6 "pdflatex"
+  "main.toc" 1743163172.53759 1192 01b3a9f93564e97d87d2385a42d57cd0 "pdflatex"
+  "portada/indice.aux" 1743163171.87063 4210 4f41f4f96e8589c5eff3c57269bb3af6 "pdflatex"
   "portada/indice.tex" 1741021406.80622 48 9328a3fcc27a3b47d118605aee49e6e8 ""
   "portada/nuevo_logo_umu.png" 1741021427.71206 59011 dbd51221b1b08795b53e1555680511ea ""
-  "portada/umu.aux" 1743069210.31417 4249 9132a2c3735281daa76211e5cf4bd15c "pdflatex"
+  "portada/umu.aux" 1743163171.84863 4249 9132a2c3735281daa76211e5cf4bd15c "pdflatex"
   "portada/umu.tex" 1742547938.10832 875 c3eee08b55a3175634d46e3f227b2e48 ""
   (generated)
   "desarrollo.aux"
