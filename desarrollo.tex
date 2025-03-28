@@ -244,16 +244,29 @@ al calendario disponible y al orden lógico del proceso productivo. Para ello, s
 \begin{itemize}
     \item Cada tarea solo puede cubrir un número máximo de mesetas por hora, en función de la velocidad de la maquinaria utilizada:
           \[
-            \sum_{k\in C}x_{i_j,k,l} \leq M_{i_j} \qquad \forall i_1 \in T_1, \hspace{0.2cm} l\in H_{i_1} \text{   asociado}
+            \sum_{k\in C}x_{i_j,k,l} \leq M_{i_j} \qquad \forall i_1 \in T_1, \qquad l\in H_{i_1} \text{   asociado}
           \]
     \item  Solo podemos realizar las tareas una única vez en los caminos donde se puedan realizar:
           \[
-            \sum_{i_1 \in T_1, l\in H_{i_1}}x_{i_1 kl} =1 \hspace{0.5cm} \forall k \in C
+            \sum_{i_1 \in T_1, l\in H_{i_1}}x_{i_1 kl} =1 \qquad \forall k \in C
           \]
     \item Debemos respetar el orden que siguen las tareas:
           \[
-            x_{i_j kl} \leq \sum_{l' \in h_{prev(1)}, l'<l}x_{prev(1)kl'} \hspace{0.5cm} \forall i_1\in T_1 \rightarrow k\in C, l \in H_{i_1}
+            x_{i_j,k,l} \leq \sum_{l' \in h_{prev(1)}, l'<l}x_{prev(1),k,l'} \qquad \forall i_1\in T_1 \rightarrow k\in C, l \in H_{i_1}
           \]
+    \item Hay que respetar el crecimiento de cada variedad. Una vez puesto el riego la planta comienza a crecer, y debe pasar un tiempo hasta que crezca.
+    El tiempo depende de la variedad. Una vez pasado dicho tiempo, se puede realizar la tarea 'quitar malla'.
+          \[
+            x_{\text{quitarmalla}1,k,l} \leq \sum_{l'\in H_{\text{ponerriego}1}, l'<l-s_1}x_{\text{ponerriego}1,k,l'} \qquad k\in \{1, ..., 50\}, l\in H_{\text{quitarmalla}1} 
+          \]
+          Esta misma restricción se da para $s_2$ y en este caso tendríamos que $k \in \{37, ..., 50\}$. 
+	
+    \item Por último, necesitamos una restricción que active $w_{i_1 l}$, es decir, que nos diga si todavía se puede realizar una tarea en una meseta. 
+          \[
+          \displaystyle w_{i_1 l}\geq \frac{C_{i_1}-\sum_{l'<l, l'\in H_{i_1}, k\in C}x_{i_1 kl}}{C_{i_1}}
+          \]
+          
+          En el sumatorio se cuentan las mesetas en las que se ha realizado una determinada tarea. Este cociente será $0$ cuando una tarea se haya realizado en todas las mesetas, y será mayor que 0 y menor que 1, cuando todavía quede alguna meseta por hacer. 
 \end{itemize}
 
 
