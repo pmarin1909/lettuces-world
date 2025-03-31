@@ -526,6 +526,16 @@ INPUT ./img/teen_spinach.png
 INPUT ./img/teen_spinach.png
 INPUT ./img/teen_spinach.png
 INPUT ./img/teen_spinach.png
+INPUT ./img/red_spinach.jpg
+INPUT ./img/red_spinach.jpg
+INPUT ./img/red_spinach.jpg
+INPUT ./img/red_spinach.jpg
+INPUT ./img/red_spinach.jpg
+INPUT ./img/soup_spinach.png
+INPUT ./img/soup_spinach.png
+INPUT ./img/soup_spinach.png
+INPUT ./img/soup_spinach.png
+INPUT ./img/soup_spinach.png
 INPUT /usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd

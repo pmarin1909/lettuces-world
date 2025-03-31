@@ -2,18 +2,18 @@
 \contentsline {chapter}{1. Introduction}{2}{chapter*.2}%
 \contentsline {chapter}{2. Problem Statement}{3}{chapter*.3}%
 \contentsline {section}{2.1. Simplificaciones del modelo}{5}{section*.4}%
-\contentsline {chapter}{3. Formulation}{6}{chapter*.5}%
-\contentsline {section}{3.1. Parámetros}{6}{section*.6}%
-\contentsline {subsubsection}{Conjunto de tareas}{6}{section*.7}%
-\contentsline {subsubsection}{Caminos y horizonte temporal}{6}{section*.8}%
-\contentsline {subsubsection}{Disponibilidad temporal de las tareas}{6}{section*.9}%
-\contentsline {subsubsection}{Velocidad de trabajo de las máquinas}{7}{section*.10}%
-\contentsline {subsubsection}{Personal asociado a cada tarea}{7}{section*.11}%
-\contentsline {section}{3.2. Variables de decisión}{7}{section*.12}%
+\contentsline {chapter}{3. Formulation}{7}{chapter*.5}%
+\contentsline {section}{3.1. Parámetros}{7}{section*.6}%
+\contentsline {subsubsection}{Conjunto de tareas}{7}{section*.7}%
+\contentsline {subsubsection}{Mesetas y horizonte temporal}{7}{section*.8}%
+\contentsline {subsubsection}{Disponibilidad temporal de las tareas}{7}{section*.9}%
+\contentsline {subsubsection}{Velocidad de trabajo de las máquinas}{8}{section*.10}%
+\contentsline {subsubsection}{Personal asociado a cada tarea}{8}{section*.11}%
+\contentsline {section}{3.2. Variables de decisión}{8}{section*.12}%
 \contentsline {section}{3.3. Restricciones}{8}{section*.13}%
-\contentsline {section}{3.4. Función objetivo}{8}{section*.14}%
-\contentsline {chapter}{4. Data}{10}{chapter*.15}%
-\contentsline {chapter}{5. Code}{11}{chapter*.16}%
-\contentsline {chapter}{6. Results}{12}{chapter*.17}%
-\contentsline {chapter}{7. Conclusion}{13}{chapter*.18}%
-\contentsline {chapter}{A. Glossary}{15}{chapter*.20}%
+\contentsline {section}{3.4. Función objetivo}{9}{section*.14}%
+\contentsline {chapter}{4. Data}{11}{chapter*.15}%
+\contentsline {chapter}{5. Code}{13}{chapter*.16}%
+\contentsline {chapter}{6. Results}{14}{chapter*.17}%
+\contentsline {chapter}{7. Conclusion}{15}{chapter*.18}%
+\contentsline {chapter}{A. Glossary}{17}{chapter*.20}%

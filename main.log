@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.3)  31 MAR 2025 14:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.3)  31 MAR 2025 18:48
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -623,7 +623,7 @@ Package: glossary-tree 2023/09/29 v4.53 (NLCT)
 \glo@main@file=\write5
 \openout5 = `main.glo'.
 
-Package glossaries Info: Writing glossary file main.glo on input line 35.
+Package glossaries Info: Writing glossary file main.glo on input line 34.
  (./glosario.tex) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
  (/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
@@ -729,7 +729,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip71
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 50.
+Package hyperref Info: Option `colorlinks' set `true' on input line 49.
    defining Unicode char U+2212 (decimal 8722)
  (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2023/03/05 v3.19 programmable bibliographies (PK/MW)
@@ -994,24 +994,24 @@ Package csquotes Info: Redefining alias 'default' -> 'english'.
  (./main.aux (./portada/umu.aux) (./portada/indice.aux) (./desarrollo.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 136.
+LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 136.
+LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 136.
+LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 136.
+LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 136.
+LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 136.
+LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 136.
+LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 136.
+LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 136.
+LaTeX Font Info:    ... okay on input line 136.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count499
@@ -1067,7 +1067,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 137.
+Package hyperref Info: Link coloring ON on input line 136.
 (./main.out) (./main.out)
 \@outlinefile=\write7
 \openout7 = `main.out'.
@@ -1085,8 +1085,8 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (./main.bbl)
-Package biblatex Info: Reference section=0 on input line 137.
-Package biblatex Info: Reference segment=0 on input line 137.
+Package biblatex Info: Reference section=0 on input line 136.
+Package biblatex Info: Reference segment=0 on input line 136.
 \openout2 = `portada/umu.aux'.
 
  (./portada/umu.tex
@@ -1119,7 +1119,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.139     \include{portada/indice.tex}
+l.138     \include{portada/indice.tex}
                                        [1
 
 
@@ -1140,46 +1140,56 @@ Package pdftex.def Info: img/campitos_lindos.jpeg  used on input line 28.
 
 
  <./img/campitos_lindos.jpeg>]
-<img/lechuga_apollo.png, id=99, 679.53876pt x 667.49374pt>
+<img/lechuga_apollo.png, id=101, 679.53876pt x 667.49374pt>
 File: img/lechuga_apollo.png Graphic file (type png)
 <use img/lechuga_apollo.png>
-Package pdftex.def Info: img/lechuga_apollo.png  used on input line 58.
+Package pdftex.def Info: img/lechuga_apollo.png  used on input line 60.
 (pdftex.def)             Requested size: 152.36281pt x 149.66017pt.
-<img/lechuga_knox.png, id=101, 679.53876pt x 684.5575pt>
+<img/lechuga_knox.png, id=103, 679.53876pt x 684.5575pt>
 File: img/lechuga_knox.png Graphic file (type png)
 <use img/lechuga_knox.png>
-Package pdftex.def Info: img/lechuga_knox.png  used on input line 65.
+Package pdftex.def Info: img/lechuga_knox.png  used on input line 67.
 (pdftex.def)             Requested size: 130.59859pt x 131.56097pt.
-<img/baby_spinach.png, id=102, 679.53876pt x 676.5275pt>
+<img/baby_spinach.png, id=104, 679.53876pt x 676.5275pt>
 File: img/baby_spinach.png Graphic file (type png)
 <use img/baby_spinach.png>
-Package pdftex.def Info: img/baby_spinach.png  used on input line 77.
+Package pdftex.def Info: img/baby_spinach.png  used on input line 79.
 (pdftex.def)             Requested size: 152.36281pt x 151.68564pt.
-<img/teen_spinach.png, id=103, 571.13374pt x 677.53125pt>
+<img/teen_spinach.png, id=105, 571.13374pt x 677.53125pt>
 File: img/teen_spinach.png Graphic file (type png)
 <use img/teen_spinach.png>
-Package pdftex.def Info: img/teen_spinach.png  used on input line 84.
+Package pdftex.def Info: img/teen_spinach.png  used on input line 86.
 (pdftex.def)             Requested size: 130.59859pt x 154.92947pt.
+<img/red_spinach.jpg, id=106, 259.97125pt x 194.7275pt>
+File: img/red_spinach.jpg Graphic file (type jpg)
+<use img/red_spinach.jpg>
+Package pdftex.def Info: img/red_spinach.jpg  used on input line 92.
+(pdftex.def)             Requested size: 130.59859pt x 97.82108pt.
+<img/soup_spinach.png, id=107, 727.21687pt x 477.28313pt>
+File: img/soup_spinach.png Graphic file (type png)
+<use img/soup_spinach.png>
+Package pdftex.def Info: img/soup_spinach.png  used on input line 98.
+(pdftex.def)             Requested size: 130.59859pt x 85.71062pt.
  [3
 
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./img/lechuga_apollo.png> <./img/lechuga_knox.png>] [4 <./img/baby_spinach.png> <./img/teen_spinach.png>] [5]
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 171.
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./img/lechuga_apollo.png> <./img/lechuga_knox.png>] [4 <./img/baby_spinach.png> <./img/teen_spinach.png> <./img/red_spinach.jpg> <./img/soup_spinach.png>] [5] [6]
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 184.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 171.
- [6
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 184.
+ [7
 
-] [7] [8] [9] [10
+] [8] [9] [10] [11
 
-] [11
+] [12] [13
 
-] [12
+] [14
 
-] [13
+] [15
 
-]) [14] (./main.gls) [15
+]) [16] (./main.gls) [17
 
 
 
@@ -1196,18 +1206,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 40958 strings out of 474222
- 790558 string characters out of 5748734
- 1936975 words of memory out of 5000000
- 62507 multiletter control sequences out of 15000+600000
+ 40978 strings out of 474222
+ 790978 string characters out of 5748734
+ 1939975 words of memory out of 5000000
+ 62523 multiletter control sequences out of 15000+600000
  567183 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  94i,17n,93p,2407b,1924s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on main.pdf (16 pages, 3486387 bytes).
+Output written on main.pdf (18 pages, 4872723 bytes).
 PDF statistics:
- 272 PDF objects out of 1000 (max. 8388607)
- 210 compressed objects within 3 object streams
- 52 named destinations out of 1000 (max. 500000)
- 147 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 288 PDF objects out of 1000 (max. 8388607)
+ 221 compressed objects within 3 object streams
+ 56 named destinations out of 1000 (max. 500000)
+ 157 words of extra memory for PDF output out of 10000 (max. 10000000)
 

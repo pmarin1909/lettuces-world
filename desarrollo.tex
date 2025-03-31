@@ -47,9 +47,11 @@ El objetivo de este trabajo es abordar, desde un enfoque matemático y práctico
 Para ello, nos centraremos en dos cultivos principales: lechuga y espinaca, cada uno con dos variantes específicas.
 \begin{itemize}
     \item \textbf{Lechuga}: se cultiva en dos variedades, una de hoja rizada (Apollo, Fig. \ref{fig:apollo}) y otra de hoja lisa (Knox Cos, Fig. \ref{fig:knox}). La lechuga de hoja rizada es más delicada y requiere un cuidado especial. Por su parte, la lechuga de hoja lisa es más resistente y se adapta mejor a condiciones menos precisas.
-    \item \textbf{Espinaca}: también se cultiva en dos variedades, una de hoja pequeña (Baby Spinach, Fig. \ref{fig:baby}) y otra de hoja mediana (Teen Spinach, Fig. \ref{fig:teen}). En cuanto a las difere en el tratamiento, no se encuentran ambios sustanciales en el cuidado.
+    \item \textbf{Espinaca}: se cultivan cinco variedades, una de hoja pequeña tanto en su version comun (Baby Spinach, Fig. \ref{fig:baby}) como en su version organica, de hoja mediana tanto de color verde (Teen Spinach, Fig. \ref{fig:teen}) como un color mas rojizo, (Red Spinach, Fig. \ref{fig:red}). También tenemos una 
+    una de hoja plana que esta pensada para la realizacion de sopas (Soup Spinach, Fig. \ref{fig:soup})
+    En cuanto a las diferencia en el tratamiento, no se encuentran ambios sustanciales en el cuidado.
 \end{itemize}
-
+La principal diferencia entre las variedades que estamos tomando es el tiempo de cultivo de cada una de ellas.
 \begin{figure}[ht!]
     \centering
 
@@ -85,11 +87,22 @@ Para ello, nos centraremos en dos cultivos principales: lechuga y espinaca, cada
         \caption{Variedad Teen Spinach.}
         \label{fig:teen}
     \end{minipage}
-
+    \begin{minipage}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.6\textwidth]{img/red_spinach.jpg}
+        \caption{Variedad Red Chard.}
+        \label{fig:red}
+    \end{minipage}
+    \begin{minipage}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.6\textwidth]{img/soup_spinach.png}
+        \caption{Variedad Soup Spinach.}
+        \label{fig:soup}
+    \end{minipage}
 \end{figure}
 
 
-Antes de pasar a desglosar las tareas que engloban el poceso de cultivo, es importante destacar una diferencia fundamental entre ambos productos.
+Antes de pasar a desglosar las tareas que engloban el proceso de cultivo, es importante destacar una diferencia fundamental entre ambos productos.
 La lechuga se trabaja mediante plantación: las semillas se envían a un semillero y posteriormente se trasplantan las plántulas al campo. 
 En el caso de la espinaca, se utiliza el método de siembra directa, introduciendo las semillas directamente en la tierra.
 Debido al diferente proceder de ambos métodos, cada cultivo tendrá sus tiempos y necesidades específicas, lo que influirá en la planificación de las tareas.
@@ -166,7 +179,7 @@ y por tanto, como se mencionaba anteriormente, con secuencias de tareas diferenc
 
 \subsubsection{Conjunto de tareas}
 \begin{itemize}
-    \item Conjunto de tareas para la finca 1, destinada a lecuhga:
+    \item Conjunto de tareas para la finca 1, destinada a lechuga:
     
     $T_1$:= \{preptierra1,papel1,plantar1,ponerriego1,ponermalla1,quitarmalla1,quitarriego1,cosecha1\}
     \item Conjunto de tareas para la finca 2, destinada a espinaca:
@@ -174,18 +187,19 @@ y por tanto, como se mencionaba anteriormente, con secuencias de tareas diferenc
     $T_2$:= \{preptierra2,sembrar2,ponerriego2,quitarriego2,cosechar2\}
 \end{itemize}
 
-\subsubsection{Caminos y horizonte temporal}
+\subsubsection{Mesetas y horizonte temporal}
 
-Como ambas fincas tienen dimensiones similares, se define un mismo conjunto de caminos ($C$) y horas ($H$) para ambas:
+Para cada tierra, definimos el conjunto de mesetas correspodiente y el conjunto de horas ($H$) de trabajo disponibles durante el pedido:
     \[\begin{aligned}
-        C:={1....50}\\
+        M_1:={1....50}\\
+        M_2:={1....90}\\
         H:={1...240}
     \end{aligned}\]
 
 \subsubsection{Disponibilidad temporal de las tareas}
 
 Las tareas no están activas durante todo el horizonte temporal: van entrando escalonadamente. 
-Además, como en cada finca habrá distintnas tareas disponibles, definimos una familia de horarios para cada una:
+Además, como en cada finca habrá distintas tareas disponibles, definimos una familia de horarios para cada una:
 
 \[\begin{aligned}
     H_1 &:= \{H_{preptierra1},H_{papel1},H_{plantar1},H_{ponerriego1},H_{ponermalla1},H_{quitarmalla1},H_{quitarriego1},H_{cosecha1}\}\\
@@ -196,9 +210,9 @@ Además, como en cada finca habrá distintnas tareas disponibles, definimos una 
 
 Cada tarea se realiza con maquinaria diferente, y por tanto a diferentes velocidades. Estas se expresan en mesetas/hora:
 \begin{center}
-$M_{i_1}:=$ numero maximo de mesetas por camino en una hora $\forall i_1 \in T_1$
+$V_{i_1}:=$ numero maximo de mesetas por camino en una hora $\forall i_1 \in T_1$
 
-$M_{i_2}:=$ numero maximo de mesetas por camino en una hora $\forall i_2 \in T_2$
+$V_{i_2}:=$ numero maximo de mesetas por camino en una hora $\forall i_2 \in T_2$
 \end{center}
 
 
@@ -220,21 +234,15 @@ Para modelar correctamente la ejecución de las tareas en cada meseta y en cada 
 donde:
 \begin{itemize}
     \item $i_j$ representa una tarea perteneciente al conjunto $T_j$.
-    \item $k \in C$ representa una de las mesetas o caminos disponibles en la finca.
-    \item $l \in H_i$ representa una hora dentro del intervalo de disponibilidad de la tarea $i$.
+    \item $k \in M_j$ representa una de las mesetas en la tierra $j$.
+    \item $l \in H_{i_j}$ representa una hora dentro del intervalo de disponibilidad de la tarea $i_j \in T_j$.
 \end{itemize}
 
-Por otro lado, para capturar los tiempos de espera o horas muertas entre tareas
+Por otro lado, para capturar los tiempos de espera u horas muertas entre tareas
 (es decir, cuando un grupo de trabajo está disponible pero no puede comenzar porque otra tarea previa no ha terminado en esa meseta), definimos la siguiente variable:
 \[\begin{aligned}
-    w_{i_j,l} = \begin{cases} 1 & \text{si la tarea } i \text{ se puede asignar todavía a un camino en la hora } l \\ 0 & \text{en otro caso} \end{cases}
+    w_{i_j l} = \begin{cases} 1 & \text{si la tarea } i_j \in T_j \text{ se puede asignar todavía a un camino en la hora } l \in H_{i_j} \\ 0 & \text{en otro caso} \end{cases}
 \end{aligned}\] 
-donde:
-\begin{itemize}
-    \item $i_j$ representa una tarea perteneciente al conjunto $T_j$.
-    \item $l \in H_{i_j}$ representa una hora dentro del intervalo de disponibilidad de la tarea $i$ de la tierra $j$.
-\end{itemize}
-
 
 
 \section*{Restricciones}
@@ -244,36 +252,36 @@ al calendario disponible y al orden lógico del proceso productivo. Para ello, s
 \begin{itemize}
     \item  No podemos asignar más mesetas por hora de los que permite la tarea.
            La velocidad de realización de la tarea la marca el tractor, no podemos asignar más mesetas de los que es posible abarcar en una hora.
-           Para ello fijamos una hora y una tarea y recorremos los caminos. El número que obtenemos no debe ser mayor que el máximo número de caminos que puede hacer la maquinaria. 
+           Para ello fijamos una hora y una tarea y recorremos las mesetas. El número que obtenemos no debe ser mayor que el máximo número de mesetas que puede hacer la maquinaria. 
 	    \[
-            \sum_{k\in C}x_{i_1 kl} \leq M_{i_1} \hspace{0.5cm} \forall i_1 \in T_1, \hspace{0.2cm} l\in H_{i_1}
+            \sum_{k\in M_j}x_{i_j kl} \leq V_{i_j} \hspace{0.5cm} \forall i_j \in T_j, \hspace{0.2cm} l\in H_{i_j}
         \]
-    \item  Solo podemos realizar las tareas una única vez en los caminos donde se puedan realizar.
-           Para ello fijamos un camino y una tarea, obteniendo que la suma en todas las horas debe ser 1,
+    \item  Solo podemos realizar las tareas una única vez en las mesetas donde se puedan realizar.
+           Para ello fijamos una meseta y una tarea, obteniendo que la suma en todas las horas de su horario debe ser 1,
            pues de lo contrario la tarea o no se habría realizado (si es 0) o se habría realizado más de una vez. 
         \[
-	        \sum_{l\in H_{i_1}}x_{i_1 kl} =1 \hspace{0.5cm} \forall i_1 \in T_1 , k \in C
+	        \sum_{l\in H_{i_j}}x_{i_j kl} =1 \hspace{0.5cm} \forall i_j \in T_j , k \in M_j
         \]
     \item Las tareas siguen un orden que debemos respetar.
           No podemos realizar la siguiente tarea en una meseta sin haber hecho la anterior.
-          Debemos comprobar que en esa meseta se han hecho la tarea anterior a la que nos toca hacer. 
+          Debemos comprobar que en esa meseta se ha hecho la tarea anterior a la que nos toca hacer. 
 	
 	      Fijamos una meseta, una tarea y una hora, y comprobamos que en las horas previas se ha realizado la tarea anterior. 
         \[
-	        x_{i_1 kl} \leq \sum_{l' \in H_{prev(i_1)}, l'<l}x_{prev(i_1)kl'} \hspace{0.5cm} \forall i_1\in T_1/{first(T_1)}, k\in C, l \in H_{i_1}
+	        x_{i_j kl} \leq \sum_{l' \in H_{prev(i_j)}, l'<l}x_{prev(i_j)kl'} \hspace{0.5cm} \forall i_j\in T_j/\{first(T_j)\}, k\in M_j, l \in H_{i_j}
         \]
 	
     \item  Hay que respetar el crecimiento de cada variedad. Una vez puesto el riego la planta comienza a crecer,
-           y debe para un tiempo hasta que crezca. El tiempo depende de la variedad.
-           Una vez pasado dicho tiempo, se puede realizar la tarea 'quitar malla'. 
+           y debe estar un tiempo hasta que crezca. El tiempo depende de la variedad.
+           Una vez pasado dicho tiempo, se pueden realizar las tareas posteriores.
         \[
-	        x_{\text{quitarmalla}1kl} \leq \sum_{l'\in H_{\text{ponerriego}1}, l'<l-s_1}x_{\text{ponerriego}1kl'} \hspace{0.5cm} k\in \{1, ..., 36\}, l\in H_{\text{quitarmalla}1}
+	        x_{\text{quitarmalla}1 kl} \leq \sum_{l'\in H_{\text{ponerriego}1}, l'<l-s_1}x_{\text{ponerriego}1kl'} \hspace{0.5cm} k\in \{1, ..., 36\}, l\in H_{\text{quitarmalla}1}
         \]
 	    Esta misma restricción se da para $s_2$ y en este caso tendríamos que $k \in \{37, ..., 50\}$. 
 	
-    \item  Por último, necesitamos una restricción que active $w_{i_1 l}$, es decir, que nos diga si todavía se puede realizar una tarea en una meseta. 
+    \item  Por último, necesitamos una restricción que active $w_{i_j l}$, es decir, que nos diga si todavía se puede realizar una tarea en una meseta. 
         \[
-	        \displaystyle w_{i_1 l}\geq \frac{C_{i_1}-\sum_{l'<l, l'\in H_{i_1}, k\in C}x_{i_1 kl'}}{C_{i_1}}
+	        \displaystyle w_{i_j l}\geq \frac{C_{i_j}-\sum_{l'<l, l'\in H_{i_j}, k\in M_j}x_{i_j kl'}}{C_{i_j}}
         \]
 	
 	    En el sumatorio se cuentan las mesetas en las que se ha realizado una determinada tarea. Este cociente será $0$ cuando una tarea se haya realizado en todas las mesetas, y será mayor que 0 y menor que 1, cuando todavía quede alguna meseta por hacer. 
@@ -285,27 +293,27 @@ al calendario disponible y al orden lógico del proceso productivo. Para ello, s
 \addcontentsline{toc}{section}{3.4. Función objetivo} % Manual index entry
 Nuestro problema consiste en minimizar las horas muertas de los trabajadores. Y nuestra función objetivo será: 
 	\[
-	    min\hspace{0.1cm} \sum_{i_1 \in T_1, l\in H_{i_1}}P_{i_1}\left(\frac{M_{i_1}-\sum_{k\in C}x_{i_1 kl}}{M_{i_1}}\right)w_{i_1 l}
+	    min\hspace{0.1cm} \sum_{i_j \in T_j, l\in H_{i_j}}P_{i_j}\left(\frac{M_{i_j}-\sum_{k\in M_j}x_{i_j kl}}{M_{i_j}}\right)w_{i_j l}
     \]
 
-    La presencia del producto de variables binarias $x_{i_1 kl}$ y  $w_{i_1 l}$ hace que la función objetivo inicial sea no lineal.
+    La presencia del producto de variables binarias $x_{i_j kl}$ y  $w_{i_j l}$ hace que la función objetivo inicial sea no lineal.
     Debido a que la optimización lineal es considerablemente más eficiente y permite utilizar algoritmos de resolución estándar más robustos,
     se decidió realizar una linealización del modelo.
 
     Para ello, introduciremos variables auxiliares definidas como:
     \[
-        \delta_{i_1 k l}=x_{i_1 k l}w_{i_1 l} \forall i_1 \in T_1, k \in C, l \in H_{i_1}
+        \delta_{i_j k l}=x_{i_j k l}w_{i_j l} \forall i_j \in T_j, k \in M_j, l \in H_{i_j}
     \]
     Estas variables auxiliares se restringen mediante las siguientes condiciones que linealizan el producto binario:
     \[\begin{aligned}
-        \delta_{i_1 k l} &\leq x_{i_1 k l} \hspace{0.5cm} \forall i_1 \in T_1, k \in C \hspace{0.2cm} l\in H_{i_1}\\
-        \delta_{i_1 k l} &\leq w_{i_1 l} \hspace{0.5cm} \forall i_1 \in T_1, k \in C \hspace{0.2cm} l\in H_{i_1}\\
-	    \delta_{i_1 k l} &\geq x_{i_1 k l} + w_{i_1 l} -1 \hspace{0.5cm} \forall i_1 \in T_1, k \in C \hspace{0.2cm} l\in H_{i_1}
+        \delta_{i_j k l} &\leq x_{i_j k l} \hspace{0.5cm} \forall i_j \in T_j, k \in M_j \hspace{0.2cm} l\in H_{i_j}\\
+        \delta_{i_j k l} &\leq w_{i_j l} \hspace{0.5cm} \forall i_j \in T_j, k \in M_j \hspace{0.2cm} l\in H_{i_j}\\
+	    \delta_{i_j k l} &\geq x_{i_j k l} + w_{i_j l} -1 \hspace{0.5cm} \forall i_j \in T_j, k \in M_j \hspace{0.2cm} l\in H_{i_j}
     \end{aligned}\]
 
     Una vez introducidas estas variables auxiliares, la función objetivo queda linealizada como:
 	\[
-        min\hspace{0.1cm} \sum_{i_1 \in T_1, l\in H_{i_1}}P_{i_1}\left(\frac{M_{i_1}w_{i_1 l}-\sum_{k\in C}\delta_{i_1 k l}}{M_{i_1}}\right)
+        min\hspace{0.1cm} \sum_{i_j \in T_j, l\in H_{i_j}}P_{i_j}\left(\frac{C_{i_j}w_{i_j l}-\sum_{k\in M_j}\delta_{i_1 k l}}{M_{i_1}}\right)
     \]
 	Esta nueva formulación mantiene exactamente el mismo sentido original de minimización del tiempo improductivo,
     permitiendo al mismo tiempo aprovechar las ventajas de eficiencia computacional y robustez propias de la optimización lineal.
@@ -320,84 +328,43 @@ Nuestro problema consiste en minimizar las horas muertas de los trabajadores. Y 
 Durante nuestra visita a la empresa, recopilamos todos los datos necesarios para nuestro análisis. 
 Posteriormente, la empresa nos facilitó la información que habíamos solicitado.
 
-Para nuestro estudio, asumimos que las fincas tienen una forma rectangular, con dimensiones promedio
-de 100 x 300 metros. Cada meseta de cultivo mide 1.6 metros de ancho, con surcos laterales de 0.4 metros
-para permitir el paso de la maquinaria. Esto implica que cada camino tendrá unas dimensiones de 2 x 300 metros.
-En consecuencia, en cada finca disponemos de 50 caminos y sus respectivas 50 mesetas para el cultivo.
+Para nuestro estudio, asumimos que las fincas tienen una forma rectangular. Hemos tomado finca en la que plantaremos las lechugas de
+de 100 x 300 metros, mientras que la finca en la tenemos las espincas es de 180x300 metros. Cada meseta de cultivo mide 1.6 metros de ancho, 
+con surcos laterales de 0.4 metros para permitir el paso de la maquinaria. Esto implica que cada camino tendrá unas dimensiones de 2 x 300 metros.
+En consecuencia, la primera finca encontraremos 50 caminos con sus respectivas 50 mesetas de cultivo, mientras que en la segunda tendremos 
+90 caminos con sus 90 mesetas
 
-Dado que todas las tareas están mecanizadas, es fundamental considerar la velocidad de las máquinas utilizadas en el
-proceso. Aunque la empresa nos proporcionó estos datos en kilómetros por hora (km/h), para facilitar nuestra formulación 
+Las tareas se encuentran mecanizadas, pues es un tractor con un apero diferente los protegonistas en cada una de ellas. Por lo que tenemos 
+que saber la velocidad que puede alcanzar el tractor dependiendo del apero que estemos usando en cada una de las tareas. 
+ Aunque la empresa nos proporcionó estos datos en kilómetros por hora (km/h), para facilitar nuestra formulación lo hemos pasado a mesetas por hora.
 
  \begin{table}[ht!]
     \centering
     \begin{minipage}{0.48\textwidth}
         \centering
-        \begin{tabular}{|l|c|}
+        \begin{tabular}{|c|c|c|}
             \hline
-            \rowcolor{gray!30} \textbf{\textcolor{grey3}{TASK}} & \textbf{\textcolor{grey3}{SPEED}} \\ 
+            \rowcolor{gray!30} \textbf{\textcolor{grey3}{TASK}} & \textbf{\textcolor{grey3}{SPEED}} &  \textbf{\textcolor{grey3}{WORKERS}}\\ 
             \hline
-            Soil preparation   & 2  \\ \hline
-            Install paper      & 4  \\ \hline
-            Plant              & 3  \\ \hline
-            Sow                & 4  \\ \hline
-            Install irrigation & 3  \\ \hline
-            Install hoops      & 3  \\ \hline
-            Install mesh       & 3  \\ \hline
-            Remove irrigation  & 3  \\ \hline
-            Remove mesh        & 4  \\ \hline
-            Remove hoops       & 3  \\ \hline
-            Harvest seeds      & 3  \\ \hline
-            Harvest plants     & 2  \\ 
+            Soil preparation   & 2 & 4 \\ \hline
+            Install paper      & 4 & 2\\ \hline
+            Plant              & 3 & 6\\ \hline
+            Sow                & 4 & 5\\ \hline
+            Install irrigation & 3 & 2 \\ \hline
+            Install hoops      & 3 & 3 \\ \hline
+            Install mesh       & 3 & 2 \\ \hline
+            Remove irrigation  & 3 & 2 \\ \hline
+            Remove mesh        & 4 & 2 \\ \hline
+            Remove hoops       & 3 & 2 \\ \hline
+            Harvest seeds      & 3 & 7 \\ \hline
+            Harvest plants     & 2 & 14 \\ 
             \hline
         \end{tabular}
-        \caption{Tabla de tareas y velocidades}
+        \caption{Tabla de tareas, velocidades y trabajadores}
         \label{tab:tareas}
     \end{minipage}
     \hfill
-    \begin{minipage}{0.48\textwidth}
-        \centering
-        \begin{tabular}{|l|c|}
-            \hline
-            \rowcolor{gray!30} \textbf{\textcolor{grey3}{TASK}} & \textbf{\textcolor{grey3}{Workers}} \\ 
-            \hline
-            Soil preparation   & 4  \\ \hline
-            Install paper      & 2  \\ \hline
-            Plant              & 6  \\ \hline
-            Sow                & 5  \\ \hline
-            Install irrigation & 2 \\ \hline
-            Install hoops      & 3  \\ \hline
-            Install mesh       & 2  \\ \hline
-            Remove irrigation  & 2 \\ \hline
-            Remove mesh        & 2  \\ \hline
-            Remove hoops       & 2 \\ \hline
-            Harvest seeds      & 7  \\ \hline
-            Harvest plants     & 14  \\ 
-            \hline
-        \end{tabular}
-        \caption{Tabla de tareas y trabajadores}
-        \label{tab:trabajadores}
-    \end{minipage}
 \end{table}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Nuestra planificación está diseñada para organizar un mes de trabajo. Considerando una jornada laboral de 8 horas diarias, 
 trabajamos con un total de 240 horas al mes.
 
@@ -405,8 +372,36 @@ Por otro lado, los trabajadores se incorporan a la campaña de manera escalonada
 tarea específica, lo que da lugar a la formación de grupos de trabajo especializados. El número de trabajadores por grupo varía 
 en función de la tarea asignada.
 
-
-
+Otro aspecto importante a considerar es el tiempo que tardará en crecer cada variedad. La empresa nos proporcionó esta 
+información en días, aunque nos advirtieron que, en el caso de las variedades de espinaca, el tiempo de crecimiento no es fijo,
+ ya que depende en gran medida de la radiación solar que reciban. Por esta razón, nos proporcionaron un rango de días en los que 
+ suelen ser cosechadas, indicando cuáles variedades tienen una mayor o menor variabilidad en su crecimiento. Con estos datos, 
+ realizamos una estimación del momento óptimo para la recolección. Además, como trabajamos en horas, convertimos la escala temporal:
+ cada día indicado por la empresa se expresa en nuestra formulación como un período de ocho horas. De esta forma, ajustamos los tiempos 
+ de crecimiento a nuestro esquema de trabajo.
+\begin{table}[ht!]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \begin{tabular}{|c|c|c|}
+            \hline
+            \rowcolor{gray!30} \textbf{\textcolor{grey3}{RANGES}} & \textbf{\textcolor{grey3}{DAYS}} &  \textbf{\textcolor{grey3}{HOURS}}\\ 
+            \hline
+            Baby spinach   & 24 & 192 \\ \hline
+            Babay spinach organics  & 34.5 & 208\\ \hline
+            Red Spinach              & 22 & 176\\ \hline
+            Teen Spinach           & 31.2 & 187\\ \hline
+            Soup Spinach & 33.8 & 203 \\ \hline
+            Knox Cos     & 22 & 176 \\ \hline
+            Apollo      & 24 & 192 \\ \hline
+             
+            \hline
+        \end{tabular}
+        \caption{Tabla de Variedades y tiempo de crecimiento}
+        \label{tab:Variedades}
+    \end{minipage}
+    \hfill
+\end{table}
 \chapter*{Code}
 \addcontentsline{toc}{chapter}{5. Code} % Manual index entry\addcontentsline{toc}{chapter}{5. Code} % Manual index entry
 % Explicación del código
