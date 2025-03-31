@@ -187,13 +187,32 @@ y por tanto, como se mencionaba anteriormente, con secuencias de tareas diferenc
     $T_2$:= \{preptierra2,sembrar2,ponerriego2,quitarriego2,cosechar2\}
 \end{itemize}
 
+\subsection{Variedades y tiempos de crecimiento}
+
+En cada tierra nos encontramos distintas variedades de un mismo producto, que se encontrarán repartidas de forma homogénea por las mesetas:
+
+\[\begin{aligned}
+        Q_1:={apollo, knoxcos}\\
+        Q_2:={babyspinach, teenspinach, babyspinachorganic, soupspinach, redspinach}
+    \end{aligned}\]
+
+Cada una de ellas tendrá un tiempo de crecimiento:
+\[\begin{aligned}
+        S_1:=\{s_{apollo},s_{knoxcos}\}\\
+        S_2:=\{s_{babyspinach}, s_{teenspinach}, s_{babyspinachorganic}, s_{soupspinach}, s_{redspinach}\}
+    \end{aligned}\]
+
+
+
 \subsubsection{Mesetas y horizonte temporal}
 
-Para cada tierra, definimos el conjunto de mesetas correspodiente y el conjunto de horas ($H$) de trabajo disponibles durante el pedido:
+Para cada tierra, definimos el conjunto de mesetas correspodiente ($M_j$), el número de mesetas totales ($N_j$), y el conjunto de horas ($H$) de trabajo disponibles durante el pedido:
     \[\begin{aligned}
-        M_1:={1....50}\\
-        M_2:={1....90}\\
-        H:={1...240}
+        M_1:=\{1....50\}\\
+        M_2:=\{1....90\}\\
+        N_1:=50\\
+        N_2:=90\\
+        H:=\{1...240\}
     \end{aligned}\]
 
 \subsubsection{Disponibilidad temporal de las tareas}
@@ -214,6 +233,7 @@ $V_{i_1}:=$ numero maximo de mesetas por camino en una hora $\forall i_1 \in T_1
 
 $V_{i_2}:=$ numero maximo de mesetas por camino en una hora $\forall i_2 \in T_2$
 \end{center}
+
 
 
 \subsubsection{Personal asociado a cada tarea}
@@ -275,13 +295,21 @@ al calendario disponible y al orden lógico del proceso productivo. Para ello, s
            y debe estar un tiempo hasta que crezca. El tiempo depende de la variedad.
            Una vez pasado dicho tiempo, se pueden realizar las tareas posteriores.
         \[
-	        x_{\text{quitarmalla}1 kl} \leq \sum_{l'\in H_{\text{ponerriego}1}, l'<l-s_1}x_{\text{ponerriego}1kl'} \hspace{0.5cm} k\in \{1, ..., 36\}, l\in H_{\text{quitarmalla}1}
+	        x_{\text{quitarmalla}1 kl} \leq \sum_{l'\in H_{\text{ponerriego}1}, l'<l-s_{apollo}}x_{\text{ponerriego}1kl'} \hspace{0.5cm} k\in \{1, ..., 36\}, l\in H_{\text{quitarmalla}1}
         \]
-	    Esta misma restricción se da para $s_2$ y en este caso tendríamos que $k \in \{37, ..., 50\}$. 
+	    Esta misma restricción se da para $s_{knoxcos}$ y en este caso tendríamos que $k \in \{37, ..., 50\}$. 
 	
+        Para las variedades de la segunda tierra tendremos:
+        \[
+	        x_{\text{quitarriego}2 kl} \leq \sum_{l'\in H_{\text{ponerriego}2}, l'<l-s_{babyspinach}}x_{\text{ponerriego}2kl'} \hspace{0.5cm} k\in \{1, ..., 45\}, l\in H_{\text{quitarriego}2}
+        \]
+
+        Esta misma restricción se da para $s_{teenspinach}, s_{babyspinachorganic}, s_{soupspinach}, s_{redspinach}$ y en este caso tendríamos que $k \in \{46, ..., 50\},\{51, ..., 63\},\{64, ..., 74\},\{75, ..., 90\}$
+        respectivamente.
+
     \item  Por último, necesitamos una restricción que active $w_{i_j l}$, es decir, que nos diga si todavía se puede realizar una tarea en una meseta. 
         \[
-	        \displaystyle w_{i_j l}\geq \frac{C_{i_j}-\sum_{l'<l, l'\in H_{i_j}, k\in M_j}x_{i_j kl'}}{C_{i_j}}
+	        \displaystyle w_{i_j l}\geq \frac{N_j-\sum_{l'<l, l'\in H_{i_j}, k\in M_j}x_{i_j kl'}}{N_j}
         \]
 	
 	    En el sumatorio se cuentan las mesetas en las que se ha realizado una determinada tarea. Este cociente será $0$ cuando una tarea se haya realizado en todas las mesetas, y será mayor que 0 y menor que 1, cuando todavía quede alguna meseta por hacer. 
@@ -293,7 +321,7 @@ al calendario disponible y al orden lógico del proceso productivo. Para ello, s
 \addcontentsline{toc}{section}{3.4. Función objetivo} % Manual index entry
 Nuestro problema consiste en minimizar las horas muertas de los trabajadores. Y nuestra función objetivo será: 
 	\[
-	    min\hspace{0.1cm} \sum_{i_j \in T_j, l\in H_{i_j}}P_{i_j}\left(\frac{M_{i_j}-\sum_{k\in M_j}x_{i_j kl}}{M_{i_j}}\right)w_{i_j l}
+	    min\hspace{0.1cm} \sum_{i_j \in T_j, l\in H_{i_j}}P_{i_j}\left(\frac{V_{i_j}-\sum_{k\in M_j}x_{i_j kl}}{V_{i_j}}\right)w_{i_j l}
     \]
 
     La presencia del producto de variables binarias $x_{i_j kl}$ y  $w_{i_j l}$ hace que la función objetivo inicial sea no lineal.
@@ -302,9 +330,9 @@ Nuestro problema consiste en minimizar las horas muertas de los trabajadores. Y 
 
     Para ello, introduciremos variables auxiliares definidas como:
     \[
-        \delta_{i_j k l}=x_{i_j k l}w_{i_j l} \forall i_j \in T_j, k \in M_j, l \in H_{i_j}
+        \delta_{i_j k l}=x_{i_j k l}w_{i_j l} \hspace{0.2cm} \forall i_j \in T_j, k \in M_j, l \in H_{i_j}
     \]
-    Estas variables auxiliares se restringen mediante las siguientes condiciones que linealizan el producto binario:
+    Estas variables auxiliares se restringen mediante las siguientes condiciones que nos aseguran que su valor es idéntico al del producto:
     \[\begin{aligned}
         \delta_{i_j k l} &\leq x_{i_j k l} \hspace{0.5cm} \forall i_j \in T_j, k \in M_j \hspace{0.2cm} l\in H_{i_j}\\
         \delta_{i_j k l} &\leq w_{i_j l} \hspace{0.5cm} \forall i_j \in T_j, k \in M_j \hspace{0.2cm} l\in H_{i_j}\\
@@ -313,7 +341,7 @@ Nuestro problema consiste en minimizar las horas muertas de los trabajadores. Y 
 
     Una vez introducidas estas variables auxiliares, la función objetivo queda linealizada como:
 	\[
-        min\hspace{0.1cm} \sum_{i_j \in T_j, l\in H_{i_j}}P_{i_j}\left(\frac{C_{i_j}w_{i_j l}-\sum_{k\in M_j}\delta_{i_1 k l}}{M_{i_1}}\right)
+        min\hspace{0.1cm} \sum_{i_j \in T_j, l\in H_{i_j}}P_{i_j}\left(\frac{V_{i_j}w_{i_j l}-\sum_{k\in M_j}\delta_{i_j k l}}{V_{i_j}}\right)
     \]
 	Esta nueva formulación mantiene exactamente el mismo sentido original de minimización del tiempo improductivo,
     permitiendo al mismo tiempo aprovechar las ventajas de eficiencia computacional y robustez propias de la optimización lineal.
@@ -388,7 +416,7 @@ información en días, aunque nos advirtieron que, en el caso de las variedades 
             \rowcolor{gray!30} \textbf{\textcolor{grey3}{RANGES}} & \textbf{\textcolor{grey3}{DAYS}} &  \textbf{\textcolor{grey3}{HOURS}}\\ 
             \hline
             Baby spinach   & 24 & 192 \\ \hline
-            Babay spinach organics  & 34.5 & 208\\ \hline
+            Baby spinach organics  & 34.5 & 208\\ \hline
             Red Spinach              & 22 & 176\\ \hline
             Teen Spinach           & 31.2 & 187\\ \hline
             Soup Spinach & 33.8 & 203 \\ \hline

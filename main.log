@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.3)  31 MAR 2025 18:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.3)  31 MAR 2025 21:46
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1090,7 +1090,7 @@ Package biblatex Info: Reference segment=0 on input line 136.
 \openout2 = `portada/umu.aux'.
 
  (./portada/umu.tex
-<portada/nuevo_logo_umu.png, id=59, 694.09312pt x 701.11937pt>
+<portada/nuevo_logo_umu.png, id=63, 694.09312pt x 701.11937pt>
 File: portada/nuevo_logo_umu.png Graphic file (type png)
 <use portada/nuevo_logo_umu.png>
 Package pdftex.def Info: portada/nuevo_logo_umu.png  used on input line 26.
@@ -1129,7 +1129,7 @@ l.138     \include{portada/indice.tex}
 \openout2 = `desarrollo.aux'.
 
  (./desarrollo.tex
-<img/campitos_lindos.jpeg, id=88, 1132.23pt x 191.71625pt>
+<img/campitos_lindos.jpeg, id=93, 1132.23pt x 191.71625pt>
 File: img/campitos_lindos.jpeg Graphic file (type jpg)
 <use img/campitos_lindos.jpeg>
 Package pdftex.def Info: img/campitos_lindos.jpeg  used on input line 28.
@@ -1140,32 +1140,32 @@ Package pdftex.def Info: img/campitos_lindos.jpeg  used on input line 28.
 
 
  <./img/campitos_lindos.jpeg>]
-<img/lechuga_apollo.png, id=101, 679.53876pt x 667.49374pt>
+<img/lechuga_apollo.png, id=106, 679.53876pt x 667.49374pt>
 File: img/lechuga_apollo.png Graphic file (type png)
 <use img/lechuga_apollo.png>
 Package pdftex.def Info: img/lechuga_apollo.png  used on input line 60.
 (pdftex.def)             Requested size: 152.36281pt x 149.66017pt.
-<img/lechuga_knox.png, id=103, 679.53876pt x 684.5575pt>
+<img/lechuga_knox.png, id=108, 679.53876pt x 684.5575pt>
 File: img/lechuga_knox.png Graphic file (type png)
 <use img/lechuga_knox.png>
 Package pdftex.def Info: img/lechuga_knox.png  used on input line 67.
 (pdftex.def)             Requested size: 130.59859pt x 131.56097pt.
-<img/baby_spinach.png, id=104, 679.53876pt x 676.5275pt>
+<img/baby_spinach.png, id=109, 679.53876pt x 676.5275pt>
 File: img/baby_spinach.png Graphic file (type png)
 <use img/baby_spinach.png>
 Package pdftex.def Info: img/baby_spinach.png  used on input line 79.
 (pdftex.def)             Requested size: 152.36281pt x 151.68564pt.
-<img/teen_spinach.png, id=105, 571.13374pt x 677.53125pt>
+<img/teen_spinach.png, id=110, 571.13374pt x 677.53125pt>
 File: img/teen_spinach.png Graphic file (type png)
 <use img/teen_spinach.png>
 Package pdftex.def Info: img/teen_spinach.png  used on input line 86.
 (pdftex.def)             Requested size: 130.59859pt x 154.92947pt.
-<img/red_spinach.jpg, id=106, 259.97125pt x 194.7275pt>
+<img/red_spinach.jpg, id=111, 259.97125pt x 194.7275pt>
 File: img/red_spinach.jpg Graphic file (type jpg)
 <use img/red_spinach.jpg>
 Package pdftex.def Info: img/red_spinach.jpg  used on input line 92.
 (pdftex.def)             Requested size: 130.59859pt x 97.82108pt.
-<img/soup_spinach.png, id=107, 727.21687pt x 477.28313pt>
+<img/soup_spinach.png, id=112, 727.21687pt x 477.28313pt>
 File: img/soup_spinach.png Graphic file (type png)
 <use img/soup_spinach.png>
 Package pdftex.def Info: img/soup_spinach.png  used on input line 98.
@@ -1200,24 +1200,24 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B5CB364E6BCB807175C8BDCB7D6D2E6A;1745.
+(rerunfilecheck)             Checksum: 3C39E77903EEC45FDC66DD861415F79E;1993.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 40978 strings out of 474222
- 790978 string characters out of 5748734
+ 40981 strings out of 474222
+ 791027 string characters out of 5748734
  1939975 words of memory out of 5000000
- 62523 multiletter control sequences out of 15000+600000
- 567183 words of font info for 71 fonts, out of 8000000 for 9000
+ 62525 multiletter control sequences out of 15000+600000
+ 567490 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  94i,17n,93p,2407b,1924s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on main.pdf (18 pages, 4872723 bytes).
+Output written on main.pdf (18 pages, 4879442 bytes).
 PDF statistics:
- 288 PDF objects out of 1000 (max. 8388607)
- 221 compressed objects within 3 object streams
- 56 named destinations out of 1000 (max. 500000)
- 157 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 293 PDF objects out of 1000 (max. 8388607)
+ 226 compressed objects within 3 object streams
+ 57 named destinations out of 1000 (max. 500000)
+ 165 words of extra memory for PDF output out of 10000 (max. 10000000)
 
