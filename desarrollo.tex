@@ -242,37 +242,73 @@ donde:
 El modelo de planificación agrícola debe garantizar que la ejecución de las tareas se ajusta a las capacidades operativas,
 al calendario disponible y al orden lógico del proceso productivo. Para ello, se han definido las siguientes restricciones:
 \begin{itemize}
-    \item Cada tarea solo puede cubrir un número máximo de mesetas por hora, en función de la velocidad de la maquinaria utilizada:
-          \[
-            \sum_{k\in C}x_{i_j,k,l} \leq M_{i_j} \qquad \forall i_1 \in T_1, \qquad l\in H_{i_1} \text{   asociado}
-          \]
-    \item  Solo podemos realizar las tareas una única vez en los caminos donde se puedan realizar:
-          \[
-            \sum_{i_1 \in T_1, l\in H_{i_1}}x_{i_1 kl} =1 \qquad \forall k \in C
-          \]
-    \item Debemos respetar el orden que siguen las tareas:
-          \[
-            x_{i_j,k,l} \leq \sum_{l' \in h_{prev(1)}, l'<l}x_{prev(1),k,l'} \qquad \forall i_1\in T_1 \rightarrow k\in C, l \in H_{i_1}
-          \]
-    \item Hay que respetar el crecimiento de cada variedad. Una vez puesto el riego la planta comienza a crecer, y debe pasar un tiempo hasta que crezca.
-    El tiempo depende de la variedad. Una vez pasado dicho tiempo, se puede realizar la tarea 'quitar malla'.
-          \[
-            x_{\text{quitarmalla}1,k,l} \leq \sum_{l'\in H_{\text{ponerriego}1}, l'<l-s_1}x_{\text{ponerriego}1,k,l'} \qquad k\in \{1, ..., 50\}, l\in H_{\text{quitarmalla}1} 
-          \]
-          Esta misma restricción se da para $s_2$ y en este caso tendríamos que $k \in \{37, ..., 50\}$. 
+    \item  No podemos asignar más mesetas por hora de los que permite la tarea.
+           La velocidad de realización de la tarea la marca el tractor, no podemos asignar más mesetas de los que es posible abarcar en una hora.
+           Para ello fijamos una hora y una tarea y recorremos los caminos. El número que obtenemos no debe ser mayor que el máximo número de caminos que puede hacer la maquinaria. 
+	    \[
+            \sum_{k\in C}x_{i_1 kl} \leq M_{i_1} \hspace{0.5cm} \forall i_1 \in T_1, \hspace{0.2cm} l\in H_{i_1}
+        \]
+    \item  Solo podemos realizar las tareas una única vez en los caminos donde se puedan realizar.
+           Para ello fijamos un camino y una tarea, obteniendo que la suma en todas las horas debe ser 1,
+           pues de lo contrario la tarea o no se habría realizado (si es 0) o se habría realizado más de una vez. 
+        \[
+	        \sum_{l\in H_{i_1}}x_{i_1 kl} =1 \hspace{0.5cm} \forall i_1 \in T_1 , k \in C
+        \]
+    \item Las tareas siguen un orden que debemos respetar.
+          No podemos realizar la siguiente tarea en una meseta sin haber hecho la anterior.
+          Debemos comprobar que en esa meseta se han hecho la tarea anterior a la que nos toca hacer. 
 	
-    \item Por último, necesitamos una restricción que active $w_{i_1 l}$, es decir, que nos diga si todavía se puede realizar una tarea en una meseta. 
-          \[
-          \displaystyle w_{i_1 l}\geq \frac{C_{i_1}-\sum_{l'<l, l'\in H_{i_1}, k\in C}x_{i_1 kl}}{C_{i_1}}
-          \]
-          
-          En el sumatorio se cuentan las mesetas en las que se ha realizado una determinada tarea. Este cociente será $0$ cuando una tarea se haya realizado en todas las mesetas, y será mayor que 0 y menor que 1, cuando todavía quede alguna meseta por hacer. 
+	      Fijamos una meseta, una tarea y una hora, y comprobamos que en las horas previas se ha realizado la tarea anterior. 
+        \[
+	        x_{i_1 kl} \leq \sum_{l' \in H_{prev(i_1)}, l'<l}x_{prev(i_1)kl'} \hspace{0.5cm} \forall i_1\in T_1/{first(T_1)}, k\in C, l \in H_{i_1}
+        \]
+	
+    \item  Hay que respetar el crecimiento de cada variedad. Una vez puesto el riego la planta comienza a crecer,
+           y debe para un tiempo hasta que crezca. El tiempo depende de la variedad.
+           Una vez pasado dicho tiempo, se puede realizar la tarea 'quitar malla'. 
+        \[
+	        x_{\text{quitarmalla}1kl} \leq \sum_{l'\in H_{\text{ponerriego}1}, l'<l-s_1}x_{\text{ponerriego}1kl'} \hspace{0.5cm} k\in \{1, ..., 36\}, l\in H_{\text{quitarmalla}1}
+        \]
+	    Esta misma restricción se da para $s_2$ y en este caso tendríamos que $k \in \{37, ..., 50\}$. 
+	
+    \item  Por último, necesitamos una restricción que active $w_{i_1 l}$, es decir, que nos diga si todavía se puede realizar una tarea en una meseta. 
+        \[
+	        \displaystyle w_{i_1 l}\geq \frac{C_{i_1}-\sum_{l'<l, l'\in H_{i_1}, k\in C}x_{i_1 kl'}}{C_{i_1}}
+        \]
+	
+	    En el sumatorio se cuentan las mesetas en las que se ha realizado una determinada tarea. Este cociente será $0$ cuando una tarea se haya realizado en todas las mesetas, y será mayor que 0 y menor que 1, cuando todavía quede alguna meseta por hacer. 
+	
 \end{itemize}
 
 
 \section*{Función objetivo}
 \addcontentsline{toc}{section}{3.4. Función objetivo} % Manual index entry
+Nuestro problema consiste en minimizar las horas muertas de los trabajadores. Y nuestra función objetivo será: 
+	\[
+	    min\hspace{0.1cm} \sum_{i_1 \in T_1, l\in H_{i_1}}P_{i_1}\left(\frac{M_{i_1}-\sum_{k\in C}x_{i_1 kl}}{M_{i_1}}\right)w_{i_1 l}
+    \]
 
+    La presencia del producto de variables binarias $x_{i_1 kl}$ y  $w_{i_1 l}$ hace que la función objetivo inicial sea no lineal.
+    Debido a que la optimización lineal es considerablemente más eficiente y permite utilizar algoritmos de resolución estándar más robustos,
+    se decidió realizar una linealización del modelo.
+
+    Para ello, introduciremos variables auxiliares definidas como:
+    \[
+        \delta_{i_1 k l}=x_{i_1 k l}w_{i_1 l} \forall i_1 \in T_1, k \in C, l \in H_{i_1}
+    \]
+    Estas variables auxiliares se restringen mediante las siguientes condiciones que linealizan el producto binario:
+    \[\begin{aligned}
+        \delta_{i_1 k l} &\leq x_{i_1 k l} \hspace{0.5cm} \forall i_1 \in T_1, k \in C \hspace{0.2cm} l\in H_{i_1}\\
+        \delta_{i_1 k l} &\leq w_{i_1 l} \hspace{0.5cm} \forall i_1 \in T_1, k \in C \hspace{0.2cm} l\in H_{i_1}\\
+	    \delta_{i_1 k l} &\geq x_{i_1 k l} + w_{i_1 l} -1 \hspace{0.5cm} \forall i_1 \in T_1, k \in C \hspace{0.2cm} l\in H_{i_1}
+    \end{aligned}\]
+
+    Una vez introducidas estas variables auxiliares, la función objetivo queda linealizada como:
+	\[
+        min\hspace{0.1cm} \sum_{i_1 \in T_1, l\in H_{i_1}}P_{i_1}\left(\frac{M_{i_1}w_{i_1 l}-\sum_{k\in C}\delta_{i_1 k l}}{M_{i_1}}\right)
+    \]
+	Esta nueva formulación mantiene exactamente el mismo sentido original de minimización del tiempo improductivo,
+    permitiendo al mismo tiempo aprovechar las ventajas de eficiencia computacional y robustez propias de la optimización lineal.
 
 
 
@@ -285,37 +321,82 @@ Durante nuestra visita a la empresa, recopilamos todos los datos necesarios para
 Posteriormente, la empresa nos facilitó la información que habíamos solicitado.
 
 Para nuestro estudio, asumimos que las fincas tienen una forma rectangular, con dimensiones promedio
- de 100 x 300 metros. Cada meseta de cultivo mide 1.6 metros de ancho, con surcos laterales de 0.4 metros
-  para permitir el paso de la maquinaria. Esto implica que cada camino tendrá unas dimensiones de 2 x 300 metros.
-   En consecuencia, en cada finca disponemos de 50 caminos y sus respectivas 50 mesetas para el cultivo.
+de 100 x 300 metros. Cada meseta de cultivo mide 1.6 metros de ancho, con surcos laterales de 0.4 metros
+para permitir el paso de la maquinaria. Esto implica que cada camino tendrá unas dimensiones de 2 x 300 metros.
+En consecuencia, en cada finca disponemos de 50 caminos y sus respectivas 50 mesetas para el cultivo.
 
 Dado que todas las tareas están mecanizadas, es fundamental considerar la velocidad de las máquinas utilizadas en el
- proceso. Aunque la empresa nos proporcionó estos datos en kilómetros por hora (km/h), para facilitar nuestra formulación 
- convertimos las unidades a caminos por hora.
- 
+proceso. Aunque la empresa nos proporcionó estos datos en kilómetros por hora (km/h), para facilitar nuestra formulación 
+
  \begin{table}[ht!]
     \centering
-    \begin{tabular}{|l|c|}
-        \hline
-        \rowcolor{gray!30} \textbf{\textcolor{grey3}{TASK}} & \textbf{\textcolor{grey3}{SPEED}} \\ 
-        \hline
-        Soil preparation   & 2  \\ \hline
-        Install paper      & 4  \\ \hline
-        Plant              & 3  \\ \hline
-        Sow                & 4  \\ \hline
-        Install irrigation & 3  \\ \hline
-        Install hoops      & 3  \\ \hline
-        Install mesh       & 3  \\ \hline
-        Remove irrigation  & 3  \\ \hline
-        Remove mesh        & 4  \\ \hline
-        Remove hoops       & 3  \\ \hline
-        Harvest seeds      & 3  \\ \hline
-        Harvest plants     & 2  \\ 
-        \hline
-    \end{tabular}
-    \caption{Tabla de tareas y velocidades}
-    \label{tab:tareas}
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \begin{tabular}{|l|c|}
+            \hline
+            \rowcolor{gray!30} \textbf{\textcolor{grey3}{TASK}} & \textbf{\textcolor{grey3}{SPEED}} \\ 
+            \hline
+            Soil preparation   & 2  \\ \hline
+            Install paper      & 4  \\ \hline
+            Plant              & 3  \\ \hline
+            Sow                & 4  \\ \hline
+            Install irrigation & 3  \\ \hline
+            Install hoops      & 3  \\ \hline
+            Install mesh       & 3  \\ \hline
+            Remove irrigation  & 3  \\ \hline
+            Remove mesh        & 4  \\ \hline
+            Remove hoops       & 3  \\ \hline
+            Harvest seeds      & 3  \\ \hline
+            Harvest plants     & 2  \\ 
+            \hline
+        \end{tabular}
+        \caption{Tabla de tareas y velocidades}
+        \label{tab:tareas}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \begin{tabular}{|l|c|}
+            \hline
+            \rowcolor{gray!30} \textbf{\textcolor{grey3}{TASK}} & \textbf{\textcolor{grey3}{Workers}} \\ 
+            \hline
+            Soil preparation   & 4  \\ \hline
+            Install paper      & 2  \\ \hline
+            Plant              & 6  \\ \hline
+            Sow                & 5  \\ \hline
+            Install irrigation & 2 \\ \hline
+            Install hoops      & 3  \\ \hline
+            Install mesh       & 2  \\ \hline
+            Remove irrigation  & 2 \\ \hline
+            Remove mesh        & 2  \\ \hline
+            Remove hoops       & 2 \\ \hline
+            Harvest seeds      & 7  \\ \hline
+            Harvest plants     & 14  \\ 
+            \hline
+        \end{tabular}
+        \caption{Tabla de tareas y trabajadores}
+        \label{tab:trabajadores}
+    \end{minipage}
 \end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Nuestra planificación está diseñada para organizar un mes de trabajo. Considerando una jornada laboral de 8 horas diarias, 
 trabajamos con un total de 240 horas al mes.
@@ -333,7 +414,7 @@ en función de la tarea asignada.
 
 \chapter*{Results}
 \addcontentsline{toc}{chapter}{6. Results} % Manual index entry
-% Explicación de los resultados
+Al dividir el código nuestro resultado será la suma de las dos funciones objetivo que nos han salido
 % Tablas
 % Gráficos
 
