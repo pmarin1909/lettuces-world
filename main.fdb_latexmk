@@ -1,17 +1,17 @@
 # Fdb version 4
-["biber main"] 0 "main.bcf" "main.bbl" "main" 1743450388.38133 -1
+["biber main"] 0 "main.bcf" "main.bbl" "main" 1743535185.40995 -1
   "dummy.bib" 1742990449.73053 68 18abf14edb4503e3b71ea21a20c8c547 ""
-  "main.bcf" 1743450388.23296 107346 5b972c3002c71c90e291224bf186c5f8 "pdflatex"
+  "main.bcf" 1743535185.29366 107346 5b972c3002c71c90e291224bf186c5f8 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["cusdep glo gls main"] 0 "main.glo" "main.gls" "main" 1743450388.38117 -1
-  "main.glo" 1743450388.23396 85 e63f5b69d9261ace255d8aa2f1fd258e "pdflatex"
+["cusdep glo gls main"] 0 "main.glo" "main.gls" "main" 1743535185.40984 -1
+  "main.glo" 1743535185.29466 85 e63f5b69d9261ace255d8aa2f1fd258e "pdflatex"
   (generated)
   "main.gls"
   (rewritten before read)
-["pdflatex"] 1743450385.94949 "/home/paula/Documents/Universidad/LabMod/Optimizacion/Grupal/Informe/main.tex" "main.pdf" "main" 1743450388.38166 0
+["pdflatex"] 1743535183.33956 "/home/paula/Documents/Universidad/LabMod/Optimizacion/Grupal/Informe/main.tex" "main.pdf" "main" 1743535185.41019 0
   "/etc/texmf/web2c/texmf.cnf" 1741018048.55795 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/paula/Documents/Universidad/LabMod/Optimizacion/Grupal/Informe/main.tex" 1743433562.79533 4318 371dc9b9652b9f27c98c81311a0cd69e ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -263,8 +263,8 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1741018069.2588 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1741018092 8214551 3fed98c34c946e3c5b74f66640b9c43e ""
-  "desarrollo.aux" 1743450388.22196 7927 6f8adb313149cad0103efea54d271f70 "pdflatex"
-  "desarrollo.tex" 1743450385.43095 30819 d15803904fd2c5d031379dd63079578e ""
+  "desarrollo.aux" 1743535185.28366 8416 add59afc2c94f0626c569af258c6c32f "pdflatex"
+  "desarrollo.tex" 1743535180.76369 36558 fc2fe2e8aaaadeebf2283f7aba9c5849 ""
   "glosario.tex" 1743012115.32259 113 c7d9b0a18c29a8f111398539ebb17fbc ""
   "img/baby_spinach.png" 1743015117.4036 367318 9bd96ffd4886786baee9fb0679ae7806 ""
   "img/campitos_lindos.jpeg" 1742988675.01802 71004 5809701e8243fe2160faf4121245e0bc ""
@@ -273,17 +273,17 @@
   "img/red_spinach.jpg" 1743432147.20012 4476 87f3498b32901ab76eeca04769c75525 ""
   "img/soup_spinach.png" 1743432140.89123 943310 fbdd2fe6927c63af6acb0893ea73def8 ""
   "img/teen_spinach.png" 1743064031.71381 651041 589dfbf99d6dd0a30263b6ae551e3f14 ""
-  "main.aux" 1743450388.22696 700 64d51ebcfb8a4255cedc60c2614a102a "pdflatex"
+  "main.aux" 1743535185.28666 700 64d51ebcfb8a4255cedc60c2614a102a "pdflatex"
   "main.bbl" 1743433292.78117 466 ee04f40f768daeed26442158e95aba61 "biber main"
   "main.gls" 1743433292.05818 285 dd15e552fc1cac4d3f058c16cd6a11ea "cusdep glo gls main"
-  "main.out" 1743450388.22996 1993 3c39e77903eec45fdc66dd861415f79e "pdflatex"
-  "main.run.xml" 1743450388.23396 2300 76870dad3fcc073257df4f2ee5912f5f "pdflatex"
+  "main.out" 1743535185.29066 2071 6d6dcb1e9a88e4f86d97ba89b1093421 "pdflatex"
+  "main.run.xml" 1743535185.29466 2300 76870dad3fcc073257df4f2ee5912f5f "pdflatex"
   "main.tex" 1743433562.79533 4318 371dc9b9652b9f27c98c81311a0cd69e ""
-  "main.toc" 1743450388.23396 1299 3ebf82aef2035b3db6768adcba81abbe "pdflatex"
-  "portada/indice.aux" 1743450387.84196 4210 4f41f4f96e8589c5eff3c57269bb3af6 "pdflatex"
+  "main.toc" 1743535185.29466 1314 de69d4f7924be394613dc4e1b9d4e961 "pdflatex"
+  "portada/indice.aux" 1743535184.90467 4210 4f41f4f96e8589c5eff3c57269bb3af6 "pdflatex"
   "portada/indice.tex" 1741021406.80622 48 9328a3fcc27a3b47d118605aee49e6e8 ""
   "portada/nuevo_logo_umu.png" 1741021427.71206 59011 dbd51221b1b08795b53e1555680511ea ""
-  "portada/umu.aux" 1743450387.82996 4249 9132a2c3735281daa76211e5cf4bd15c "pdflatex"
+  "portada/umu.aux" 1743535184.89467 4249 9132a2c3735281daa76211e5cf4bd15c "pdflatex"
   "portada/umu.tex" 1742547938.10832 875 c3eee08b55a3175634d46e3f227b2e48 ""
   (generated)
   "desarrollo.aux"

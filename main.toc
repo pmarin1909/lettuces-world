@@ -14,7 +14,7 @@
 \contentsline {section}{3.3. Restricciones}{9}{section*.13}%
 \contentsline {section}{3.4. Función objetivo}{10}{section*.14}%
 \contentsline {chapter}{4. Data}{11}{chapter*.15}%
-\contentsline {chapter}{5. Code}{13}{chapter*.16}%
+\contentsline {chapter}{5. AMPL Implementation}{13}{chapter*.16}%
 \contentsline {chapter}{6. Results}{14}{chapter*.17}%
 \contentsline {chapter}{7. Conclusion}{15}{chapter*.18}%
 \contentsline {chapter}{A. Glossary}{17}{chapter*.20}%

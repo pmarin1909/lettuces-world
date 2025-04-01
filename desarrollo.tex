@@ -51,7 +51,7 @@ Para ello, nos centraremos en dos cultivos principales: lechuga y espinaca, cada
     una de hoja plana que esta pensada para la realizacion de sopas (Soup Spinach, Fig. \ref{fig:soup})
     En cuanto a las diferencia en el tratamiento, no se encuentran ambios sustanciales en el cuidado.
 \end{itemize}
-La principal diferencia entre las variedades que estamos tomando es el tiempo de cultivo de cada una de ellas.
+La principal diferencia entre las variedades que estamos tomando es el tiempo de cultivo de cada una de ellas. 
 \begin{figure}[ht!]
     \centering
 
@@ -76,14 +76,14 @@ La principal diferencia entre las variedades que estamos tomando es el tiempo de
 
     \begin{minipage}[b]{0.45\textwidth}
         \centering
-        \includegraphics[width=0.7\textwidth]{img/baby_spinach.png}
+        \includegraphics[width=0.6\textwidth]{img/baby_spinach.png}
         \caption{Variedad Baby Spinach.}
         \label{fig:baby}
     \end{minipage}
     \hfill
     \begin{minipage}[b]{0.45\textwidth}
         \centering
-        \includegraphics[width=0.6\textwidth]{img/teen_spinach.png}
+        \includegraphics[width=0.5\textwidth]{img/teen_spinach.png}
         \caption{Variedad Teen Spinach.}
         \label{fig:teen}
     \end{minipage}
@@ -101,7 +101,7 @@ La principal diferencia entre las variedades que estamos tomando es el tiempo de
     \end{minipage}
 \end{figure}
 
-
+\newpage
 Antes de pasar a desglosar las tareas que engloban el proceso de cultivo, es importante destacar una diferencia fundamental entre ambos productos.
 La lechuga se trabaja mediante plantación: las semillas se envían a un semillero y posteriormente se trasplantan las plántulas al campo. 
 En el caso de la espinaca, se utiliza el método de siembra directa, introduciendo las semillas directamente en la tierra.
@@ -133,6 +133,10 @@ La presente propuesta tiene como objetivo central la creación de un modelo de p
 garantizando al mismo tiempo que se cumplan los plazos de entrega comprometidos. Una coordinación más eficiente de las tareas supondría una mejora significativa en la utilización de los recursos,
 reduciendo tiempos de espera y aumentando la productividad general del sistema.
 
+Dados los datos de un pedido tenemos que tener en cuenta el numero de mesetas que tenemos que plantar de cada una de las variedades para 
+poder completarlo. Se planta un poco mas de lo que realmente se pide como una medida de precaucion para saber que se llegara a lo estipulado. 
+Este excendente no hace falta tenerlo en cuenta pues no genera ningun gasto adicional y luego se ofrece a los propios clientes.  
+
 \section*{Simplificaciones del modelo}
 \addcontentsline{toc}{section}{2.1. Simplificaciones del modelo} % Manual index entry
 
@@ -152,7 +156,7 @@ sin pérdida de generalidad:
           para simplificar la formulación y adaptar las unidades a la estructura del modelo.
     \item Condiciones ideales: el modelo se desarrolla bajo un escenario en el que no hay fallos mecánicos ni interrupciones por causas climáticas.
           Es decir, se asumen que todas las tareas se realizan en el tiempo estimado y que no hay retrasos por factores externos.
-    \item Jornada laboral fija: se condidera una jornada laboral de 8 horas diarias, sin cambios estacionales ni festvos.
+    \item Jornada laboral fija: se condidera una jornada laboral de 8 horas diarias, sin cambios estacionales ni festivos.
 \end{itemize}
  
 Estas simplificaciones no eliminan la complejidad del problema, pero permiten estructurar un modelo realista, funcional y computacionalmente viable que sirva como base para una futura ampliación o implementación práctica.
@@ -192,14 +196,14 @@ y por tanto, como se mencionaba anteriormente, con secuencias de tareas diferenc
 En cada tierra nos encontramos distintas variedades de un mismo producto, que se encontrarán repartidas de forma homogénea por las mesetas:
 
 \[\begin{aligned}
-        Q_1:={apollo, knoxcos}\\
-        Q_2:={babyspinach, teenspinach, babyspinachorganic, soupspinach, redspinach}
+        Q_1&:={apollo, knoxcos}\\
+        Q_2&:={babyspinach, teenspinach, babyspinachorganic, soupspinach, redspinach}
     \end{aligned}\]
 
 Cada una de ellas tendrá un tiempo de crecimiento:
 \[\begin{aligned}
-        S_1:=\{s_{apollo},s_{knoxcos}\}\\
-        S_2:=\{s_{babyspinach}, s_{teenspinach}, s_{babyspinachorganic}, s_{soupspinach}, s_{redspinach}\}
+        S_1&:=\{s_{apollo},s_{knoxcos}\}\\
+        S_2&:=\{s_{babyspinach}, s_{teenspinach}, s_{babyspinachorganic}, s_{soupspinach}, s_{redspinach}\}
     \end{aligned}\]
 
 
@@ -274,13 +278,13 @@ al calendario disponible y al orden lógico del proceso productivo. Para ello, s
            La velocidad de realización de la tarea la marca el tractor, no podemos asignar más mesetas de los que es posible abarcar en una hora.
            Para ello fijamos una hora y una tarea y recorremos las mesetas. El número que obtenemos no debe ser mayor que el máximo número de mesetas que puede hacer la maquinaria. 
 	    \[
-            \sum_{k\in M_j}x_{i_j kl} \leq V_{i_j} \hspace{0.5cm} \forall i_j \in T_j, \hspace{0.2cm} l\in H_{i_j}
+            \sum_{k\in M_j}x_{i_j kl} \leq V_{i_j} \quad \forall i_j \in T_j, \ l\in H_{i_j}
         \]
     \item  Solo podemos realizar las tareas una única vez en las mesetas donde se puedan realizar.
            Para ello fijamos una meseta y una tarea, obteniendo que la suma en todas las horas de su horario debe ser 1,
            pues de lo contrario la tarea o no se habría realizado (si es 0) o se habría realizado más de una vez. 
         \[
-	        \sum_{l\in H_{i_j}}x_{i_j kl} =1 \hspace{0.5cm} \forall i_j \in T_j , k \in M_j
+	        \sum_{l\in H_{i_j}}x_{i_j kl} =1 \quad \forall i_j \in T_j , k \in M_j
         \]
     \item Las tareas siguen un orden que debemos respetar.
           No podemos realizar la siguiente tarea en una meseta sin haber hecho la anterior.
@@ -288,20 +292,20 @@ al calendario disponible y al orden lógico del proceso productivo. Para ello, s
 	
 	      Fijamos una meseta, una tarea y una hora, y comprobamos que en las horas previas se ha realizado la tarea anterior. 
         \[
-	        x_{i_j kl} \leq \sum_{l' \in H_{prev(i_j)}, l'<l}x_{prev(i_j)kl'} \hspace{0.5cm} \forall i_j\in T_j/\{first(T_j)\}, k\in M_j, l \in H_{i_j}
+	        x_{i_j kl} \leq \sum_{l' \in H_{prev(i_j)}, l'<l}x_{prev(i_j)kl'} \quad \forall i_j\in T_j/\{first(T_j)\}, k\in M_j, l \in H_{i_j}
         \]
 	
     \item  Hay que respetar el crecimiento de cada variedad. Una vez puesto el riego la planta comienza a crecer,
            y debe estar un tiempo hasta que crezca. El tiempo depende de la variedad.
            Una vez pasado dicho tiempo, se pueden realizar las tareas posteriores.
         \[
-	        x_{\text{quitarmalla}1 kl} \leq \sum_{l'\in H_{\text{ponerriego}1}, l'<l-s_{apollo}}x_{\text{ponerriego}1kl'} \hspace{0.5cm} k\in \{1, ..., 36\}, l\in H_{\text{quitarmalla}1}
+	        x_{\text{quitarmalla}1 kl} \leq \sum_{l'\in H_{\text{ponerriego}1}, l'<l-s_{apollo}}x_{\text{ponerriego}1kl'} \quad k\in \{1, ..., 36\}, l\in H_{\text{quitarmalla}1}
         \]
 	    Esta misma restricción se da para $s_{knoxcos}$ y en este caso tendríamos que $k \in \{37, ..., 50\}$. 
 	
         Para las variedades de la segunda tierra tendremos:
         \[
-	        x_{\text{quitarriego}2 kl} \leq \sum_{l'\in H_{\text{ponerriego}2}, l'<l-s_{babyspinach}}x_{\text{ponerriego}2kl'} \hspace{0.5cm} k\in \{1, ..., 45\}, l\in H_{\text{quitarriego}2}
+	        x_{\text{quitarriego}2 kl} \leq \sum_{l'\in H_{\text{ponerriego}2}, l'<l-s_{babyspinach}}x_{\text{ponerriego}2kl'} \quad k\in \{1, ..., 45\}, l\in H_{\text{quitarriego}2}
         \]
 
         Esta misma restricción se da para $s_{teenspinach}, s_{babyspinachorganic}, s_{soupspinach}, s_{redspinach}$ y en este caso tendríamos que $k \in \{46, ..., 50\},\{51, ..., 63\},\{64, ..., 74\},\{75, ..., 90\}$
@@ -321,7 +325,7 @@ al calendario disponible y al orden lógico del proceso productivo. Para ello, s
 \addcontentsline{toc}{section}{3.4. Función objetivo} % Manual index entry
 Nuestro problema consiste en minimizar las horas muertas de los trabajadores. Y nuestra función objetivo será: 
 	\[
-	    min\hspace{0.1cm} \sum_{i_j \in T_j, l\in H_{i_j}}P_{i_j}\left(\frac{V_{i_j}-\sum_{k\in M_j}x_{i_j kl}}{V_{i_j}}\right)w_{i_j l}
+	    min\ \sum_{i_j \in T_j, l\in H_{i_j}}P_{i_j}\left(\frac{V_{i_j}-\sum_{k\in M_j}x_{i_j kl}}{V_{i_j}}\right)w_{i_j l}
     \]
 
     La presencia del producto de variables binarias $x_{i_j kl}$ y  $w_{i_j l}$ hace que la función objetivo inicial sea no lineal.
@@ -330,18 +334,18 @@ Nuestro problema consiste en minimizar las horas muertas de los trabajadores. Y 
 
     Para ello, introduciremos variables auxiliares definidas como:
     \[
-        \delta_{i_j k l}=x_{i_j k l}w_{i_j l} \hspace{0.2cm} \forall i_j \in T_j, k \in M_j, l \in H_{i_j}
+        \delta_{i_j k l}=x_{i_j k l}w_{i_j l} \ \forall i_j \in T_j, k \in M_j, l \in H_{i_j}
     \]
     Estas variables auxiliares se restringen mediante las siguientes condiciones que nos aseguran que su valor es idéntico al del producto:
     \[\begin{aligned}
-        \delta_{i_j k l} &\leq x_{i_j k l} \hspace{0.5cm} \forall i_j \in T_j, k \in M_j \hspace{0.2cm} l\in H_{i_j}\\
-        \delta_{i_j k l} &\leq w_{i_j l} \hspace{0.5cm} \forall i_j \in T_j, k \in M_j \hspace{0.2cm} l\in H_{i_j}\\
-	    \delta_{i_j k l} &\geq x_{i_j k l} + w_{i_j l} -1 \hspace{0.5cm} \forall i_j \in T_j, k \in M_j \hspace{0.2cm} l\in H_{i_j}
+        \delta_{i_j k l} &\leq x_{i_j k l} \quad \forall i_j \in T_j, k \in M_j \ l\in H_{i_j}\\
+        \delta_{i_j k l} &\leq w_{i_j l} \quad \forall i_j \in T_j, k \in M_j \ l\in H_{i_j}\\
+	    \delta_{i_j k l} &\geq x_{i_j k l} + w_{i_j l} -1 \quad \forall i_j \in T_j, k \in M_j \ l\in H_{i_j}
     \end{aligned}\]
 
     Una vez introducidas estas variables auxiliares, la función objetivo queda linealizada como:
 	\[
-        min\hspace{0.1cm} \sum_{i_j \in T_j, l\in H_{i_j}}P_{i_j}\left(\frac{V_{i_j}w_{i_j l}-\sum_{k\in M_j}\delta_{i_j k l}}{V_{i_j}}\right)
+        min\ \sum_{i_j \in T_j, l\in H_{i_j}}P_{i_j}\left(\frac{V_{i_j}w_{i_j l}-\sum_{k\in M_j}\delta_{i_j k l}}{V_{i_j}}\right)
     \]
 	Esta nueva formulación mantiene exactamente el mismo sentido original de minimización del tiempo improductivo,
     permitiendo al mismo tiempo aprovechar las ventajas de eficiencia computacional y robustez propias de la optimización lineal.
@@ -352,9 +356,9 @@ Nuestro problema consiste en minimizar las horas muertas de los trabajadores. Y 
 \addcontentsline{toc}{chapter}{4. Data} % Manual index entry
 % Explicación de los datos
 % Tablas
-
-Durante nuestra visita a la empresa, recopilamos todos los datos necesarios para nuestro análisis. 
-Posteriormente, la empresa nos facilitó la información que habíamos solicitado.
+Durante nuestra visita a la empresa pudimos obervar la forma de trabajo que tienen. Nos sirvio para poder hacernos una idea de la linea 
+de trabajo que teniamos que plantear y cuales serian los datos que necesitariamos. Posteriormente, la empresa nos facilito los
+datos que solicitamos.
 
 Para nuestro estudio, asumimos que las fincas tienen una forma rectangular. Hemos tomado finca en la que plantaremos las lechugas de
 de 100 x 300 metros, mientras que la finca en la tenemos las espincas es de 180x300 metros. Cada meseta de cultivo mide 1.6 metros de ancho, 
@@ -416,24 +420,104 @@ información en días, aunque nos advirtieron que, en el caso de las variedades 
             \rowcolor{gray!30} \textbf{\textcolor{grey3}{RANGES}} & \textbf{\textcolor{grey3}{DAYS}} &  \textbf{\textcolor{grey3}{HOURS}}\\ 
             \hline
             Baby spinach   & 24 & 192 \\ \hline
-            Baby spinach organics  & 34.5 & 208\\ \hline
+            Baby spinach organics  & 26 & 208\\ \hline
             Red Spinach              & 22 & 176\\ \hline
-            Teen Spinach           & 31.2 & 187\\ \hline
-            Soup Spinach & 33.8 & 203 \\ \hline
+            Teen Spinach           & 23.4 & 187\\ \hline
+            Soup Spinach & 25.4 & 203 \\ \hline
             Knox Cos     & 22 & 176 \\ \hline
             Apollo      & 24 & 192 \\ \hline
              
             \hline
         \end{tabular}
         \caption{Tabla de Variedades y tiempo de crecimiento}
+        \label{tab:Variedades-crecimiento}
+    \end{minipage}
+    \hfill
+\end{table}
+
+La empresa nos proporciono el pedido general que tienen que cumplir al año. Como la campaña dura diez meses hemos dividido el pedido 
+para poder sacar el equivalente en el tiempo en el que nosotros estamos trabajando. Además la empresa nos indico el número de semillas
+necesarias para poder cumplir con el pedido asi como el rendimiento que tienen al plantarlas. Con esta informacion pudimos hacer la estimacion 
+de los kilogramos que se plantan en cada meseta.
+\begin{table}[ht!]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \begin{tabular}{|c|c|c|}
+            \hline
+            \rowcolor{gray!30} \textbf{\textcolor{grey3}{RANGES}} & \textbf{\textcolor{grey3}{kilos pedidos}} & \textbf{\textcolor{grey3}{kg/meseta}}\\            \hline
+            Baby spinach   & 228235 & 5087\\ \hline
+            Baby spinach organics  & 22574 & 5543\\ \hline
+            Red Spinach              & 27560 & 2197\\ \hline
+            Teen Spinach           & 25474 & 2450\\ \hline
+            Soup Spinach & 30896 & 2059\\ \hline
+            Knox Cos     & 43459 & 6421\\ \hline
+            Apollo      & 15928 & 3243 \\ \hline
+             
+            \hline
+        \end{tabular}
+        \caption{Tabla de Variedades y pedido en kilos}
+        \label{tab:Variedades-kilos}
+    \end{minipage}
+    \hfill
+\end{table}
+
+ Como nuestra formulacion esta en mesetas solo nos queda saber que cantidad de mesetas tendremos que plantar de cada una de las variedades
+ para poder llegar a cumplir con el pedido en fecha y cantidad. 
+ 
+ \begin{table}[ht!]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \begin{tabular}{|c|c|}
+            \hline
+            \rowcolor{gray!30} \textbf{\textcolor{grey3}{RANGES}} & \textbf{\textcolor{grey3}{mesetas}}\\
+            \hline
+            Baby spinach   & 44 \\ \hline
+            Baby spinach organics   & 4\\ \hline
+            Red Spinach             & 12\\ \hline
+            Teen Spinach            & 10\\ \hline
+            Soup Spinach & 15 \\ \hline
+            Knox Cos     & 35 \\ \hline
+            Apollo      & 13 \\ \hline
+             
+            \hline
+        \end{tabular}
+        \caption{Tabla de Variedades y mesetas}
         \label{tab:Variedades}
     \end{minipage}
     \hfill
 \end{table}
-\chapter*{Code}
-\addcontentsline{toc}{chapter}{5. Code} % Manual index entry\addcontentsline{toc}{chapter}{5. Code} % Manual index entry
+Para mayor comodidad del problema suponemos que las mesetas de cada una de las variedades son consecutivas, es decir, la de Baby Spinach son las mesetas de la 
+uno a la cincuenta, la de Baby Spinach Organics es de la 46 a la 50 y asi consecutivamente.
+\chapter*{AMPL Implementation} 
+\addcontentsline{toc}{chapter}{5. AMPL Implementation} % Manual index entry\addcontentsline{toc}{chapter}{5. Code} % Manual index entry
 % Explicación del código
 % Código
+Al implementar este problema en AMPL para obtener una solución, surgieron varios problemas. En primer lugar lo implementamos 
+utilizando como función objetivo aquella en la que aparecía un producto de variables binarias. No obstante, no se pudo obtener
+ ninguna solución. Tras 9 horas ejecutando el solver, no fue posible llegar a ninguna solución óptima. Pese a que todas las restricciones son lineales, el producto de variables binarias en la función objetivo hacía que el problema fuese muy complejo de resolver. 
+
+Por lo que para evitar este problema, decidimos introducir nuevas variables con el objetivo de linealizar la función objetivo. 
+Aumenta el número de variables, pero se trabaja con una función objetivo lineal, facilitando la resolución. Comenzamos haciendo
+ pruebas considerando menos mesetas, para comprobar que la formulación funcionaba correctamente. Al encontrar una solución factible
+  a este problema muy simplificado, lo intentamos resolver para  el número de mesetas definitivo. Esto no dio resultado, pues el
+   problema seguía sin poder resolverse en un tiempo razonable. Utilizando el solver de Xpress se nos acabó la memoria en poco 
+   tiempo. Y con Gurobi y Cplex se agotó el tiempo de computación. 
+
+Es por esto que ya que trabajamos con dos tierras independietes: por una parte la de las lechugas y por otro la de las espinacas, 
+decidimos separar la parte computacional del problema. Y, a continuación, resolvimos cada uno de los problemas por separado. Aún así, en la tierra 1 persistieron los problemas computacionales.
+ Se intentó resolver el problema utilizando NEOS, pero faltaba espacio. Sin embargo, al intentar resolverlo en un ordenador normal 
+ se obtuvo una solución factible en 2 horas y media. NEOS solo permite 3gb de memoria RAM y este ordenador tenía 16gb de mamoria RAM,
+  esto explica por qué NEOS no pudo resolverlo. 
+
+En la tierra 2 sí se pudo resolver el problema para 50 mesetas y con 2 variedades de espinacas diferentes. Este problema tardó 
+50 minutos en resolverse en NEOS con el solver Gurobi. Los resultados fueron tan prometedores que decidimos aumentar el número de
+ mesetas y de variedades, llegando a 90 mesetas y 5 variedades. Se consiguió encontrar una solución para este problema utilizando
+  NEOS. Dicha solución estaba a 11 horas de ejecución de ser la solución óptima. El problema seguía siendo complejo, y no tuvimos más remedio que reducir el tiempo de ejecución para encontrar una solución, aunque no fuese la óptima. 
+
+Las espinacas requieren de un menor número de tareas, por lo que se consideran menos variables. Esto mejora la eficiencia 
+ y nos permite aumentar el número de mesetas y de variedades, resolviendo un problema más cercano a la realidad. 
 
 \chapter*{Results}
 \addcontentsline{toc}{chapter}{6. Results} % Manual index entry
