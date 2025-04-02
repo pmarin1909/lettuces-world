@@ -4,24 +4,23 @@
 % Hablar del objetivo del trabajo
 % Comentar la estructura del documento
 
-PRUEBA GLOSARIO: \gls{tempo}$^{(*)}$
+In today's world, where efficiency and strategic decision-making make the difference 
+between moving forward or falling behind, task management within a company plays a fundamental role.
+Many times, behind a good product or service, there is precise planning, careful coordination, and optimal use of the available resources.
+In this context, mathematics, and more specifically, optimization, becomes a powerful tool for transforming complexity into clear and applicable solutions.
+
+This work arises with the intention of building a bridge between theoretical knowledge and its practical application in the business environment.
+We have chosen Intercrop, a company based in Cartagena specializing in the agri-food sector, as our case study.
+Intercrop stands out for its commitment to sustainability and innovation in agricultural production, but like any company, it faces logistical and organizational challenges that require smart solutions.
+Intercrop not only operates at a national level but also maintains a close relationship with the international market.
+It exports a significant part of its production to various European countries, which demands high quality standards, strict deadline compliance, and a well-structured logistics system.
+This international dimension adds complexity to its operational management, as it must coordinate agricultural tasks with transport schedules, phytosanitary requirements, and commercial commitments abroad.
+All of this makes the company a particularly interesting environment for applying optimization tools that can help improve planning and efficiency in a real and demanding context.
+
+Through this project, we will address the task scheduling problem within the company. The goal is to design an optimization model that efficiently organizes activities, taking into account real-world constraints: time, limited resources, task dependencies, and other logistical factors.
+This process will not only allow us to provide the company with a proposal for improvement, but also to apply in a practical way the mathematical concepts learned in the classroom, especially those related to linear programming and optimization.
 
 
-En el mundo actual, donde la eficiencia y la toma de decisiones estratégicas marcan la diferencia entre avanzar o quedarse atrás, la gestión de tareas dentro de una empresa adquiere un papel fundamental.
-Muchas veces, detrás de un buen producto o servicio, hay una planificación precisa, una coordinación cuidada y un aprovechamiento óptimo de los recursos disponibles.
-En este contexto, las matemáticas, y más concretamente la optimización, se convierten en una herramienta poderosa para transformar la complejidad en soluciones claras y aplicables.
-
-Este trabajo surge con la intención de tender un puente entre el conocimiento teórico y su aplicación práctica en el entorno empresarial.
-Hemos elegido como caso de estudio la empresa Intercrop, ubicada en Cartagena, especializada en el sector agroalimentario.
-Intercrop destaca por su compromiso con la sostenibilidad y la innovación en la producción agrícola, pero como toda empresa, se enfrenta a retos logísticos y organizativos que requieren soluciones inteligentes.
-Intercrop no solo opera a nivel nacional, sino que también mantiene una estrecha relación con el mercado internacional. 
-Exporta una parte importante de su producción a distintos países europeos, lo que exige altos estándares de calidad, cumplimiento riguroso de plazos y una logística bien estructurada.
-Esta dimensión internacional añade complejidad a su gestión operativa, ya que debe coordinar las tareas agrícolas con los calendarios de transporte, las exigencias fitosanitarias y los compromisos comerciales en el extranjero.
-Todo ello convierte a esta empresa en un entorno especialmente interesante para aplicar herramientas de optimización que ayuden a mejorar la planificación y la eficiencia en un contexto real y exigente.
-
-A través de este proyecto, abordaremos el problema de planificación de tareas dentro de la empresa. La meta es diseñar un modelo de optimización que permita organizar de forma eficiente las actividades,
- considerando las restricciones del entorno real: tiempos, recursos limitados, dependencias entre tareas y otros factores logísticos.
-Este proceso nos permitirá no solo aportar una propuesta de mejora a la empresa, sino también aplicar de forma práctica los conceptos matemáticos aprendidos en el aula, especialmente en lo que respecta a programación lineal y optimización.
 \vspace{10mm}
 \begin{figure}[ht!]
     \centering
@@ -36,36 +35,41 @@ Este proceso nos permitirá no solo aportar una propuesta de mejora a la empresa
 % Simplificaciones
 % Descripción de las tareas
 
-La planificación de tareas en el entorno agrícola representa un desafío logístico y operativo considerable,
-especialmente en empresas que operan bajo un modelo de producción bajo pedido, como es el caso de Intercrop.
-Esta empresa, situada en Cartagena y especializada en productos hortícolas, organiza su producción en función de la demanda estacional.
-Durante la campaña de verano, se establecen con antelación tanto la cantidad de kilogramos de producto que se deben suministrar como las fechas específicas de entrega.
-Esto implica que toda la planificación de cultivo, desarrollo, cosecha y distribución debe estar ajustada con precisión para cumplir los plazos,
-garantizar la calidad del producto fresco (con una vida útil de entre siete y diez días) y minimizar los costes operativos.
+Task planning in the agricultural sector represents a significant logistical and operational challenge,  
+especially for companies operating under a made-to-order production model, as is the case with Intercrop.  
+This company, located in Cartagena and specialized in horticultural products, organizes its production based on seasonal demand.  
+During the summer campaign, both the quantity of product to be supplied and the specific delivery dates are established in advance.  
+This means that all planning—from cultivation and growth to \gls{harvest}$^{(*)}$ and distribution—must be precisely aligned to meet deadlines,  
+ensure the quality of the fresh product (with a shelf life of seven to ten days), and minimize operational costs.
 
-El objetivo de este trabajo es abordar, desde un enfoque matemático y práctico, el problema de planificación de tareas agrícolas en el entorno real de esta empresa.
-Para ello, nos centraremos en dos cultivos principales: lechuga y espinaca, cada uno con dos variantes específicas.
+Given the data of an order, we must take into account the number of \gls{raised bed}s$^{(*)}$ that need to be \gls{transplanted}$^{(*)}$ for each variety in order to fulfill it.  
+A small surplus is transplanted as a precautionary measure to ensure the required amount is met.  
+This surplus does not need to be considered in the planning, as it generates no additional cost and is later offered to the clients.
+ 
+
+The objective of this work is to address, from a mathematical and practical perspective, the problem of agricultural task scheduling within the real-world context of this company.  
+To this end, we will focus on two main crops: lettuce and spinach, including two varieties of lettuce and five varieties of spinach.
+
 \begin{itemize}
-    \item \textbf{Lechuga}: se cultiva en dos variedades, una de hoja rizada (Apollo, Fig. \ref{fig:apollo}) y otra de hoja lisa (Knox Cos, Fig. \ref{fig:knox}). La lechuga de hoja rizada es más delicada y requiere un cuidado especial. Por su parte, la lechuga de hoja lisa es más resistente y se adapta mejor a condiciones menos precisas.
-    \item \textbf{Espinaca}: se cultivan cinco variedades, una de hoja pequeña tanto en su version comun (Baby Spinach, Fig. \ref{fig:baby}) como en su version organica, de hoja mediana tanto de color verde (Teen Spinach, Fig. \ref{fig:teen}) como un color mas rojizo, (Red Spinach, Fig. \ref{fig:red}). También tenemos una 
-    una de hoja plana que esta pensada para la realizacion de sopas (Soup Spinach, Fig. \ref{fig:soup})
-    En cuanto a las diferencia en el tratamiento, no se encuentran ambios sustanciales en el cuidado.
+    \item \textbf{Lettuce}: it is grown in two varieties, one with curly leaves (Apollo, Fig. \ref{fig:apollo}) and the other with smooth leaves (Knox Cos, Fig. \ref{fig:knox}). The curly leaf lettuce is more delicate and requires special care. In contrast, the smooth leaf lettuce is more resilient and better suited to less precise conditions.
+	\item \textbf{Spinach}: five varieties are grown: one with small leaves, both in its common version (Baby Spinach, Fig. \ref{fig:baby}) and in its organic version; medium-sized leaves in both green (Teen Spinach, Fig. \ref{fig:teen}) and a more reddish color (Red Spinach, Fig. \ref{fig:red}). There is also a flat-leaf variety intended for soup preparation (Soup Spinach, Fig. \ref{fig:soup}).
+    Regarding differences in treatment, there are no substantial changes in care.
 \end{itemize}
-La principal diferencia entre las variedades que estamos tomando es el tiempo de cultivo de cada una de ellas. 
+The main difference between the varieties we are considering is the cultivation time required for each of them.
 \begin{figure}[ht!]
     \centering
 
     \begin{minipage}[b]{0.45\textwidth}
         \centering
         \includegraphics[width=0.7\textwidth]{img/lechuga_apollo.png}
-        \caption{Variedad Lechuga Apollo.}
+        \caption{Lettuce variety Apollo.}
         \label{fig:apollo}
     \end{minipage}
     \hfill
     \begin{minipage}[b]{0.45\textwidth}
         \centering
         \includegraphics[width=0.6\textwidth]{img/lechuga_knox.png}
-        \caption{Variedad Lechuga Knox Cos.}
+        \caption{Lettuce variety Knox Cos.}
         \label{fig:knox}
     \end{minipage}
 
@@ -77,298 +81,118 @@ La principal diferencia entre las variedades que estamos tomando es el tiempo de
     \begin{minipage}[b]{0.45\textwidth}
         \centering
         \includegraphics[width=0.6\textwidth]{img/baby_spinach.png}
-        \caption{Variedad Baby Spinach.}
+        \caption{Variety Baby Spinach.}
         \label{fig:baby}
     \end{minipage}
     \hfill
     \begin{minipage}[b]{0.45\textwidth}
         \centering
         \includegraphics[width=0.5\textwidth]{img/teen_spinach.png}
-        \caption{Variedad Teen Spinach.}
+        \caption{Variety Teen Spinach.}
         \label{fig:teen}
     \end{minipage}
     \begin{minipage}[b]{0.45\textwidth}
         \centering
         \includegraphics[width=0.6\textwidth]{img/red_spinach.jpg}
-        \caption{Variedad Red Chard.}
+        \caption{Variety Red Chard.}
         \label{fig:red}
     \end{minipage}
     \begin{minipage}[b]{0.45\textwidth}
         \centering
         \includegraphics[width=0.6\textwidth]{img/soup_spinach.png}
-        \caption{Variedad Soup Spinach.}
+        \caption{Variety Soup Spinach.}
         \label{fig:soup}
     \end{minipage}
 \end{figure}
 
 \newpage
-Antes de pasar a desglosar las tareas que engloban el proceso de cultivo, es importante destacar una diferencia fundamental entre ambos productos.
-La lechuga se trabaja mediante plantación: las semillas se envían a un semillero y posteriormente se trasplantan las plántulas al campo. 
-En el caso de la espinaca, se utiliza el método de siembra directa, introduciendo las semillas directamente en la tierra.
-Debido al diferente proceder de ambos métodos, cada cultivo tendrá sus tiempos y necesidades específicas, lo que influirá en la planificación de las tareas.
+Before breaking down the tasks involved in the cultivation process, it is important to highlight a fundamental difference between the two products.
+Lettuce is grown through transplanting: seeds are sent to a nursery and later the seedlings are transplanted into the field.
+In the case of spinach, the direct sowing method is used, placing the seeds directly into the soil.
+Due to the different nature of these methods, each crop will have its own specific timelines and requirements, which will influence task scheduling.
 
-La lista de tareas necesarias para completar un ciclo de cultivo es la siguiente:
+The list of tasks required to complete a cultivation cycle is as follows:
 \begin{enumerate}
-    \item Preparación de la tierra: conjunto de labores inicales donde se rompe y voltea la tierra para airearla, y se abona para dejarla preparada adecuadamente antes del cultivo.
-          Seguidamente, mediante maquinaria especializada, se organizan las superficies de cultivo en mesetas.
-    \item Colocar papel: se instalan láminas que impiden el crecimiento de malas hierbas, lo que reduce la competencia con el cultivo principal.
-    \item Sembrar o plantar: según el tipo de variante, se introducen semillas directamente o se plantan brotes previamente cultivados por una empresa externa.
-    \item Riego: instalación de sistemas de riego por aspersión en las laderas de las mesetas, necesarios para el mantenimiento del cultivo.
-    \item Colocación de arquillos: se instalan arcos metálicos sobre los cultivos para dar soporte a la protección posterior.
-    \item Poner malla: se cubren los arquillos con una malla de poliamida que protege los cultivos y ayuda a mantener la temperatura adecuada para su desarrollo.
-    \item Quitar malla: una vez que el cultivo ha madurado, se retira la malla protectora.
-    \item Quitar arquillos: tras la retirada de la malla, se procede a desmontar los arquillos metálicos.
-    \item Quitar riego: se desmonta el sistema de riego instalado previamente.
-    \item Recogida de cosecha: proceso final de recolección, que puede realizarse manualmente (con operarios que colocan los productos en cajas) o de forma automatizada.
+    \item Soil preparation: a set of initial tasks in which the soil is broken up and turned to aerate it, and fertilized to ensure it is properly conditioned before cultivation.  
+Next, using specialized machinery, the cultivation surfaces are arranged into \gls{raised bed}s$^{(*)}$.
+
+\item Install paper: sheets are installed to prevent the growth of weeds, thereby reducing competition with the main crop.
+
+\item \gls{Sowing}$^{(*)}$ or transplanting: depending on the crop variety, seeds are sown directly or previously grown seedlings from an external company are transplanted.
+
+\item Irrigation: installation of sprinkler irrigation systems on the \gls{slope}s$^{(*)}$ of the raised beds, essential for maintaining the crop.
+
+\item Placing \gls{hoops}$^{(*)}$: metal arches are installed over the crops to support the subsequent protective covering.
+
+\item Installing \gls{mesh}$^{(*)}$: the hoops are covered with a polyamide mesh that protects the crops and helps maintain the proper temperature for their development.
+
+\item Removing mesh: once the crop has matured, the protective mesh is removed.
+
+\item Removing hoops: after the mesh has been taken off, the metal hoops are dismantled.
+
+\item Removing irrigation: the previously installed irrigation system is disassembled.
+
+\item Harvesting: final stage of the process, which can be done manually (with workers placing the products into boxes) or through automated methods.
+
 \end{enumerate}
 
-Cada una de estas tareas se lleva a cabo con maquinaria distinta, generalmente aperos arrastrados por tractores, lo que implica velocidades de trabajo diferentes según el equipo empleado.
-Además, Intercrop organiza su producción mediante grupos de trabajo especializados, que no están contratados desde el inicio de campaña, sino que se van incorporando según se requieren sus funciones.
-Esta estructura permite adaptarse a las necesidades del proceso, pero también genera cuellos de botella cuando un grupo debe esperar a que otro finalice su tarea para continuar.
+Each of these tasks is carried out using different machinery, generally implements pulled by tractors, which implies different working speeds depending on the equipment used.  
+In addition, Intercrop organizes its production through specialized work groups, which are not hired at the beginning of the season but are gradually incorporated as their tasks become necessary.  
+This structure allows the company to adapt to the needs of the process, but it also creates delays when one group has to wait for another to finish before continuing.
 
-Durante nuestra visita a la empresa, observamos que esta falta de sincronización entre grupos provoca frecuentes horas muertas: periodos en los que los trabajadores están presentes pero sin poder actuar,
-ya que el trabajo anterior aún no ha finalizado. Estas horas, aunque no productivas, computan en el total de horas trabajadas y generan un coste económico directo para la empresa.
+During our visit to the company, we observed that this lack of synchronization between groups often leads to idle time: periods in which workers are present but unable to act,  
+as the previous task has not yet been completed. These hours, though unproductive, are counted in the total working hours and represent a direct economic cost to the company.
 
-La presente propuesta tiene como objetivo central la creación de un modelo de planificación que permita minimizar las horas improductivas entre grupos de trabajo,
-garantizando al mismo tiempo que se cumplan los plazos de entrega comprometidos. Una coordinación más eficiente de las tareas supondría una mejora significativa en la utilización de los recursos,
-reduciendo tiempos de espera y aumentando la productividad general del sistema.
+The main objective of this proposal is to develop a scheduling model that minimizes unproductive time between work groups,  
+while ensuring that the committed delivery deadlines are met. More efficient coordination of tasks would lead to significantly better resource utilization,  
+reducing waiting times and increasing overall system productivity.
 
-Dados los datos de un pedido tenemos que tener en cuenta el numero de mesetas que tenemos que plantar de cada una de las variedades para 
-poder completarlo. Se planta un poco mas de lo que realmente se pide como una medida de precaucion para saber que se llegara a lo estipulado. 
-Este excendente no hace falta tenerlo en cuenta pues no genera ningun gasto adicional y luego se ofrece a los propios clientes.  
 
-\section*{Simplificaciones del modelo}
-\addcontentsline{toc}{section}{2.1. Simplificaciones del modelo} % Manual index entry
+\section*{Model Simplifications}
+\addcontentsline{toc}{section}{2.1. Model simplifications} % Manual index entry
 
-Para poder abordar el problema dese un punto de vista matemático y computacional, ha sido necesario realizar algunas simplificaciones, que nos permiten centrarnos en los aspectos esenciales del proceso
-sin pérdida de generalidad:
+In order to approach the problem from a mathematical and computational perspective, 
+it has been necessary to make certain simplifications, which allow us to focus on the essential aspects of the process without loss of generality:
 \begin{itemize}
-    \item Reducción de escala: el modelo se aplica únicamente a dos fincas, una dedicada a lechuga y otra a espinaca. 
-          Esta decisión permite trabajar con dos líneas de producción diferenciadas y representativas, sin necesidad de modelar toda la operación global de la empresa.
-    \item Fincas de tamaño medio: se ha asumido que ambas fincas tienen dimensiones similares y medias, lo que permite aplicar el mismo esquema de planificación
-          a cada una sin consideraciones de tamaño o forma específicas.
-    \item Cultivo homogéneo: se considera que en una misma finca realizaremos las tareas que necesarias para el cuidado de la variedad más delicada. 
-          Por tanto, supondremos que en la finca destinada a las lechugas se realizan todas las tareas de la lista mencionada, y en el caso de las espinacas obviaremos el uso de malla y arquillo. 
-          Así, en la primera finca se realizarán las 10 tareas mencionadas anteriormente, mientras en la finca correspondiente a las espinacas solo se realizarań las tareas 1, 3, 4, 9 y 10.
-    \item Grupos de trabajo independientes: cada cultivo es atendido por  un grupo de trabajo diferente, con su propia maquinaria y recursos.
-          Esto permite tratar ambas líneas de producción de manera paralela y simplificada.
-    \item Conversión de unidades: las velocidades de la maquinaria, proporcionadas por la empresa originalmente en kilómteros por hora, han sido traducidas a caminos por hora,
-          para simplificar la formulación y adaptar las unidades a la estructura del modelo.
-    \item Condiciones ideales: el modelo se desarrolla bajo un escenario en el que no hay fallos mecánicos ni interrupciones por causas climáticas.
-          Es decir, se asumen que todas las tareas se realizan en el tiempo estimado y que no hay retrasos por factores externos.
-    \item Jornada laboral fija: se condidera una jornada laboral de 8 horas diarias, sin cambios estacionales ni festivos.
+    \item Scale reduction: the model is applied to only two farms, one dedicated to lettuce and the other to spinach.  
+	This decision allows us to work with two distinct and representative production lines, without the need to model the company's entire global operation.
+	
+	\item Medium-sized farms: it is assumed that both farms have similar and average dimensions, which allows the same planning scheme to be applied  
+	to each one without specific considerations regarding size or shape.
+	\item Homogeneous cultivation: it is assumed that, within each farm, the tasks required for the care of the most delicate variety will be carried out.  
+	Therefore, we will assume that in the farm dedicated to lettuce, all tasks from the previously mentioned list are performed, while in the case of spinach, the use of mesh and hoops will be omitted.  
+	Thus, the first farm will carry out all 10 tasks listed earlier, while the spinach farm will only perform tasks 1, 3, 4, 9, and 10.
+	
+	\item Independent work groups: each crop is managed by a different work group, with its own machinery and resources.  
+	This allows both production lines to be treated in a parallel and simplified manner.
+	
+	\item Unit conversion: the machinery speeds, originally provided by the company in kilometers per hour, have been converted to beds per hour  
+	to simplify the formulation and adapt the units to the structure of the model.
+	
+	\item Ideal conditions: the model is developed under a scenario with no mechanical failures or weather-related interruptions.  
+	In other words, it is assumed that all tasks are completed within the estimated time and that there are no delays due to external factors.
+	
+	\item Fixed workday: a standard workday of 8 hours is considered, with no seasonal changes or holidays.
 \end{itemize}
  
-Estas simplificaciones no eliminan la complejidad del problema, pero permiten estructurar un modelo realista, funcional y computacionalmente viable que sirva como base para una futura ampliación o implementación práctica.
-
-
-
-
-
-
-\chapter*{Formulation}
-\addcontentsline{toc}{chapter}{3. Formulation} % Manual index entry
-% Variables
-% Funcion objetivo
-% Restricciones
-
-Para abordar la planificación de tareas agrícolas de manera estructurada y optimizable, hemos construido un modelo matemático que describe formalmente las restricciones, recursos y objetivos del problema planteado.
-Esta formulación nos permitirá buscar una asignación eficiente de tareas que minimice los tiempos improductivos, garantizando que las labores se ejecuten de acuerdo a sus requisitos técnicos y temporales.
-
-\section*{Parametros}
-\addcontentsline{toc}{section}{3.1. Parámetros} % Manual index entry
-Lo primero que necesitamos es definir un conjunto de parámetros que represente correctamente el entorno de trabajo en ambas fincas, cada una dedicada a un producto distinto (lechuga y espinaca),
-y por tanto, como se mencionaba anteriormente, con secuencias de tareas diferenciadas.
-
-
-\subsubsection{Conjunto de tareas}
-\begin{itemize}
-    \item Conjunto de tareas para la finca 1, destinada a lechuga:
-    
-    $T_1$:= \{preptierra1,papel1,plantar1,ponerriego1,ponermalla1,quitarmalla1,quitarriego1,cosecha1\}
-    \item Conjunto de tareas para la finca 2, destinada a espinaca:
-    
-    $T_2$:= \{preptierra2,sembrar2,ponerriego2,quitarriego2,cosechar2\}
-\end{itemize}
-
-\subsection{Variedades y tiempos de crecimiento}
-
-En cada tierra nos encontramos distintas variedades de un mismo producto, que se encontrarán repartidas de forma homogénea por las mesetas:
-
-\[\begin{aligned}
-        Q_1&:={apollo, knoxcos}\\
-        Q_2&:={babyspinach, teenspinach, babyspinachorganic, soupspinach, redspinach}
-    \end{aligned}\]
-
-Cada una de ellas tendrá un tiempo de crecimiento:
-\[\begin{aligned}
-        S_1&:=\{s_{apollo},s_{knoxcos}\}\\
-        S_2&:=\{s_{babyspinach}, s_{teenspinach}, s_{babyspinachorganic}, s_{soupspinach}, s_{redspinach}\}
-    \end{aligned}\]
-
-
-
-\subsubsection{Mesetas y horizonte temporal}
-
-Para cada tierra, definimos el conjunto de mesetas correspodiente ($M_j$), el número de mesetas totales ($N_j$), y el conjunto de horas ($H$) de trabajo disponibles durante el pedido:
-    \[\begin{aligned}
-        M_1:=\{1....50\}\\
-        M_2:=\{1....90\}\\
-        N_1:=50\\
-        N_2:=90\\
-        H:=\{1...240\}
-    \end{aligned}\]
-
-\subsubsection{Disponibilidad temporal de las tareas}
-
-Las tareas no están activas durante todo el horizonte temporal: van entrando escalonadamente. 
-Además, como en cada finca habrá distintas tareas disponibles, definimos una familia de horarios para cada una:
-
-\[\begin{aligned}
-    H_1 &:= \{H_{preptierra1},H_{papel1},H_{plantar1},H_{ponerriego1},H_{ponermalla1},H_{quitarmalla1},H_{quitarriego1},H_{cosecha1}\}\\
-    H_2 &:= \{H_{preptierra2},H_{sembrar2},H_{ponerriego2},H_{quitarriego2},H_{cosechar2}\}   
-\end{aligned}\]    
-
-\subsubsection{Velocidad de trabajo de las máquinas}
-
-Cada tarea se realiza con maquinaria diferente, y por tanto a diferentes velocidades. Estas se expresan en mesetas/hora:
-\begin{center}
-$V_{i_1}:=$ numero maximo de mesetas por camino en una hora $\forall i_1 \in T_1$
-
-$V_{i_2}:=$ numero maximo de mesetas por camino en una hora $\forall i_2 \in T_2$
-\end{center}
-
-
-
-\subsubsection{Personal asociado a cada tarea}
-Cada tarea cuenta con un grupo de trabajo asignado, que incluye un número de personas necesario para su ejecución.
-\begin{center}
-    $P_{i_1}$ := número de personas asignadas a la tarea $i_1 \in T_1$
-
-    $P_{i_2}$ := número de personas asignadas a la tarea $i_2 \in T_2$    
-\end{center}
-
-\section*{Variables de decisión}
-\addcontentsline{toc}{section}{3.2. Variables de decisión} % Manual index entry
-Para modelar correctamente la ejecución de las tareas en cada meseta y en cada momento del horizonte temporal, se define la siguiente variable binaria:
-\[\begin{aligned}
-    x_{i_j,k,l} = \begin{cases} 1 & \text{si la tarea } i \text{ se realiza en el camino } k \text{ y en la hora } l \\ 0 & \text{en otro caso} \end{cases}
-\end{aligned}\]
-
-donde:
-\begin{itemize}
-    \item $i_j$ representa una tarea perteneciente al conjunto $T_j$.
-    \item $k \in M_j$ representa una de las mesetas en la tierra $j$.
-    \item $l \in H_{i_j}$ representa una hora dentro del intervalo de disponibilidad de la tarea $i_j \in T_j$.
-\end{itemize}
-
-Por otro lado, para capturar los tiempos de espera u horas muertas entre tareas
-(es decir, cuando un grupo de trabajo está disponible pero no puede comenzar porque otra tarea previa no ha terminado en esa meseta), definimos la siguiente variable:
-\[\begin{aligned}
-    w_{i_j l} = \begin{cases} 1 & \text{si la tarea } i_j \in T_j \text{ se puede asignar todavía a un camino en la hora } l \in H_{i_j} \\ 0 & \text{en otro caso} \end{cases}
-\end{aligned}\] 
-
-
-\section*{Restricciones}
-\addcontentsline{toc}{section}{3.3. Restricciones} % Manual index entry
-El modelo de planificación agrícola debe garantizar que la ejecución de las tareas se ajusta a las capacidades operativas,
-al calendario disponible y al orden lógico del proceso productivo. Para ello, se han definido las siguientes restricciones:
-\begin{itemize}
-    \item  No podemos asignar más mesetas por hora de los que permite la tarea.
-           La velocidad de realización de la tarea la marca el tractor, no podemos asignar más mesetas de los que es posible abarcar en una hora.
-           Para ello fijamos una hora y una tarea y recorremos las mesetas. El número que obtenemos no debe ser mayor que el máximo número de mesetas que puede hacer la maquinaria. 
-	    \[
-            \sum_{k\in M_j}x_{i_j kl} \leq V_{i_j} \quad \forall i_j \in T_j, \ l\in H_{i_j}
-        \]
-    \item  Solo podemos realizar las tareas una única vez en las mesetas donde se puedan realizar.
-           Para ello fijamos una meseta y una tarea, obteniendo que la suma en todas las horas de su horario debe ser 1,
-           pues de lo contrario la tarea o no se habría realizado (si es 0) o se habría realizado más de una vez. 
-        \[
-	        \sum_{l\in H_{i_j}}x_{i_j kl} =1 \quad \forall i_j \in T_j , k \in M_j
-        \]
-    \item Las tareas siguen un orden que debemos respetar.
-          No podemos realizar la siguiente tarea en una meseta sin haber hecho la anterior.
-          Debemos comprobar que en esa meseta se ha hecho la tarea anterior a la que nos toca hacer. 
-	
-	      Fijamos una meseta, una tarea y una hora, y comprobamos que en las horas previas se ha realizado la tarea anterior. 
-        \[
-	        x_{i_j kl} \leq \sum_{l' \in H_{prev(i_j)}, l'<l}x_{prev(i_j)kl'} \quad \forall i_j\in T_j/\{first(T_j)\}, k\in M_j, l \in H_{i_j}
-        \]
-	
-    \item  Hay que respetar el crecimiento de cada variedad. Una vez puesto el riego la planta comienza a crecer,
-           y debe estar un tiempo hasta que crezca. El tiempo depende de la variedad.
-           Una vez pasado dicho tiempo, se pueden realizar las tareas posteriores.
-        \[
-	        x_{\text{quitarmalla}1 kl} \leq \sum_{l'\in H_{\text{ponerriego}1}, l'<l-s_{apollo}}x_{\text{ponerriego}1kl'} \quad k\in \{1, ..., 36\}, l\in H_{\text{quitarmalla}1}
-        \]
-	    Esta misma restricción se da para $s_{knoxcos}$ y en este caso tendríamos que $k \in \{37, ..., 50\}$. 
-	
-        Para las variedades de la segunda tierra tendremos:
-        \[
-	        x_{\text{quitarriego}2 kl} \leq \sum_{l'\in H_{\text{ponerriego}2}, l'<l-s_{babyspinach}}x_{\text{ponerriego}2kl'} \quad k\in \{1, ..., 45\}, l\in H_{\text{quitarriego}2}
-        \]
-
-        Esta misma restricción se da para $s_{teenspinach}, s_{babyspinachorganic}, s_{soupspinach}, s_{redspinach}$ y en este caso tendríamos que $k \in \{46, ..., 50\},\{51, ..., 63\},\{64, ..., 74\},\{75, ..., 90\}$
-        respectivamente.
-
-    \item  Por último, necesitamos una restricción que active $w_{i_j l}$, es decir, que nos diga si todavía se puede realizar una tarea en una meseta. 
-        \[
-	        \displaystyle w_{i_j l}\geq \frac{N_j-\sum_{l'<l, l'\in H_{i_j}, k\in M_j}x_{i_j kl'}}{N_j}
-        \]
-	
-	    En el sumatorio se cuentan las mesetas en las que se ha realizado una determinada tarea. Este cociente será $0$ cuando una tarea se haya realizado en todas las mesetas, y será mayor que 0 y menor que 1, cuando todavía quede alguna meseta por hacer. 
-	
-\end{itemize}
-
-
-\section*{Función objetivo}
-\addcontentsline{toc}{section}{3.4. Función objetivo} % Manual index entry
-Nuestro problema consiste en minimizar las horas muertas de los trabajadores. Y nuestra función objetivo será: 
-	\[
-	    min\ \sum_{i_j \in T_j, l\in H_{i_j}}P_{i_j}\left(\frac{V_{i_j}-\sum_{k\in M_j}x_{i_j kl}}{V_{i_j}}\right)w_{i_j l}
-    \]
-
-    La presencia del producto de variables binarias $x_{i_j kl}$ y  $w_{i_j l}$ hace que la función objetivo inicial sea no lineal.
-    Debido a que la optimización lineal es considerablemente más eficiente y permite utilizar algoritmos de resolución estándar más robustos,
-    se decidió realizar una linealización del modelo.
-
-    Para ello, introduciremos variables auxiliares definidas como:
-    \[
-        \delta_{i_j k l}=x_{i_j k l}w_{i_j l} \ \forall i_j \in T_j, k \in M_j, l \in H_{i_j}
-    \]
-    Estas variables auxiliares se restringen mediante las siguientes condiciones que nos aseguran que su valor es idéntico al del producto:
-    \[\begin{aligned}
-        \delta_{i_j k l} &\leq x_{i_j k l} \quad \forall i_j \in T_j, k \in M_j \ l\in H_{i_j}\\
-        \delta_{i_j k l} &\leq w_{i_j l} \quad \forall i_j \in T_j, k \in M_j \ l\in H_{i_j}\\
-	    \delta_{i_j k l} &\geq x_{i_j k l} + w_{i_j l} -1 \quad \forall i_j \in T_j, k \in M_j \ l\in H_{i_j}
-    \end{aligned}\]
-
-    Una vez introducidas estas variables auxiliares, la función objetivo queda linealizada como:
-	\[
-        min\ \sum_{i_j \in T_j, l\in H_{i_j}}P_{i_j}\left(\frac{V_{i_j}w_{i_j l}-\sum_{k\in M_j}\delta_{i_j k l}}{V_{i_j}}\right)
-    \]
-	Esta nueva formulación mantiene exactamente el mismo sentido original de minimización del tiempo improductivo,
-    permitiendo al mismo tiempo aprovechar las ventajas de eficiencia computacional y robustez propias de la optimización lineal.
-
+These simplifications do not eliminate the complexity of the problem, but they allow us to structure a realistic, functional, and computationally viable model that can serve as a foundation for future expansion or practical implementation.
 
 
 \chapter*{Data}
 \addcontentsline{toc}{chapter}{4. Data} % Manual index entry
 % Explicación de los datos
 % Tablas
-Durante nuestra visita a la empresa pudimos obervar la forma de trabajo que tienen. Nos sirvio para poder hacernos una idea de la linea 
-de trabajo que teniamos que plantear y cuales serian los datos que necesitariamos. Posteriormente, la empresa nos facilito los
-datos que solicitamos.
+During our visit to the company, we were able to observe their working methods. This helped us gain a clear understanding of the workflow we needed to design  
+and identify the data we would require. Subsequently, the company provided us with the specific data we requested.
 
-Para nuestro estudio, asumimos que las fincas tienen una forma rectangular. Hemos tomado finca en la que plantaremos las lechugas de
-de 100 x 300 metros, mientras que la finca en la tenemos las espincas es de 180x300 metros. Cada meseta de cultivo mide 1.6 metros de ancho, 
-con surcos laterales de 0.4 metros para permitir el paso de la maquinaria. Esto implica que cada camino tendrá unas dimensiones de 2 x 300 metros.
-En consecuencia, la primera finca encontraremos 50 caminos con sus respectivas 50 mesetas de cultivo, mientras que en la segunda tendremos 
-90 caminos con sus 90 mesetas
+For our study, we assume that the farms have a rectangular shape. We consider the lettuce farm to measure 100 x 300 meters,  
+while the spinach farm measures 180 x 300 meters. Each raised bed is 1.6 meters wide, with lateral furrows of 0.4 meters to allow machinery to pass.  
+This means each path has dimensions of 2 x 300 meters.  
+As a result, the first farm contains 50 paths with their respective 50 raised beds, while the second contains 90 paths with 90 raised beds.
 
-Las tareas se encuentran mecanizadas, pues es un tractor con un apero diferente los protegonistas en cada una de ellas. Por lo que tenemos 
-que saber la velocidad que puede alcanzar el tractor dependiendo del apero que estemos usando en cada una de las tareas. 
- Aunque la empresa nos proporcionó estos datos en kilómetros por hora (km/h), para facilitar nuestra formulación lo hemos pasado a mesetas por hora.
+The tasks are mechanized, as each is carried out by a tractor equipped with a different implement.  
+Therefore, we need to know the speed the tractor can reach depending on the implement used for each task.  
+Although the company provided these speeds in kilometers per hour (km/h), we converted them to beds per hour to simplify our model formulation.
 
  \begin{table}[ht!]
     \centering
@@ -380,44 +204,45 @@ que saber la velocidad que puede alcanzar el tractor dependiendo del apero que e
             \hline
             Soil preparation   & 2 & 4 \\ \hline
             Install paper      & 4 & 2\\ \hline
-            Plant              & 3 & 6\\ \hline
+            Transplant         & 3 & 6\\ \hline
             Sow                & 4 & 5\\ \hline
             Install irrigation & 3 & 2 \\ \hline
             Install hoops      & 3 & 3 \\ \hline
             Install mesh       & 3 & 2 \\ \hline
-            Remove irrigation  & 3 & 2 \\ \hline
             Remove mesh        & 4 & 2 \\ \hline
             Remove hoops       & 3 & 2 \\ \hline
+            Remove irrigation  & 3 & 2 \\ \hline
             Harvest seeds      & 3 & 7 \\ \hline
             Harvest plants     & 2 & 14 \\ 
             \hline
         \end{tabular}
-        \caption{Tabla de tareas, velocidades y trabajadores}
+        \caption{Tasks, speeds, and number of workers per task.}
         \label{tab:tareas}
     \end{minipage}
     \hfill
 \end{table}
-Nuestra planificación está diseñada para organizar un mes de trabajo. Considerando una jornada laboral de 8 horas diarias, 
-trabajamos con un total de 240 horas al mes.
+Our scheduling is designed to organize one month of work. Considering a standard workday of 8 hours,  
+we work with a total of 240 hours per month.
 
-Por otro lado, los trabajadores se incorporan a la campaña de manera escalonada. Cada uno de ellos está especializado en una 
-tarea específica, lo que da lugar a la formación de grupos de trabajo especializados. El número de trabajadores por grupo varía 
-en función de la tarea asignada.
+On the other hand, workers join the campaign in a staggered manner. Each of them is specialized in a specific task,  
+leading to the formation of specialized work groups.  
+The number of workers per group varies depending on the task assigned.
 
-Otro aspecto importante a considerar es el tiempo que tardará en crecer cada variedad. La empresa nos proporcionó esta 
-información en días, aunque nos advirtieron que, en el caso de las variedades de espinaca, el tiempo de crecimiento no es fijo,
- ya que depende en gran medida de la radiación solar que reciban. Por esta razón, nos proporcionaron un rango de días en los que 
- suelen ser cosechadas, indicando cuáles variedades tienen una mayor o menor variabilidad en su crecimiento. Con estos datos, 
- realizamos una estimación del momento óptimo para la recolección. Además, como trabajamos en horas, convertimos la escala temporal:
- cada día indicado por la empresa se expresa en nuestra formulación como un período de ocho horas. De esta forma, ajustamos los tiempos 
- de crecimiento a nuestro esquema de trabajo.
+Another important aspect to consider is the time required for each variety to grow. The company provided this information in days,  
+although they noted that in the case of spinach varieties, the growth time is not fixed, as it depends largely on the amount of solar radiation received.  
+For this reason, they gave us a range of days during which each variety is typically harvested, indicating which ones show greater or lesser variability in growth.  
+Using this data, we estimated the optimal time for harvesting.  
+
+Moreover, since we work in hours, we converted the time scale: each day indicated by the company is expressed in our formulation as an eight-hour period.  
+This way, we adjusted the growth times to fit our scheduling framework.
+
 \begin{table}[ht!]
     \centering
     \begin{minipage}{0.48\textwidth}
         \centering
         \begin{tabular}{|c|c|c|}
             \hline
-            \rowcolor{gray!30} \textbf{\textcolor{grey3}{RANGES}} & \textbf{\textcolor{grey3}{DAYS}} &  \textbf{\textcolor{grey3}{HOURS}}\\ 
+            \rowcolor{gray!30} \textbf{\textcolor{grey3}{RANGES}} & \textbf{\textcolor{grey3}{DAYS}} &  \textbf{\textcolor{grey3}{HOURS}}\\\hline 
             \hline
             Baby spinach   & 24 & 192 \\ \hline
             Baby spinach organics  & 26 & 208\\ \hline
@@ -425,145 +250,391 @@ información en días, aunque nos advirtieron que, en el caso de las variedades 
             Teen Spinach           & 23.4 & 187\\ \hline
             Soup Spinach & 25.4 & 203 \\ \hline
             Knox Cos     & 22 & 176 \\ \hline
-            Apollo      & 24 & 192 \\ \hline
+            Apollo      & 24 & 192 \\ 
              
             \hline
         \end{tabular}
-        \caption{Tabla de Variedades y tiempo de crecimiento}
+        \caption{Table of Varieties and Growth Time}
         \label{tab:Variedades-crecimiento}
     \end{minipage}
     \hfill
 \end{table}
 
-La empresa nos proporciono el pedido general que tienen que cumplir al año. Como la campaña dura diez meses hemos dividido el pedido 
-para poder sacar el equivalente en el tiempo en el que nosotros estamos trabajando. Además la empresa nos indico el número de semillas
-necesarias para poder cumplir con el pedido asi como el rendimiento que tienen al plantarlas. Con esta informacion pudimos hacer la estimacion 
-de los kilogramos que se plantan en cada meseta.
+The company provided us with the general annual order they need to fulfill. Since the campaign lasts ten months, we divided the order  
+to obtain the equivalent for the time period we are working with. Additionally, the company informed us of the number of seeds  
+required to meet the order, as well as the yield obtained when planting them.  
+With this information, we were able to estimate the number of kilograms planted in each raised bed.
 \begin{table}[ht!]
     \centering
     \begin{minipage}{0.48\textwidth}
         \centering
         \begin{tabular}{|c|c|c|}
             \hline
-            \rowcolor{gray!30} \textbf{\textcolor{grey3}{RANGES}} & \textbf{\textcolor{grey3}{kilos pedidos}} & \textbf{\textcolor{grey3}{kg/meseta}}\\            \hline
+            \rowcolor{gray!30} \textbf{\textcolor{grey3}{RANGES}} & \textbf{\textcolor{grey3}{kilos pedidos}} & \textbf{\textcolor{grey3}{kg/meseta}}\\\hline 
+            \hline
             Baby spinach   & 228235 & 5087\\ \hline
             Baby spinach organics  & 22574 & 5543\\ \hline
             Red Spinach              & 27560 & 2197\\ \hline
             Teen Spinach           & 25474 & 2450\\ \hline
             Soup Spinach & 30896 & 2059\\ \hline
             Knox Cos     & 43459 & 6421\\ \hline
-            Apollo      & 15928 & 3243 \\ \hline
-             
+            Apollo      & 15928 & 3243 \\          
             \hline
         \end{tabular}
-        \caption{Tabla de Variedades y pedido en kilos}
+        \caption{Table of Varieties and Order in Kilograms}
         \label{tab:Variedades-kilos}
     \end{minipage}
     \hfill
 \end{table}
 
- Como nuestra formulacion esta en mesetas solo nos queda saber que cantidad de mesetas tendremos que plantar de cada una de las variedades
- para poder llegar a cumplir con el pedido en fecha y cantidad. 
- 
+Since our formulation is based on raised beds, we only need to determine how many raised beds must be transplanted for each variety  
+in order to fulfill the order on time and in the required quantity.
+
  \begin{table}[ht!]
     \centering
     \begin{minipage}{0.48\textwidth}
         \centering
         \begin{tabular}{|c|c|}
             \hline
-            \rowcolor{gray!30} \textbf{\textcolor{grey3}{RANGES}} & \textbf{\textcolor{grey3}{mesetas}}\\
+            \rowcolor{gray!30} \textbf{\textcolor{grey3}{RANGES}} & \textbf{\textcolor{grey3}{mesetas}}\\\hline
             \hline
-            Baby spinach   & 44 \\ \hline
-            Baby spinach organics   & 4\\ \hline
-            Red Spinach             & 12\\ \hline
-            Teen Spinach            & 10\\ \hline
-            Soup Spinach & 15 \\ \hline
-            Knox Cos     & 35 \\ \hline
-            Apollo      & 13 \\ \hline
-             
+            Baby spinach   & 45 \\ \hline
+            Baby spinach organics   & 5\\ \hline
+            Red Spinach             & 13\\ \hline
+            Teen Spinach            & 11\\ \hline
+            Soup Spinach & 16 \\ \hline
+            Knox Cos     & 36 \\ \hline
+            Apollo      & 14 \\             
             \hline
         \end{tabular}
-        \caption{Tabla de Variedades y mesetas}
+        \caption{Table of varieties and raised beds}
         \label{tab:Variedades}
     \end{minipage}
     \hfill
 \end{table}
-Para mayor comodidad del problema suponemos que las mesetas de cada una de las variedades son consecutivas, es decir, la de Baby Spinach son las mesetas de la 
-uno a la cincuenta, la de Baby Spinach Organics es de la 46 a la 50 y asi consecutivamente.
+For the sake of simplicity, we assume that the raised beds assigned to each variety are consecutive.  
+For example, those for *Baby Spinach* range from bed 1 to 50, those for *Baby Spinach Organics* from bed 46 to 50, and so on.
+
+
+\chapter*{Formulation}
+\addcontentsline{toc}{chapter}{3. Formulation} % Manual index entry
+% Variables
+% Funcion objetivo
+% Restricciones
+
+To address agricultural task scheduling in a structured and optimizable manner, we have developed a mathematical model that formally describes the constraints, resources, and objectives of the problem at hand.  
+This formulation will enable us to find an efficient task allocation that minimizes unproductive time, ensuring that all tasks are performed in accordance with their technical and temporal requirements.
+
+\section*{Parameters}
+\addcontentsline{toc}{section}{3.1. Parameters} % Manual index entry
+The first step is to define a set of parameters that accurately represent the working environment in both fields, each dedicated to a different product (lettuce and spinach),  
+and therefore, as previously mentioned, with distinct task sequences.
+
+
+\subsubsection{Set of Tasks}
+\begin{itemize}
+    \item Set of tasks for Field 1, dedicated to lettuce:
+
+        $T_1$:= \{preptierra1,papel1,plantar1,ponerriego1,ponermalla1,quitarmalla1,quitarriego1,cosecha1\}    
+    \item Set of tasks for Field 2, dedicated to spinach:
+
+        $T_2$:= \{preptierra2,sembrar2,ponerriego2,quitarriego2,cosechar2\}
+\end{itemize}
+
+\subsubsection{Varieties and Growth Times}
+
+Each field contains different varieties of the same product, which are distributed homogeneously across the raised beds:
+
+
+\[\begin{aligned}
+        Q_1&:={apollo, knoxcos}\\
+        Q_2&:={babyspinach, teenspinach, babyspinachorganic, soupspinach, redspinach}
+    \end{aligned}\]
+
+Each of them will have a specific growth time:
+\[\begin{aligned}
+        S_1&:=\{s_{apollo},s_{knoxcos}\}\\
+        S_2&:=\{s_{babyspinach}, s_{teenspinach}, s_{babyspinachorganic}, s_{soupspinach}, s_{redspinach}\}
+    \end{aligned}\]
+
+
+
+\subsubsection{Raised beds and Time Horizon}
+
+For each field, we define the corresponding set of raised beds ($M_j$), the total number of raised beds ($N_j$),  
+and the set of working hours ($H$) available during the order period:
+    \[\begin{aligned}
+        M_1&:=\{1....50\}\\
+        M_2&:=\{1....90\}\\
+        N_1&:=50\\
+        N_2&:=90\\
+        H&:=\{1...240\}
+    \end{aligned}\]
+
+\subsubsection{Task Time Availability}
+
+Tasks are not active throughout the entire time horizon; they are introduced gradually.  
+Moreover, since each field has a different set of available tasks, we define a schedule family for each one:
+
+\[\begin{aligned}
+    H_1 &:= \{H_{preptierra1},H_{papel1},H_{plantar1},H_{ponerriego1},H_{ponermalla1},H_{quitarmalla1},H_{quitarriego1},H_{cosecha1}\}\\
+    H_2 &:= \{H_{preptierra2},H_{sembrar2},H_{ponerriego2},H_{quitarriego2},H_{cosechar2}\}   
+\end{aligned}\]    
+
+\subsubsection{Working Speed of Machines}
+
+Each task is performed using different machinery, and therefore at different speeds. These are expressed in beds per hour:
+\begin{center}
+$V_{i_1} :=$ maximum number of beds per path in one hour, $\forall i_1 \in T_1$
+
+$V_{i_2} :=$ maximum number of beds per path in one hour, $\forall i_2 \in T_2$
+\end{center}
+
+
+
+
+\subsubsection{Personnel Assigned to Each Task}
+
+Each task has an assigned work group, which includes the number of people required for its execution.
+\begin{center}
+    $P_{i_1}$ := number of people assigned to task $i_1 \in T_1$
+
+    $P_{i_2}$ := number of people assigned to task $i_2 \in T_2$    
+\end{center}
+
+
+\section*{Decision Variables}
+\addcontentsline{toc}{section}{3.2. Decision Variables} % Manual index entry
+To correctly model the execution of tasks on each raised beds and at each moment within the time horizon, the following binary variable is defined:
+\[
+\begin{aligned}
+    x_{i_j,k,l} = 
+    \begin{cases} 
+        1 & \text{if task } i \text{ is performed on raised bed } k \text{ at hour } l \\
+        0 & \text{otherwise}
+    \end{cases}
+\end{aligned}
+\]
+
+where:
+\begin{itemize}
+    \item $i_j$ represents a task belonging to the set $T_j$.
+    \item $k \in M_j$ represents one of the beds in field $j$.
+    \item $l \in H_{i_j}$ represents an hour within the availability interval of task $i_j \in T_j$.
+\end{itemize}
+
+
+On the other hand, to capture waiting times or idle hours between tasks  
+(i.e., when a work group is available but cannot start because a previous task has not yet been completed on that raised bed), we define the following variable:
+
+\[
+\begin{aligned}
+    w_{i_j l} = 
+    \begin{cases} 
+        1 & \text{if task } i_j \in T_j \text{ can still be assigned to a raised bed at hour } l \in H_{i_j} \\
+        0 & \text{otherwise}
+    \end{cases}
+\end{aligned}
+\]
+
+
+\section*{Constraints}
+\addcontentsline{toc}{section}{3.3. Constraints} % Manual index entry
+The agricultural scheduling model must ensure that task execution aligns with operational capacities,  
+the available calendar, and the logical order of the production process.  
+To achieve this, the following constraints have been defined:
+\begin{itemize}
+    \item We cannot assign more beds per hour than what the task allows.  
+    The execution speed of each task is determined by the tractor; therefore, we cannot assign more raised beds than can be handled in one hour.  
+    To enforce this, we fix a specific hour and task and iterate over all raised beds.  
+    The total number of assignments must not exceed the maximum number of raised beds the machinery can process per hour.
+    \[
+            \sum_{k\in M_j}x_{i_j kl} \leq V_{i_j} \quad \forall i_j \in T_j, \ l\in H_{i_j}
+        \]
+    \item Each task can only be performed once on the raised beds where it is applicable.  
+        To ensure this, we fix a raised bed and a task, and require that the sum over all hours in its schedule equals 1.  
+        Otherwise, the task would either not be performed (if the sum is 0) or performed more than once (if the sum exceeds 1).
+        
+        \[
+	        \sum_{l\in H_{i_j}}x_{i_j kl} =1 \quad \forall i_j \in T_j , k \in M_j
+        \]
+    \item Tasks follow a specific order that must be respected.  
+        We cannot perform the next task on a raised bed without having completed the previous one.  
+        We must ensure that the preceding task has been completed on that raised bed before the current one can begin.
+        
+        To enforce this, we fix a raised bed, a task, and a time, and verify that the previous task has been executed during the preceding hours.
+         
+        \[
+	        x_{i_j kl} \leq \sum_{l' \in H_{prev(i_j)}, l'<l}x_{prev(i_j)kl'} \quad \forall i_j\in T_j/\{first(T_j)\}, k\in M_j, l \in H_{i_j}
+        \]
+	
+    \item The growth period of each variety must be respected. 
+        Once irrigation is in place, the plant begins to grow,  
+        and it must remain undisturbed for a certain period until it reaches maturity. This duration depends on the specific variety.  
+        Only after this growth time has elapsed can the subsequent tasks be performed.
+        
+        \[
+	        x_{\text{quitarmalla}1 kl} \leq \sum_{l'\in H_{\text{ponerriego}1}, l'<l-s_{apollo}}x_{\text{ponerriego}1kl'} \quad k\in \{1, ..., 36\}, l\in H_{\text{quitarmalla}1}
+        \]
+	    This same constraint applies to $s_{knoxcos}$, and in this case we have $k \in \{37, ..., 50\}$.
+
+        For the varieties in the second field, we will have:
+
+        \[
+	        x_{\text{quitarriego}2 kl} \leq \sum_{l'\in H_{\text{ponerriego}2}, l'<l-s_{babyspinach}}x_{\text{ponerriego}2kl'} \quad k\in \{1, ..., 45\}, l\in H_{\text{quitarriego}2}
+        \]
+
+        This same constraint applies to $s_{teenspinach}, s_{babyspinachorganic}, s_{soupspinach}, s_{redspinach}$, and in these cases we have $k \in \{46, ..., 50\}, \{51, ..., 63\}, \{64, ..., 74\}, \{75, ..., 90\}$ respectively.
+
+
+        \item Finally, we need a constraint that activates $w_{i_j l}$, that is, one that tells us whether a task can still be performed on a raised bed at hour $l$.
+        \[
+	        \displaystyle w_{i_j l}\geq \frac{N_j-\sum_{l'<l, l'\in H_{i_j}, k\in M_j}x_{i_j kl'}}{N_j}
+        \]
+	
+        In the summation, we count the raised beds on which a specific task has been completed.  This ratio will be $0$ when the task has been performed on all raised beds, and it will be greater than $0$ and less than $1$ when there are still some raised beds left to complete.
+            
+\end{itemize}
+
+
+    \section*{Objective Function}
+    \addcontentsline{toc}{section}{3.4. Objective Function} % Manual index entry
+
+    Our goal is to minimize the idle hours of the workers. The objective function is therefore:
+	\[
+	    min\ \sum_{i_j \in T_j, l\in H_{i_j}}P_{i_j}\left(\frac{V_{i_j}-\sum_{k\in M_j}x_{i_j kl}}{V_{i_j}}\right)w_{i_j l}
+    \]
+
+    The presence of the product of binary variables $x_{i_j kl}$ and $w_{i_j l}$ makes the initial objective function nonlinear.  
+    Since linear optimization is considerably more efficient and allows for the use of more robust standard solving algorithms,  
+    we decided to linearize the model.
+
+    To achieve this, we introduce auxiliary variables defined as follows:
+    \[
+        \delta_{i_j k l}=x_{i_j k l}w_{i_j l} \ \forall i_j \in T_j, k \in M_j, l \in H_{i_j}
+    \]
+    These auxiliary variables are restricted by the following conditions, which ensure that their value is equal to that of the product:
+
+    \[\begin{aligned}
+        \delta_{i_j k l} &\leq x_{i_j k l} \quad \forall i_j \in T_j, k \in M_j \ l\in H_{i_j}\\
+        \delta_{i_j k l} &\leq w_{i_j l} \quad \forall i_j \in T_j, k \in M_j \ l\in H_{i_j}\\
+	    \delta_{i_j k l} &\geq x_{i_j k l} + w_{i_j l} -1 \quad \forall i_j \in T_j, k \in M_j \ l\in H_{i_j}
+    \end{aligned}\]
+
+    Once these auxiliary variables have been introduced, the objective function is linearized as follows:
+	\[
+        min\ \sum_{i_j \in T_j, l\in H_{i_j}}P_{i_j}\left(\frac{V_{i_j}w_{i_j l}-\sum_{k\in M_j}\delta_{i_j k l}}{V_{i_j}}\right)
+    \]
+	This new formulation preserves the original intent of minimizing unproductive time,  
+while also allowing us to take advantage of the computational efficiency and robustness of linear optimization.
+
+
+
+
+
 \chapter*{AMPL Implementation} 
 \addcontentsline{toc}{chapter}{5. AMPL Implementation} % Manual index entry\addcontentsline{toc}{chapter}{5. Code} % Manual index entry
 % Explicación del código
 % Código
-Al implementar este problema en AMPL para obtener una solución, surgieron varios problemas. En primer lugar lo implementamos 
-utilizando como función objetivo aquella en la que aparecía un producto de variables binarias. No obstante, no se pudo obtener
- ninguna solución. Tras 9 horas ejecutando el solver, no fue posible llegar a ninguna solución óptima. Pese a que todas las restricciones son lineales, el producto de variables binarias en la función objetivo hacía que el problema fuese muy complejo de resolver. 
+When implementing this problem in AMPL to obtain a solution, several issues arose. Initially, we implemented it using the objective function  
+that included a product of binary variables. However, no solution could be obtained. After 9 hours of solver execution, it was not possible  
+to reach an optimal solution. Although all the constraints were linear, the product of binary variables in the objective function made the problem  
+extremely complex to solve.
 
-Por lo que para evitar este problema, decidimos introducir nuevas variables con el objetivo de linealizar la función objetivo. 
-Aumenta el número de variables, pero se trabaja con una función objetivo lineal, facilitando la resolución. Comenzamos haciendo
- pruebas considerando menos mesetas, para comprobar que la formulación funcionaba correctamente. Al encontrar una solución factible
-  a este problema muy simplificado, lo intentamos resolver para  el número de mesetas definitivo. Esto no dio resultado, pues el
-   problema seguía sin poder resolverse en un tiempo razonable. Utilizando el solver de Xpress se nos acabó la memoria en poco 
-   tiempo. Y con Gurobi y Cplex se agotó el tiempo de computación. 
+To avoid this issue, we decided to introduce new variables to linearize the objective function.  
+This increases the number of variables, but allows us to work with a linear objective function, making the problem easier to solve.  
+We began by testing the model using a reduced number of beds to verify that the formulation was functioning correctly.  
+After finding a feasible solution for this highly simplified case, we attempted to solve the model using the full number of beds.  
+However, this approach was unsuccessful, as the problem still could not be solved within a reasonable amount of time.  
+Using the Xpress solver, memory was exhausted in a short time. With Gurobi and CPLEX, the computation time limit was reached without obtaining a solution.
 
-Es por esto que ya que trabajamos con dos tierras independietes: por una parte la de las lechugas y por otro la de las espinacas, 
-decidimos separar la parte computacional del problema. Y, a continuación, resolvimos cada uno de los problemas por separado. Aún así, en la tierra 1 persistieron los problemas computacionales.
- Se intentó resolver el problema utilizando NEOS, pero faltaba espacio. Sin embargo, al intentar resolverlo en un ordenador normal 
- se obtuvo una solución factible en 2 horas y media. NEOS solo permite 3gb de memoria RAM y este ordenador tenía 16gb de mamoria RAM,
-  esto explica por qué NEOS no pudo resolverlo. 
+Since we were working with two independent fields, one for lettuce and the other for spinach, we decided to separate the computational part of the problem.  
+We then proceeded to solve each subproblem individually. Nonetheless, computational difficulties persisted in Field 1.  
+An attempt was made to solve the problem using NEOS, but it failed due to insufficient memory. However, when trying to solve it on a standard computer,  
+a feasible solution was obtained within two and a half hours.  
+NEOS only allows 3GB of RAM, whereas the local machine used had 16GB of RAM, which explains why NEOS was unable to solve the problem.
 
-En la tierra 2 sí se pudo resolver el problema para 50 mesetas y con 2 variedades de espinacas diferentes. Este problema tardó 
-50 minutos en resolverse en NEOS con el solver Gurobi. Los resultados fueron tan prometedores que decidimos aumentar el número de
- mesetas y de variedades, llegando a 90 mesetas y 5 variedades. Se consiguió encontrar una solución para este problema utilizando
-  NEOS. Dicha solución estaba a 11 horas de ejecución de ser la solución óptima. El problema seguía siendo complejo, y no tuvimos más remedio que reducir el tiempo de ejecución para encontrar una solución, aunque no fuese la óptima. 
 
-Las espinacas requieren de un menor número de tareas, por lo que se consideran menos variables. Esto mejora la eficiencia 
- y nos permite aumentar el número de mesetas y de variedades, resolviendo un problema más cercano a la realidad. 
+In Field 2, with 90 raised beds and 5 varieties, a solution was successfully found using NEOS.  
+This solution was estimated to be 11 hours away from reaching optimality. The problem remained complex, and we had no choice  
+but to reduce the execution time in order to obtain a solution, even if it was not optimal.
+
+Spinach requires fewer tasks, which means fewer variables are considered. This improves computational efficiency and allows us  
+to increase the number of raised beds and varieties, thereby solving a problem that is closer to real-world conditions.
 
 \chapter*{Results}
 \addcontentsline{toc}{chapter}{6. Results} % Manual index entry
-Al dividir el código nuestro resultado será la suma de las dos funciones objetivo que nos han salido
 % Tablas
 % Gráficos
+Since we separated the implementation of the problem into distinct subproblems, the result we seek is obtained by summing the two corresponding objective functions.  
+In this case, we determined that the number of unproductive hours in Field 1 amounts to 29.666, while in Field 2 it reaches 24.166.  
+Therefore, the total number of unproductive hours in the problem is 53.832. This calculation represents the total idle time across all workers  
+in the task groups involved in both fields.
+
+However, it is not enough to know only the total number of unproductive hours; it is also essential to understand how the tasks are distributed throughout the process in order to achieve this result.  
+The way in which activities are organized and assigned directly impacts the efficiency of the work and the optimization of the available resources.
+
+For this reason, we have collected and analyzed the data in detail, allowing for a clearer understanding of task distribution in each field.  
+Additionally, to make the information easier to interpret, we chose to exclude from the charts the hours during which the crops are in their growth phase,  
+since no active tasks are carried out by the workers during that period. This allows us to focus exclusively on the periods in which actual work is performed,  
+thus providing a more accurate perspective on overall performance.
+
+Figures \ref{fig:resultados_pre1} and \ref{fig:resultados_post1} refer to the results for Field 1,  
+while Figures \ref{fig:resultados_pre2} and \ref{fig:resultados_post2} show the tasks for Field 2.
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.4]{img/grafico_pre_siembra1.png}
+    \caption{Results obtained}
+    \label{fig:resultados_pre1}
+\end{figure}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.4]{img/grafico_post_siembra1.png}
+    \caption{Results obtained}
+    \label{fig:resultados_post1}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.4]{img/grafico_pre_siembra2.png}
+    \caption{Results obtained}
+    \label{fig:resultados_pre2}
+\end{figure}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.4]{img/grafico_post_siembra2.png}
+    \caption{Results obtained}
+    \label{fig:resultados_post2}
+\end{figure}
+
 
 \chapter*{Conclusion}
 \addcontentsline{toc}{chapter}{7. Conclusion} % Manual index entry
-El presente trabajo ha permitido abordar un problema real de planificación agrícola desde una perspectiva matemática,
-aplicando herramientas de optimización para mejorar la organización del trabajo en la empresa Intercrop.
-A través del análisis de las distintas tareas necesarias para el cultivo de lechuga y espinaca —dos productos clave en la producción de la empresa—
-se ha puesto de manifiesto la complejidad operativa asociada a la coordinación de equipos, maquinaria y tiempos de ejecución.
+This work has made it possible to address a real agricultural scheduling problem from a mathematical perspective,  
+applying optimization tools to improve work organization at the company Intercrop.  
+Through the analysis of the various tasks required for the cultivation of lettuce and spinach—two key products in the company's production—  
+the operational complexity involved in coordinating teams, machinery, and execution times has been highlighted.
 
-A lo largo del proyecto se ha desarrollado un modelo simplificado, pero representativo,
-que tiene como objetivo principal minimizar las horas improductivas entre los grupos de trabajo.
-Este enfoque responde a una problemática observada directamente en campo:
-la existencia de tiempos de espera innecesarios cuando una tarea no puede comenzar hasta que otra finaliza.
-Estas horas muertas, aunque inevitables en cierta medida, suponen un coste directo para la empresa y reducen la eficiencia global del sistema productivo.
+Throughout the project, a simplified but representative model has been developed,  
+with the main objective of minimizing idle time between work groups.  
+This approach addresses a problem observed directly in the field:  
+the existence of unnecessary waiting periods when a task cannot begin until another one is completed.  
+These idle hours, although inevitable to some extent, represent a direct cost to the company and reduce the overall efficiency of the production system.
 
-El modelo ha sido construido considerando dos fincas independientes, cada una con su línea de producción,
-y una secuencia de tareas que incluye desde la preparación del terreno hasta la recolección.
-A pesar de las simplificaciones introducidas —como la homogeneización del tamaño de las fincas,
-la ausencia de condiciones climáticas adversas o la separación estricta entre los grupos de trabajo—, el planteamiento conserva una estructura lógica fiel al proceso real,
-permitiendo extraer conclusiones prácticas y escalables.
+The model has been built considering two independent fields, each with its own production line,  
+and a task sequence that spans from soil preparation to harvesting.  
+Despite the simplifications introduced—such as the standardization of field sizes,  
+the absence of adverse weather conditions, or the strict separation between work groups—  
+the approach retains a logical structure that remains faithful to the real process,  
+allowing for practical and scalable conclusions to be drawn.
 
-El desarrollo del trabajo ha demostrado cómo los conocimientos matemáticos adquiridos en el aula pueden ser aplicados con éxito a problemas reales,
-aportando soluciones concretas y cuantificables a situaciones cotidianas del entorno profesional.
-Además, ha abierto una vía interesante para seguir profundizando en el uso de modelos de optimización en contextos agrícolas,
-donde las decisiones eficientes pueden traducirse en mejoras significativas de rendimiento y rentabilidad.
+The development of this work has demonstrated how the mathematical knowledge acquired in the classroom can be successfully applied to real-world problems,  
+providing concrete and quantifiable solutions to everyday situations in professional environments.  
+Moreover, it has opened an interesting path for further exploration of the use of optimization models in agricultural contexts,  
+where efficient decision-making can lead to significant improvements in performance and profitability.
 
-En futuras fases, se podrían incorporar elementos adicionales al modelo, como la variabilidad climática,
-los imprevistos mecánicos o la disponibilidad parcial de maquinaria y personal.
-También sería interesante extender el estudio a varias fincas interconectadas o explorar estrategias de contratación y rotación del personal más flexibles.
-Todo ello contribuiría a construir una herramienta aún más robusta para la toma de decisiones en la gestión diaria de empresas como Intercrop.
+In future phases, additional elements could be incorporated into the model, such as climate variability,  
+mechanical failures, or the partial availability of machinery and personnel.  
+It would also be interesting to extend the study to multiple interconnected fields or to explore more flexible strategies for staff hiring and rotation.  
+All of these enhancements would contribute to building an even more robust decision-making tool for the daily management of companies like Intercrop.
 
-\newpage
-------------------------------
-
-- Topo
-- Apero
-- Siembra
-- Plantación
-- Meseta
-- Arquillo
-- Malla
-- Papel
-- Farm lanes: caminos entre las mesetas para el paso de la maquinaria.
-- Semillero

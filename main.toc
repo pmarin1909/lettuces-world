@@ -1,20 +1,20 @@
 \babel@toc {english}{}\relax 
 \contentsline {chapter}{1. Introduction}{2}{chapter*.2}%
 \contentsline {chapter}{2. Problem Statement}{3}{chapter*.3}%
-\contentsline {section}{2.1. Simplificaciones del modelo}{5}{section*.4}%
-\contentsline {chapter}{3. Formulation}{7}{chapter*.5}%
-\contentsline {section}{3.1. Parámetros}{7}{section*.6}%
-\contentsline {subsubsection}{Conjunto de tareas}{7}{section*.7}%
-\contentsline {subsection}{\numberline {0.0.1}Variedades y tiempos de crecimiento}{7}{subsection.0.0.1}%
-\contentsline {subsubsection}{Mesetas y horizonte temporal}{8}{section*.8}%
-\contentsline {subsubsection}{Disponibilidad temporal de las tareas}{8}{section*.9}%
-\contentsline {subsubsection}{Velocidad de trabajo de las máquinas}{8}{section*.10}%
-\contentsline {subsubsection}{Personal asociado a cada tarea}{8}{section*.11}%
-\contentsline {section}{3.2. Variables de decisión}{8}{section*.12}%
-\contentsline {section}{3.3. Restricciones}{9}{section*.13}%
-\contentsline {section}{3.4. Función objetivo}{10}{section*.14}%
-\contentsline {chapter}{4. Data}{11}{chapter*.15}%
-\contentsline {chapter}{5. AMPL Implementation}{13}{chapter*.16}%
-\contentsline {chapter}{6. Results}{14}{chapter*.17}%
-\contentsline {chapter}{7. Conclusion}{15}{chapter*.18}%
-\contentsline {chapter}{A. Glossary}{17}{chapter*.20}%
+\contentsline {section}{2.1. Model simplifications}{5}{section*.4}%
+\contentsline {chapter}{4. Data}{7}{chapter*.5}%
+\contentsline {chapter}{3. Formulation}{9}{chapter*.6}%
+\contentsline {section}{3.1. Parameters}{9}{section*.7}%
+\contentsline {subsubsection}{Set of Tasks}{9}{section*.8}%
+\contentsline {subsubsection}{Varieties and Growth Times}{9}{section*.9}%
+\contentsline {subsubsection}{Raised beds and Time Horizon}{10}{section*.10}%
+\contentsline {subsubsection}{Task Time Availability}{10}{section*.11}%
+\contentsline {subsubsection}{Working Speed of Machines}{10}{section*.12}%
+\contentsline {subsubsection}{Personnel Assigned to Each Task}{10}{section*.13}%
+\contentsline {section}{3.2. Decision Variables}{10}{section*.14}%
+\contentsline {section}{3.3. Constraints}{11}{section*.15}%
+\contentsline {section}{3.4. Objective Function}{12}{section*.16}%
+\contentsline {chapter}{5. AMPL Implementation}{13}{chapter*.17}%
+\contentsline {chapter}{6. Results}{14}{chapter*.18}%
+\contentsline {chapter}{7. Conclusion}{19}{chapter*.19}%
+\contentsline {chapter}{A. Glossary}{20}{chapter*.21}%
