@@ -7,7 +7,7 @@
 \contentsline {section}{3.1. Parameters}{9}{section*.7}%
 \contentsline {subsubsection}{Set of Tasks}{9}{section*.8}%
 \contentsline {subsubsection}{Varieties and Growth Times}{9}{section*.9}%
-\contentsline {subsubsection}{Raised beds and Time Horizon}{10}{section*.10}%
+\contentsline {subsubsection}{rows and Time Horizon}{10}{section*.10}%
 \contentsline {subsubsection}{Task Time Availability}{10}{section*.11}%
 \contentsline {subsubsection}{Working Speed of Machines}{10}{section*.12}%
 \contentsline {subsubsection}{Personnel Assigned to Each Task}{10}{section*.13}%

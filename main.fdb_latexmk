@@ -1,16 +1,17 @@
 # Fdb version 4
-["biber main"] 1743585150.39843 "main.bcf" "main.bbl" "main" 1743585260.31573 0
-  "main.bcf" 1743585260.18459 107346 5b972c3002c71c90e291224bf186c5f8 "pdflatex"
+["biber main"] 0 "main.bcf" "main.bbl" "main" 1743597488.18309 -1
+  "dummy.bib" 1742990449.73053 68 18abf14edb4503e3b71ea21a20c8c547 ""
+  "main.bcf" 1743597487.98667 107346 5b972c3002c71c90e291224bf186c5f8 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["cusdep glo gls main"] 1743585150.22044 "main.glo" "main.gls" "main" 1743585260.3156 0
-  "main.glo" 1743585260.18559 722 2070a5bbfab3ae00516297b3c81d92f4 "pdflatex"
+["cusdep glo gls main"] 1743597485.05967 "main.glo" "main.gls" "main" 1743597488.18288 0
+  "main.glo" 1743597487.98767 694 93fc7f01272d9cf3c0a7785015a1b4d7 "pdflatex"
   (generated)
   "main.gls"
   (rewritten before read)
-["pdflatex"] 1743585257.51332 "/home/paula/Documents/Universidad/LabMod/Optimizacion/Grupal/Informe/main.tex" "main.pdf" "main" 1743585260.316 0
+["pdflatex"] 1743597485.24169 "/home/paula/Documents/Universidad/LabMod/Optimizacion/Grupal/Informe/main.tex" "main.pdf" "main" 1743597488.18346 0
   "/etc/texmf/web2c/texmf.cnf" 1741018048.55795 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/paula/Documents/Universidad/LabMod/Optimizacion/Grupal/Informe/main.tex" 1743433562.79533 4318 371dc9b9652b9f27c98c81311a0cd69e ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -262,9 +263,9 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1741018069.2588 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1741018092 8214551 3fed98c34c946e3c5b74f66640b9c43e ""
-  "desarrollo.aux" 1743585260.17159 9147 746cf0023885913a97359d61e822c010 "pdflatex"
-  "desarrollo.tex" 1743585257.18734 36788 ab8ac4681b33304b0c514196bafa6f81 ""
-  "glosario.tex" 1743583997.85639 1952 f3bf2c43ceb154cbe02104a1f8d9711e ""
+  "desarrollo.aux" 1743597487.97067 9126 4238eb64c11586b7d03d81df76f865fe "pdflatex"
+  "desarrollo.tex" 1743597484.40209 36560 8d8b98b0ec1ad1f42783e1f02aabfe51 ""
+  "glosario.tex" 1743597481.41961 1126 b73c7d2faaccbfbd4a569d756a6f1c42 ""
   "img/baby_spinach.png" 1743015117.4036 367318 9bd96ffd4886786baee9fb0679ae7806 ""
   "img/campitos_lindos.jpeg" 1742988675.01802 71004 5809701e8243fe2160faf4121245e0bc ""
   "img/grafico_post_siembra1.png" 1743541676.83909 47623 a5b29b7eca2cdbddb1dca707ce4db724 ""
@@ -276,17 +277,17 @@
   "img/red_spinach.jpg" 1743432147.20012 4476 87f3498b32901ab76eeca04769c75525 ""
   "img/soup_spinach.png" 1743432140.89123 943310 fbdd2fe6927c63af6acb0893ea73def8 ""
   "img/teen_spinach.png" 1743064031.71381 651041 589dfbf99d6dd0a30263b6ae551e3f14 ""
-  "main.aux" 1743585260.17759 700 3b854703ada7d2d8d9c65ca811c159c4 "pdflatex"
+  "main.aux" 1743597487.97767 700 3b854703ada7d2d8d9c65ca811c159c4 "pdflatex"
   "main.bbl" 1743585151.33549 466 ee04f40f768daeed26442158e95aba61 "biber main"
-  "main.gls" 1743585150.39458 1132 020de32f6aa4d0b2e9d2b51ef23671fe "cusdep glo gls main"
-  "main.out" 1743585260.18059 1762 274217b17f6aa17e072fa3f4c80b103c "pdflatex"
-  "main.run.xml" 1743585260.18559 2300 76870dad3fcc073257df4f2ee5912f5f "pdflatex"
+  "main.gls" 1743597485.23023 1125 fe1c39485cbd9568db8cf066f43dba47 "cusdep glo gls main"
+  "main.out" 1743597487.98267 1762 274217b17f6aa17e072fa3f4c80b103c "pdflatex"
+  "main.run.xml" 1743597487.98767 2300 76870dad3fcc073257df4f2ee5912f5f "pdflatex"
   "main.tex" 1743433562.79533 4318 371dc9b9652b9f27c98c81311a0cd69e ""
-  "main.toc" 1743585260.18559 1245 e36f431bc95225db85a61a2e783263ef "pdflatex"
-  "portada/indice.aux" 1743585259.31723 4210 4f41f4f96e8589c5eff3c57269bb3af6 "pdflatex"
+  "main.toc" 1743597487.98767 1238 86a1837144e8bee18e2eba0df20076a7 "pdflatex"
+  "portada/indice.aux" 1743597487.06052 4210 4f41f4f96e8589c5eff3c57269bb3af6 "pdflatex"
   "portada/indice.tex" 1741021406.80622 48 9328a3fcc27a3b47d118605aee49e6e8 ""
   "portada/nuevo_logo_umu.png" 1741021427.71206 59011 dbd51221b1b08795b53e1555680511ea ""
-  "portada/umu.aux" 1743585259.30622 4249 9132a2c3735281daa76211e5cf4bd15c "pdflatex"
+  "portada/umu.aux" 1743597487.04852 4249 9132a2c3735281daa76211e5cf4bd15c "pdflatex"
   "portada/umu.tex" 1743542335.83276 881 13a8438573ea6dc62feb9036ac95361f ""
   (generated)
   "desarrollo.aux"

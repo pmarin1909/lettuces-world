@@ -42,7 +42,7 @@ During the summer campaign, both the quantity of product to be supplied and the 
 This means that all planning—from cultivation and growth to \gls{harvest}$^{(*)}$ and distribution—must be precisely aligned to meet deadlines,  
 ensure the quality of the fresh product (with a shelf life of seven to ten days), and minimize operational costs.
 
-Given the data of an order, we must take into account the number of \gls{raised bed}s$^{(*)}$ that need to be \gls{transplanted}$^{(*)}$ for each variety in order to fulfill it.  
+Given the data of an order, we must take into account the number of \gls{row}s$^{(*)}$ that need to be \gls{transplanted}$^{(*)}$ for each variety in order to fulfill it.  
 A small surplus is transplanted as a precautionary measure to ensure the required amount is met.  
 This surplus does not need to be considered in the planning, as it generates no additional cost and is later offered to the clients.
  
@@ -114,13 +114,13 @@ Due to the different nature of these methods, each crop will have its own specif
 The list of tasks required to complete a cultivation cycle is as follows:
 \begin{enumerate}
     \item Soil preparation: a set of initial tasks in which the soil is broken up and turned to aerate it, and fertilized to ensure it is properly conditioned before cultivation.  
-Next, using specialized machinery, the cultivation surfaces are arranged into \gls{raised bed}s$^{(*)}$.
+Next, using specialized machinery, the cultivation surfaces are arranged into \gls{row}s$^{(*)}$.
 
 \item Install paper: sheets are installed to prevent the growth of weeds, thereby reducing competition with the main crop.
 
 \item \gls{Sowing}$^{(*)}$ or transplanting: depending on the crop variety, seeds are sown directly or previously grown seedlings from an external company are transplanted.
 
-\item Irrigation: installation of sprinkler irrigation systems on the \gls{slope}s$^{(*)}$ of the raised beds, essential for maintaining the crop.
+\item Irrigation: installation of sprinkler irrigation systems on the \gls{slope}s$^{(*)}$ of the rows, essential for maintaining the crop.
 
 \item Placing \gls{hoops}$^{(*)}$: metal arches are installed over the crops to support the subsequent protective covering.
 
@@ -186,9 +186,9 @@ During our visit to the company, we were able to observe their working methods. 
 and identify the data we would require. Subsequently, the company provided us with the specific data we requested.
 
 For our study, we assume that the farms have a rectangular shape. We consider the lettuce farm to measure 100 x 300 meters,  
-while the spinach farm measures 180 x 300 meters. Each raised bed is 1.6 meters wide, with lateral furrows of 0.4 meters to allow machinery to pass.  
+while the spinach farm measures 180 x 300 meters. Each row is 1.6 meters wide, with lateral furrows of 0.4 meters to allow machinery to pass.  
 This means each path has dimensions of 2 x 300 meters.  
-As a result, the first farm contains 50 paths with their respective 50 raised beds, while the second contains 90 paths with 90 raised beds.
+As a result, the first farm contains 50 paths with their respective 50 rows, while the second contains 90 paths with 90 rows.
 
 The tasks are mechanized, as each is carried out by a tractor equipped with a different implement.  
 Therefore, we need to know the speed the tractor can reach depending on the implement used for each task.  
@@ -200,7 +200,7 @@ Although the company provided these speeds in kilometers per hour (km/h), we con
         \centering
         \begin{tabular}{|c|c|c|}
             \hline
-            \rowcolor{gray!30} \textbf{\textcolor{grey3}{TASK}} & \textbf{\textcolor{grey3}{SPEED}} &  \textbf{\textcolor{grey3}{WORKERS}}\\ 
+            \rowcolor{gray!30} \textbf{\textcolor{grey3}{TASK}} & \textbf{\textcolor{grey3}{SPEED}} &  \textbf{\textcolor{grey3}{WORKERS}}\\\hline 
             \hline
             Soil preparation   & 2 & 4 \\ \hline
             Install paper      & 4 & 2\\ \hline
@@ -263,14 +263,14 @@ This way, we adjusted the growth times to fit our scheduling framework.
 The company provided us with the general annual order they need to fulfill. Since the campaign lasts ten months, we divided the order  
 to obtain the equivalent for the time period we are working with. Additionally, the company informed us of the number of seeds  
 required to meet the order, as well as the yield obtained when planting them.  
-With this information, we were able to estimate the number of kilograms planted in each raised bed.
+With this information, we were able to estimate the number of kilograms planted in each row.
 \begin{table}[ht!]
     \centering
     \begin{minipage}{0.48\textwidth}
         \centering
         \begin{tabular}{|c|c|c|}
             \hline
-            \rowcolor{gray!30} \textbf{\textcolor{grey3}{RANGES}} & \textbf{\textcolor{grey3}{kilos pedidos}} & \textbf{\textcolor{grey3}{kg/meseta}}\\\hline 
+            \rowcolor{gray!30} \textbf{\textcolor{grey3}{RANGES}} & \textbf{\textcolor{grey3}{kilos ordered}} & \textbf{\textcolor{grey3}{kg/row}}\\\hline 
             \hline
             Baby spinach   & 228235 & 5087\\ \hline
             Baby spinach organics  & 22574 & 5543\\ \hline
@@ -287,7 +287,7 @@ With this information, we were able to estimate the number of kilograms planted 
     \hfill
 \end{table}
 
-Since our formulation is based on raised beds, we only need to determine how many raised beds must be transplanted for each variety  
+Since our formulation is based on rows, we only need to determine how many rows must be transplanted for each variety  
 in order to fulfill the order on time and in the required quantity.
 
  \begin{table}[ht!]
@@ -296,24 +296,24 @@ in order to fulfill the order on time and in the required quantity.
         \centering
         \begin{tabular}{|c|c|}
             \hline
-            \rowcolor{gray!30} \textbf{\textcolor{grey3}{RANGES}} & \textbf{\textcolor{grey3}{mesetas}}\\\hline
+            \rowcolor{gray!30} \textbf{\textcolor{grey3}{RANGES}} & \textbf{\textcolor{grey3}{row}}\\\hline
             \hline
             Baby spinach   & 45 \\ \hline
             Baby spinach organics   & 5\\ \hline
-            Red Spinach             & 13\\ \hline
-            Teen Spinach            & 11\\ \hline
-            Soup Spinach & 16 \\ \hline
-            Knox Cos     & 36 \\ \hline
-            Apollo      & 14 \\             
+            Red Spinach             & 16\\ \hline
+            Teen Spinach            & 13\\ \hline
+            Soup Spinach & 11 \\ \hline
+            Knox Cos     & 14 \\ \hline
+            Apollo      & 36 \\             
             \hline
         \end{tabular}
-        \caption{Table of varieties and raised beds}
+        \caption{Table of varieties and rows}
         \label{tab:Variedades}
     \end{minipage}
     \hfill
 \end{table}
-For the sake of simplicity, we assume that the raised beds assigned to each variety are consecutive.  
-For example, those for *Baby Spinach* range from bed 1 to 50, those for *Baby Spinach Organics* from bed 46 to 50, and so on.
+For the sake of simplicity, we assume that the rows assigned to each variety are consecutive.  
+For example, those for *Baby Spinach* range from bed 1 to 45, those for *Baby Spinach Organics* from bed 46 to 50, and so on.
 
 
 \chapter*{Formulation}
@@ -343,12 +343,12 @@ and therefore, as previously mentioned, with distinct task sequences.
 
 \subsubsection{Varieties and Growth Times}
 
-Each field contains different varieties of the same product, which are distributed homogeneously across the raised beds:
+Each field contains different varieties of the same product, which are distributed homogeneously across the rows:
 
 
 \[\begin{aligned}
-        Q_1&:={apollo, knoxcos}\\
-        Q_2&:={babyspinach, teenspinach, babyspinachorganic, soupspinach, redspinach}
+        Q_1&:=\{apollo, knoxcos\}\\
+        Q_2&:=\{babyspinach, teenspinach, babyspinachorganic, soupspinach, redspinach\}
     \end{aligned}\]
 
 Each of them will have a specific growth time:
@@ -359,9 +359,9 @@ Each of them will have a specific growth time:
 
 
 
-\subsubsection{Raised beds and Time Horizon}
+\subsubsection{rows and Time Horizon}
 
-For each field, we define the corresponding set of raised beds ($M_j$), the total number of raised beds ($N_j$),  
+For each field, we define the corresponding set of rows ($M_j$), the total number of rows ($N_j$),  
 and the set of working hours ($H$) available during the order period:
     \[\begin{aligned}
         M_1&:=\{1....50\}\\
@@ -405,12 +405,12 @@ Each task has an assigned work group, which includes the number of people requir
 
 \section*{Decision Variables}
 \addcontentsline{toc}{section}{3.2. Decision Variables} % Manual index entry
-To correctly model the execution of tasks on each raised beds and at each moment within the time horizon, the following binary variable is defined:
+To correctly model the execution of tasks on each rows and at each moment within the time horizon, the following binary variable is defined:
 \[
 \begin{aligned}
     x_{i_j,k,l} = 
     \begin{cases} 
-        1 & \text{if task } i \text{ is performed on raised bed } k \text{ at hour } l \\
+        1 & \text{if task } i \text{ is performed on row } k \text{ at hour } l \\
         0 & \text{otherwise}
     \end{cases}
 \end{aligned}
@@ -425,13 +425,13 @@ where:
 
 
 On the other hand, to capture waiting times or idle hours between tasks  
-(i.e., when a work group is available but cannot start because a previous task has not yet been completed on that raised bed), we define the following variable:
+(i.e., when a work group is available but cannot start because a previous task has not yet been completed on that row), we define the following variable:
 
 \[
 \begin{aligned}
     w_{i_j l} = 
     \begin{cases} 
-        1 & \text{if task } i_j \in T_j \text{ can still be assigned to a raised bed at hour } l \in H_{i_j} \\
+        1 & \text{if task } i_j \in T_j \text{ can still be assigned to a row at hour } l \in H_{i_j} \\
         0 & \text{otherwise}
     \end{cases}
 \end{aligned}
@@ -445,24 +445,24 @@ the available calendar, and the logical order of the production process.
 To achieve this, the following constraints have been defined:
 \begin{itemize}
     \item We cannot assign more beds per hour than what the task allows.  
-    The execution speed of each task is determined by the tractor; therefore, we cannot assign more raised beds than can be handled in one hour.  
-    To enforce this, we fix a specific hour and task and iterate over all raised beds.  
-    The total number of assignments must not exceed the maximum number of raised beds the machinery can process per hour.
+    The execution speed of each task is determined by the tractor; therefore, we cannot assign more rows than can be handled in one hour.  
+    To enforce this, we fix a specific hour and task and iterate over all rows.  
+    The total number of assignments must not exceed the maximum number of rows the machinery can process per hour.
     \[
             \sum_{k\in M_j}x_{i_j kl} \leq V_{i_j} \quad \forall i_j \in T_j, \ l\in H_{i_j}
         \]
-    \item Each task can only be performed once on the raised beds where it is applicable.  
-        To ensure this, we fix a raised bed and a task, and require that the sum over all hours in its schedule equals 1.  
+    \item Each task can only be performed once on the rows where it is applicable.  
+        To ensure this, we fix a row and a task, and require that the sum over all hours in its schedule equals 1.  
         Otherwise, the task would either not be performed (if the sum is 0) or performed more than once (if the sum exceeds 1).
         
         \[
 	        \sum_{l\in H_{i_j}}x_{i_j kl} =1 \quad \forall i_j \in T_j , k \in M_j
         \]
     \item Tasks follow a specific order that must be respected.  
-        We cannot perform the next task on a raised bed without having completed the previous one.  
-        We must ensure that the preceding task has been completed on that raised bed before the current one can begin.
+        We cannot perform the next task on a row without having completed the previous one.  
+        We must ensure that the preceding task has been completed on that row before the current one can begin.
         
-        To enforce this, we fix a raised bed, a task, and a time, and verify that the previous task has been executed during the preceding hours.
+        To enforce this, we fix a row, a task, and a time, and verify that the previous task has been executed during the preceding hours.
          
         \[
 	        x_{i_j kl} \leq \sum_{l' \in H_{prev(i_j)}, l'<l}x_{prev(i_j)kl'} \quad \forall i_j\in T_j/\{first(T_j)\}, k\in M_j, l \in H_{i_j}
@@ -487,12 +487,12 @@ To achieve this, the following constraints have been defined:
         This same constraint applies to $s_{teenspinach}, s_{babyspinachorganic}, s_{soupspinach}, s_{redspinach}$, and in these cases we have $k \in \{46, ..., 50\}, \{51, ..., 63\}, \{64, ..., 74\}, \{75, ..., 90\}$ respectively.
 
 
-        \item Finally, we need a constraint that activates $w_{i_j l}$, that is, one that tells us whether a task can still be performed on a raised bed at hour $l$.
+        \item Finally, we need a constraint that activates $w_{i_j l}$, that is, one that tells us whether a task can still be performed on a row at hour $l$.
         \[
 	        \displaystyle w_{i_j l}\geq \frac{N_j-\sum_{l'<l, l'\in H_{i_j}, k\in M_j}x_{i_j kl'}}{N_j}
         \]
 	
-        In the summation, we count the raised beds on which a specific task has been completed.  This ratio will be $0$ when the task has been performed on all raised beds, and it will be greater than $0$ and less than $1$ when there are still some raised beds left to complete.
+        In the summation, we count the rows on which a specific task has been completed.  This ratio will be $0$ when the task has been performed on all rows, and it will be greater than $0$ and less than $1$ when there are still some rows left to complete.
             
 \end{itemize}
 
@@ -555,12 +555,12 @@ a feasible solution was obtained within two and a half hours.
 NEOS only allows 3GB of RAM, whereas the local machine used had 16GB of RAM, which explains why NEOS was unable to solve the problem.
 
 
-In Field 2, with 90 raised beds and 5 varieties, a solution was successfully found using NEOS.  
+In Field 2, with 90 rows and 5 varieties, a solution was successfully found using NEOS.  
 This solution was estimated to be 11 hours away from reaching optimality. The problem remained complex, and we had no choice  
 but to reduce the execution time in order to obtain a solution, even if it was not optimal.
 
 Spinach requires fewer tasks, which means fewer variables are considered. This improves computational efficiency and allows us  
-to increase the number of raised beds and varieties, thereby solving a problem that is closer to real-world conditions.
+to increase the number of rows and varieties, thereby solving a problem that is closer to real-world conditions.
 
 \chapter*{Results}
 \addcontentsline{toc}{chapter}{6. Results} % Manual index entry
